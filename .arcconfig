@@ -1,0 +1,11 @@
+{
+  "phabricator.uri" : "https://phabricator.bitgo.com",
+  "project_id": "insight-ui",
+
+  "load": [
+    "arcanist-extensions/tap_test_engine"
+  ],
+
+  "unit.engine": "TAPTestEngine",
+  "unit.engine.tap.command": "cd `git rev-parse --show-toplevel` && cd test && ../node_modules/.bin/karma start --single-run"
+}
