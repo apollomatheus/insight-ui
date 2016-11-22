@@ -121,10 +121,10 @@ final class TAPTestEngine extends ArcanistUnitTestEngine {
         $result = new ArcanistUnitTestResult();
         $working_copy = $this->getWorkingCopy();
         $project_root = $working_copy->getProjectRoot();
-        //$coverage = $this->readCoverage($project_root . '/coverage/cobertura-coverage.xml');
+        $coverage = $this->readCoverage($project_root . '/coverage/cobertura-coverage.xml');
         $result->setName($line);
         $result->setResult(ArcanistUnitTestResult::RESULT_PASS);
-        //$result->setCoverage($coverage);
+        $result->setCoverage($coverage);
         $result->setUserData($line);
         $results[] = $result;
       }
