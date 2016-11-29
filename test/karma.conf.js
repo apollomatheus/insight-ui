@@ -22,7 +22,7 @@ module.exports = function(config) {
       "public/js/angular-mock.js",
       "public/js/angular-resource.min.js",
       // Needed to instantiate websocket functionality in tests
-      "node_modules/socket.io-client/dist/socket.io.js",
+      "node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js",
       // Our Library code
       "public/src/js/*.js",
       "public/src/js/**/*.js",

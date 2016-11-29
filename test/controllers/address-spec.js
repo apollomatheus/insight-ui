@@ -6,6 +6,10 @@ describe('addressController', function() {
   var addressController;
   var NotifyService;
   var EnterpriseAPI;
+  var $httpBackend;
+  var socket;
+  // TODO: Barath - This variable gets set inline in index.html. We need to move it out so that it can be loaded in tests and avoid future CSP issues
+  window.apiPrefix = "/api";
 
   beforeEach(function() {
     // Include modules to intantiate the controller
@@ -13,15 +17,16 @@ describe('addressController', function() {
     module('insight.socket');
     module('ngResource');
     module(function($provide) {
-      $provide.service('$routeParams', function() { return {}; });
+      $provide.service('$routeParams', function() { return {"addrStr":"1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ"}; });
     });
     module('insight.address');
 
-    inject(function(_$q_, _$injector_, _$rootScope_, _$controller_) {
+    inject(function(_$q_, _$injector_, _$rootScope_, _$controller_, _$httpBackend_, _getSocket_) {
       $q = _$q_;
       $rootScope = _$rootScope_;
       $scope = $rootScope.$new();
       $controller = _$controller_;
+      $httpBackend = _$httpBackend_;
       // Manually pass in the scope and rootscope while instantiating controller
       addressController = $controller('AddressController', {
         '$rootScope': $rootScope,
@@ -29,13 +34,46 @@ describe('addressController', function() {
       });
       // Trigger the digest cycle in the test browser
       $scope.$digest();
+      socket = _getSocket_($scope);
     });
   });
 
-  it('should be instantiated', function() {
+  it('should be instantiated along with expected variables on scope', function() {
     expect(addressController).toBeDefined();
+    expect($scope.params).toBeDefined();
+    expect($scope.findOne).toBeDefined();
   });
 
-  // TODO: More testing on functions of the controller
+  it('Fine one address success case', function() {
+    $httpBackend.whenGET(window.apiPrefix + '/addr/1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ/?noTxList=1').respond(addressAPI.getAddress.success.status, addressAPI.getAddress.success.data);
+    $scope.findOne();
+    $httpBackend.flush();
+    expect($rootScope.titleDetail).toEqual("1ERSHV5...");
+    expect($rootScope.flashMessage).toEqual(null);
+    expect($scope.address).toEqual(addressAPI.getAddress.success.data);
+  });
+
+  it('Fine one address invalid address failure case', function() {
+    $httpBackend.whenGET(window.apiPrefix + '/addr/1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ/?noTxList=1').respond(addressAPI.getAddress.invalidFail.status, addressAPI.getAddress.invalidFail.data);
+    $scope.findOne();
+    $httpBackend.flush();
+    expect($rootScope.flashMessage).toEqual("Invalid Address: 1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ");
+  });
+
+  it('Fine one address backend failure case', function() {
+    $httpBackend.whenGET(window.apiPrefix + '/addr/1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ/?noTxList=1').respond(addressAPI.getAddress.backendFail.status, addressAPI.getAddress.backendFail.data);
+    $scope.findOne();
+    $httpBackend.flush();
+    expect($rootScope.flashMessage).toEqual('Backend Error. Some backend failure');
+  });
+
+  it('Fine one address random failure case', function() {
+    $httpBackend.whenGET(window.apiPrefix + '/addr/1ERSHV5douNTHuCnJj7uSJDtPvEKX2NZvZ/?noTxList=1').respond(addressAPI.getAddress.randomFail.status, addressAPI.getAddress.randomFail.data);
+    $scope.findOne();
+    $httpBackend.flush();
+    expect($rootScope.flashMessage).toEqual('Address Not Found');
+  });
+
+  // TODO: Barath - figure out socket.io testing
 
 });
