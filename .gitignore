@@ -43,6 +43,7 @@ public/js/angularjs-all.js
 public/js/main.js
 public/js/vendors.js
 
+public/src/css/*
 public/css/main.css
 
 README.html

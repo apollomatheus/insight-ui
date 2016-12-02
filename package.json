@@ -42,8 +42,7 @@
     "front-end"
   ],
   "bitcoreNode": "bitcore-node",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "bower": "~1.2.8",
     "grunt": "~0.4.2",
@@ -56,6 +55,7 @@
     "grunt-css": "~0.5.4",
     "grunt-markdown": "~0.5.0",
     "grunt-angular-gettext": "^0.2.15",
+    "grunt-sass": "1.2.1",
     "karma": "0.12.37",
     "karma-chrome-launcher": "0.1.12",
     "karma-coverage": "0.3.1",

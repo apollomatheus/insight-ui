@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-macreload');
@@ -60,6 +61,17 @@ module.exports = function(grunt) {
         dest: 'public/js/main.min.js'
       }
     },
+    sass: {
+      dist: {
+        options: {
+          sourceMap: true,
+          sourceComments: false
+        },
+        files: {
+          'public/src/css/sassTarget.css': 'public/src/scss/sassSource.scss'
+        }
+      }
+    },
     cssmin: {
       css: {
         src: 'public/css/main.css',
@@ -89,10 +101,10 @@ module.exports = function(grunt) {
         files: ['public/src/js/**/*.js'],
         tasks: ['concat:main', 'uglify:main'],
       },
-      css: {
-        files: ['public/src/css/**/*.css'],
-        tasks: ['concat:css', 'cssmin'],
-      },
+      scss: {
+        files: ['public/src/scss/**/*.scss'],
+        tasks: ['scss', 'concat:css', 'cssmin'],
+      }
     },
     nggettext_extract: {
       pot: {
@@ -123,7 +135,7 @@ module.exports = function(grunt) {
   grunt.registerTask('translate', ['nggettext_extract']);
 
   //Compile task (concat + minify)
-  grunt.registerTask('compile', ['nggettext_compile', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('compile', ['nggettext_compile', 'sass', 'concat', 'uglify', 'cssmin']);
 
 
 };
