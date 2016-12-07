@@ -7,35 +7,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="insight navbar-brand" href=".">Aztec</a>
+      <a class="insight navbar-brand" href=".">
+        <img src="img/aztekBELogo.png" alt="Aztek Logo"/>
+      </a>
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
         <li data-ng-repeat="item in menu" ui-route="{{item.link}}" data-ng-class="{active: $uiRoute}">
-          <a href="{{item.link}}">{{item.title|translate}}</a>
+          <a class="subtitle-1" href="{{item.link}}">{{item.title|translate}}</a>
         </li>
       </ul>
       <span class="hidden-xs navbar-form navbar-left" data-ng-include src="'views/includes/search.html'"></span>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-      <div class="status" data-ng-controller="StatusController">
-        <span data-ng-init="getStatus('Info')">
-          <strong>{{'Conn'|translate}}</strong> {{info.connections}}
-        </span> &middot;
-        <strong>{{'Height'|translate}}</strong> {{totalBlocks || info.blocks}}
-      </div>
-      </li>
+        <li class="scan">
+          <a data-ng-click="openScannerModal()" class="subtitle-1"><span class="glyphicon glyphicon-qrcode"></span> Scan</a>
+        </li>
       <!-- TODO: Implement like this: <li class="dropdown" data-ng-controller="CurrencyController" data-ng-include="'views/includes/currency.html'"></li> -->
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          Mainnet <span class="caret"></span>
+        <a class="dropdown-toggle subtitle-1" data-toggle="dropdown" href="#">
+          RMG Mainnet <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
           <li>
-            <a>Mainnet</a>
-          </li>
-          <li>
-            <a>Testnet</a>
+            <a class="subtitle-1">RMG Testnet</a>
           </li>
         </ul>
       </li>

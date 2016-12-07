@@ -103,7 +103,7 @@ module.exports = function(grunt) {
       },
       scss: {
         files: ['public/src/scss/**/*.scss'],
-        tasks: ['scss', 'concat:css', 'cssmin'],
+        tasks: ['sass', 'concat:css', 'cssmin'],
       }
     },
     nggettext_extract: {

@@ -300,7 +300,7 @@ msgid "Redirecting..."
 msgstr "Umleitung..."
 
 #: public/views/includes/header.html
-msgid "Search for block, transaction or address"
+msgid "Search for block, address  and transactions"
 msgstr "Suche Block, Transaktion oder Adresse"
 
 #: public/views/index.html
