@@ -15,6 +15,10 @@ body {
   display: none !important;
 }
 
+.colorSunglow {
+  color: $Sunglow;
+}
+
 /* Styling for the ngProgress itself */
 #ngProgress {
   background-color: #6C9032 !important;
@@ -95,12 +99,33 @@ body {
 margin-left: 0;
 }
 
-.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: #F0F7E2;
+.table {
+  border-top: 1px solid $Sunglow;
 }
-
-
-
+.table>thead>tr>th {
+  vertical-align: middle;
+  border-bottom: none;
+}
+th, tr {
+  height: 48px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+  border-top: none;
+  padding: 0px 8px 0px 8px;
+  vertical-align: inherit;
+}
+.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
+   background-color: $Sunglow10;
+}
+.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+   background-color: $White;
+   &.waiting {
+     background-color: $Sunglow10;
+   }
+}
+.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+  background-color: $Sunglow25;
+}
 
 .loader-gif {
   display: inline-block;
@@ -720,4 +745,5 @@ a.v_highlight_more {
     width: 360px;
   }
 }
+
 
