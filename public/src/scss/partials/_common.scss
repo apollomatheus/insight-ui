@@ -310,47 +310,7 @@ th, tr {
 }
 .progress-bar-info { background-color: #8DC429; }
 
-/* Set the fixed height of the footer here */
-#footer {
-  background-color: #373D42;
-  color: #fff;
-  height: 51px;
-  overflow: hidden;
-}
 
-#footer a.insight {
-  font-size: 20px;
-  text-decoration: none;
-  color: #fff;
-}
-
-#footer a.insight:hover {
-  color: #fffffe;
-}
-
-#footer a.insight small { font-size: 11px; }
-.line-footer { border-top: 2px dashed #ccc; }
-
-#footer .links {
-  color: #ddd;
-  font-size: 10px;
-}
-
-#footer .links a {
-  color: $Nero;
-  font-size: 10px;
-  font-family: 'AvenirNext-Medium', sans-serif;
-}
-
-#footer .links a.selected {
-  color: #eee;
-  font-weight: bold;
-}
-
-#footer .links a:hover {
-  text-decoration: none;
-  color: #fffffe;
-}
 
 .line-bot {
   border-bottom: 2px solid #EAEAEA;
@@ -755,3 +715,4 @@ a.v_highlight_more {
     width: 360px;
   }
 }
+
