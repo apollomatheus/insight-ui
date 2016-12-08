@@ -19,12 +19,16 @@ body {
   color: $Sunglow;
 }
 
+.colorNero50 {
+  color: $Nero50;
+}
+
 hr {
     display: block;
     height: 1px;
     border: 0;
     border-top: 1px solid $Sunglow;
-    margin: 1em 0;
+    margin: 0;
     padding: 0; 
 }
 
@@ -36,6 +40,48 @@ hr {
   float: left;
 }
 
+.aztek-container {
+  margin: 62px 32px 0px 32px;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.detail-header, .detail-summary {
+  
+  h2, h4 {
+    display: inline-block;
+  }
+  h4 {
+    margin-top: 27px;
+    float: right;
+    color: $Nero50;
+  }
+  hr {
+    margin-top: 6px;
+  }
+}
+
+.detail-summary {
+  .summary {
+  }
+  
+  .summary-row {
+    height: 48px;
+    border-bottom: 1px solid $Nero25;
+    padding: 14px 0px;
+  }
+}
+
+.detail-data {
+  margin-top: 48px;
+}
+
+.detail-list {
+  margin: 48px 0px;
+  display: inline-block;
+}
 /* Styling for the ngProgress itself */
 #ngProgress {
   background-color: #6C9032 !important;
@@ -104,9 +150,12 @@ hr {
 .m10b { margin-bottom: 10px; }
 .m10l { margin-left: 10px; }
 .m20t { margin-top: 20px; }
+.m24t { margin-top: 24px; }
+.m48t { margin-top: 24px; }
 .vm { vertical-align: middle; }
 .pa {position: absolute;}
 .pr {position: relative;}
+
 
 .bgwhite {
   background-color: white;
@@ -118,6 +167,7 @@ margin-left: 0;
 
 .table {
   border-top: 1px solid $Sunglow;
+  margin-top: 16px;
 }
 .table>thead>tr>th {
   vertical-align: middle;
@@ -715,4 +765,3 @@ a.v_highlight_more {
     width: 360px;
   }
 }
-

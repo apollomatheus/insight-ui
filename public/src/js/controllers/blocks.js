@@ -4,6 +4,10 @@ angular.module('insight.blocks').controller('BlocksController',
   function($scope, $rootScope, $routeParams, $location, Global, Block, Blocks, BlockByHeight) {
   $scope.global = Global;
   $scope.loading = false;
+  
+  $scope.goTo = function(path){
+    $location.path(path);
+  }
 
   if ($routeParams.blockHeight) {
     BlockByHeight.get({

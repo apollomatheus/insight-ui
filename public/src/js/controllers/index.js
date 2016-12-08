@@ -8,7 +8,6 @@ angular.module('insight.system').controller('IndexController',
     $scope.global = Global;
     
     $scope.goTo = function(path){
-      console.log(path);
       $location.path(path);
     }
 
