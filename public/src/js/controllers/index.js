@@ -55,4 +55,73 @@ angular.module('insight.system').controller('IndexController',
 
     $scope.txs = [];
     $scope.blocks = [];
+    
+    $scope.options = {
+           chart: {
+               type: 'lineChart',
+               height: 300,
+               margin : {
+                   top: 20,
+                   right: 20,
+                   bottom: 40,
+                   left: 55
+               },
+               showControls: false,
+               showLabels: false,
+               showLegend: false,
+               x: function(d){ return d.x; },
+               y: function(d){ return d.y; },
+               useInteractiveGuideline: false,
+               interactive: false,
+               dispatch: {
+                   stateChange: function(e){ console.log("stateChange"); },
+                   changeState: function(e){ console.log("changeState"); },
+                   tooltipShow: function(e){ console.log("tooltipShow"); },
+                   tooltipHide: function(e){ console.log("tooltipHide"); }
+               },
+               xAxis: {
+                   axisLabel: 'Time (ms)',
+                   showMaxMin: false,
+               },
+               yAxis: {
+                   showMaxMin: false,
+                   axisLabel: 'Voltage (v)',
+                   tickFormat: function(d){
+                       return d3.format('.02f')(d);
+                   },
+                   axisLabelDistance: -10
+               },
+               callback: function(chart){
+                   console.log("!!! lineChart callback !!!");
+               }
+           },
+           title: {
+               enable: false
+           },
+           subtitle: {
+               enable: false
+           },
+           caption: {
+               enable: false
+           }
+       };
+
+       $scope.data = sinAndCos();
+
+       /*Random Data Generator */
+       function sinAndCos() {
+           var cos = [];
+
+           //Data is represented as an array of {x,y} pairs.
+           for (var i = 0; i < 50; i++) {
+               cos.push({x: i, y: .5 * Math.cos(i/10+ 2) + Math.random() / 10});
+           }
+
+           return [{
+                   values: cos,
+                   key: 'Price',
+                   color: '#FFCC33'
+               }];
+       };
+       
   });
