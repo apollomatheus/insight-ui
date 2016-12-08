@@ -1,0 +1,53 @@
+#homeInfo {
+  background-color: $Sunglow10;
+  min-height: 400px;
+  margin-bottom: 40px;
+  padding-right: 58px;
+
+    display: flex;
+    align-items: center;
+
+}
+
+#home {
+  margin: 0px 48px 0px 48px;
+  &.btn-more {
+    border-top: 1px solid #ddd;
+    margin: 30px auto 0;
+    text-align: center;
+    width: 90%;
+  }
+  &.btn-more .btn-default {
+    margin-top: -23px;
+  }
+}
+
+.rmg-info {
+  max-width: 360px;
+  display: flex;
+  hr {
+    max-width: 360px;
+  }
+  .price {
+    position: relative;
+    >h1 {
+      display: inline-block;
+      padding-left: 16px;
+    }
+    .dollar {
+      font-size: 18px;
+      position: absolute;
+      display: inline-block;
+      margin-top: 21px;
+    }
+    .green {
+      color: green;
+    }
+  }
+  .supply {
+    margin-top: 2px;
+  }
+  .nodes, .transactions {
+    margin-top: 14px;
+  }
+}

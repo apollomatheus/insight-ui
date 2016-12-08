@@ -19,6 +19,23 @@ body {
   color: $Sunglow;
 }
 
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $Sunglow;
+    margin: 1em 0;
+    padding: 0; 
+}
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
 /* Styling for the ngProgress itself */
 #ngProgress {
   background-color: #6C9032 !important;
@@ -349,7 +366,11 @@ th, tr {
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-#wrap > .container { padding: 70px 15px 0; }
+#wrap > .container { 
+  margin: 0px;
+  width: 100%;
+  padding-top: 64px;
+}
 
 #footer > .container { padding: auto 15px; }
 
@@ -476,17 +497,6 @@ th, tr {
 .panel-body {
   padding: 0.7em;
   word-wrap: break-word;
-}
-
-/* Index */
-#home .btn-more {
-  border-top: 1px solid #ddd;
-  margin: 30px auto 0;
-  text-align: center;
-  width: 90%;
-}
-#home .btn-more .btn-default {
-  margin-top: -23px;
 }
 
 #powered .powered-text {
