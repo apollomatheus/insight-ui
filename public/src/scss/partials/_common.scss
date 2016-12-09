@@ -15,12 +15,21 @@ body {
   display: none !important;
 }
 
+a:hover {
+  text-decoration: none;
+  color: $AgedGold;
+}
+
 .colorSunglow {
   color: $Sunglow;
 }
 
 .colorNero50 {
   color: $Nero50;
+}
+
+.colorNero75 {
+  color: $Nero75;
 }
 
 hr {
@@ -81,6 +90,15 @@ hr {
 .detail-list {
   margin: 48px 0px;
   display: inline-block;
+  width: 100%;
+}
+
+.txMined {
+    height: 48px;
+    background: $Nero10;
+    margin: 0px 2px;
+    padding: 14px 0px;
+    border-top: 1px solid $Sunglow;
 }
 /* Styling for the ngProgress itself */
 #ngProgress {
@@ -161,6 +179,10 @@ hr {
   background-color: white;
 }
 
+.bgSunglow10 {
+  background-color: $Sunglow10;
+}
+
 .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
 margin-left: 0;
 }
@@ -169,6 +191,7 @@ margin-left: 0;
   border-top: 1px solid $Sunglow;
   margin-top: 16px;
 }
+
 .table>thead>tr>th {
   vertical-align: middle;
   border-bottom: none;
@@ -193,6 +216,8 @@ th, tr {
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
   background-color: $Sunglow25;
 }
+
+
 
 .loader-gif {
   display: inline-block;
@@ -334,6 +359,13 @@ th, tr {
   border-radius: .25em;
 }
 
+.tx-confirmations {
+  margin: 48px 0px;
+  padding: 0px 16px;
+}
+.tx-amount {
+  padding-left: 16px; 
+}
 .txvalues-primary {
   background-color: #8DC429;
 }
@@ -363,12 +395,12 @@ th, tr {
 
 
 .line-bot {
-  border-bottom: 2px solid #EAEAEA;
+  border-bottom: 1px solid $Sunglow;
   padding: 0 0 10px 0;
 }
 .line-mid { padding: 15px;}
 .line-top {
-  border-top: 1px solid #EAEAEA;
+  border-top: 1px solid $Sunglow;
   padding: 15px 0 0 0;
 }
 
@@ -572,6 +604,20 @@ th, tr {
 }
 
 .transaction-vin-vout {
+  height: 48px;
+  margin: 8px 2px;
+  padding: 14px 16px;
+}
+
+.transaction-vout-vin {
+  height: 48px;
+  margin: 8px 0px;
+  padding-top: 14px;
+}
+
+.transaction-vin-vout-arrow{
+  height: 48px;
+  padding: 19px 0px;
 }
 
 .v_highlight {
@@ -669,6 +715,7 @@ a.v_highlight_more {
   h3 {
     font-size: 18px;
   }
+
   .insight {
     font-size: 30px;
   }
@@ -765,3 +812,6 @@ a.v_highlight_more {
     width: 360px;
   }
 }
+
+
+

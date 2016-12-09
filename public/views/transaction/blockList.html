@@ -1,5 +1,5 @@
 <table class="table table-hover table-striped" style="table-layout: fixed">
-    <tbody class="subtitle-1">
+  <tbody class="subtitle-1">
     <tr data-ng-show="!txs[0].txid && !loading"><td colspan="2" class="waiting" translate>There are no transactions involving this address..</td></tr>
     <tr class="fader" data-ng-repeat="tx in txs" data-ng-click="goTo('tx/' + tx.txid)">
       <td>
@@ -8,5 +8,5 @@
       <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' BTC'}}</span></td>
     </tr>
     <tr data-ng-show="loading"><td colspan="2" class="waiting" translate>Loading transactions...</td></tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
