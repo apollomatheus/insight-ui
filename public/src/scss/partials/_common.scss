@@ -88,7 +88,7 @@ hr {
 }
 
 .detail-list {
-  margin: 48px 0px;
+  margin-top: 48px;
   display: inline-block;
   width: 100%;
 }
@@ -99,6 +99,16 @@ hr {
     margin: 0px 2px;
     padding: 14px 0px;
     border-top: 1px solid $Sunglow;
+}
+.col-noPadding {
+  padding: 0px;
+}
+.no-margin {
+  margin: 0px;
+}
+.addressQR {
+  padding-top: 16px;
+  text-align: end;
 }
 /* Styling for the ngProgress itself */
 #ngProgress {
@@ -169,7 +179,8 @@ hr {
 .m10l { margin-left: 10px; }
 .m20t { margin-top: 20px; }
 .m24t { margin-top: 24px; }
-.m48t { margin-top: 24px; }
+.m48t { margin-top: 48px; }
+.m64t { margin-top: 64px; }
 .vm { vertical-align: middle; }
 .pa {position: absolute;}
 .pr {position: relative;}
@@ -397,7 +408,16 @@ th, tr {
 .line-bot {
   border-bottom: 1px solid $Sunglow;
   padding: 0 0 10px 0;
+  
+  &.green {
+    border-bottom: 1px solid $Green;
+  }
+  
+  &.red {
+    border-bottom: 1px solid $Red;
+  }
 }
+
 .line-mid { padding: 15px;}
 .line-top {
   border-top: 1px solid $Sunglow;
@@ -812,6 +832,5 @@ a.v_highlight_more {
     width: 360px;
   }
 }
-
 
 

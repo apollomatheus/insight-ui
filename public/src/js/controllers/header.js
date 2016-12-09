@@ -12,7 +12,7 @@ angular.module('insight.system').controller('HeaderController',
 
     $scope.menu = [{
       'title': 'About',
-      'link': '#'
+      'link': 'about'
     }, {
       'title': 'Tools',
       'link': '#'

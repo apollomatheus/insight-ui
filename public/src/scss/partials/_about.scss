@@ -1,0 +1,23 @@
+.square {
+  height: 164px;
+  width: 230px;
+  border: 1px solid $Nero75;
+  margin-right: 24px;
+  background-color: $Nero25;
+}
+
+.square2 {
+  border: 1px solid $Sunglow;
+  height: 60px;
+  width: 220px;
+  display: inline-block;
+  padding: 14px;
+}
+
+.square3 {
+  height: 32px;
+  width: 32px;
+  border: 1px solid $Nero75;
+  background-color: $Nero25;
+  display: inline-block;
+}
