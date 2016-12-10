@@ -228,7 +228,10 @@ th, tr {
   background-color: $Sunglow25;
 }
 
-
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 .loader-gif {
   display: inline-block;
@@ -326,6 +329,12 @@ th, tr {
 .btn-primary {
   background-color: #8DC429;
   border: 2px solid #76AF0F;
+}
+
+.btn-gold {
+  background-color: $AgedGold75;
+  border: 1px solid $AgedGold;
+  color: $White;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active,

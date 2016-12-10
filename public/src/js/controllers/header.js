@@ -15,7 +15,7 @@ angular.module('insight.system').controller('HeaderController',
       'link': 'about'
     }, {
       'title': 'Tools',
-      'link': '#'
+      'link': 'tools'
     }, {
       'title': 'Github',
       'link': '#'
