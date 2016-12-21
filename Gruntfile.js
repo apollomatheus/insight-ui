@@ -34,12 +34,16 @@ module.exports = function(grunt) {
         src: ['public/lib/angular/angular.min.js', 'public/lib/angular-resource/angular-resource.min.js', 'public/lib/angular-route/angular-route.min.js', 'public/lib/angular-qrcode/qrcode.js', 'public/lib/angular-animate/angular-animate.min.js', 'public/lib/angular-bootstrap/ui-bootstrap.js', 'public/lib/angular-bootstrap/ui-bootstrap-tpls.js', 'public/lib/angular-ui-utils/ui-utils.min.js', 'public/lib/ngprogress/build/ngProgress.min.js', 'public/lib/angular-gettext/dist/angular-gettext.min.js', 'public/lib/angular-moment/angular-moment.min.js'],
         dest: 'public/js/angularjs-all.js'
       },
+      ndv3: {
+        src: ['public/lib/d3/d3.js', 'public/lib/nvd3/build/nv.d3.js', 'public/lib/angular-nvd3/dist/angular-nvd3.js'],
+        dest: 'public/js/ndv3.js'
+      },
       main: {
         src: ['public/src/js/app.js', 'public/src/js/controllers/*.js', 'public/src/js/services/*.js', 'public/src/js/directives.js', 'public/src/js/filters.js', 'public/src/js/config.js', 'public/src/js/init.js', 'public/src/js/translations.js'],
         dest: 'public/js/main.js'
       },
       css: {
-        src: ['public/lib/bootstrap/dist/css/bootstrap.min.css', 'public/src/css/**/*.css'],
+        src: ['public/lib/bootstrap/dist/css/bootstrap.min.css', 'public/lib/nvd3/build/nv.d3.css', 'public/src/css/**/*.css'],
         dest: 'public/css/main.css'
       }
     },
