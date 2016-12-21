@@ -612,21 +612,21 @@ th, tr {
 }
 
 @keyframes rotateThis {
-	from { transform: scale( 1 ) rotate( 0deg );   }
-	to   { transform: scale( 1 ) rotate( 360deg ); }
+  from { transform: scale( 1 ) rotate( 0deg );   }
+  to   { transform: scale( 1 ) rotate( 360deg ); }
 }
 
 @-webkit-keyframes rotateThis {
-	from { -webkit-transform: scale( 1 ) rotate( 0deg );   }
-	to   { -webkit-transform: scale( 1 ) rotate( 360deg ); }
+  from { -webkit-transform: scale( 1 ) rotate( 0deg );   }
+  to   { -webkit-transform: scale( 1 ) rotate( 360deg ); }
 }
 
 .icon-rotate {
-	animation-name: rotateThis;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	-webkit-animation-name: rotateThis;
+  animation-name: rotateThis;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: rotateThis;
   -webkit-animation-duration: 2s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
@@ -841,5 +841,3 @@ a.v_highlight_more {
     width: 360px;
   }
 }
-
-

@@ -11,7 +11,9 @@
   <meta name="description" content="Bitcoin Insight. View detailed information on all bitcoin transactions and block. {{ $root.title + $root.titleDetail }}">
   <link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic">
+  <link rel="stylesheet" href="lib/nvd3/build/nv.d3.css">
   <link rel="stylesheet" href="css/main.min.css">
+  
 </head>
 <body ng-cloak class="ng-cloak">
   <div>
@@ -39,17 +41,23 @@
       </div>
     </script>
   </div>
-	<div id="wrap">
-		<div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
-		<section class="container" data-ng-view></section>
-	</div>
-	<div id="footer" role="navigation" data-ng-include="'views/includes/footer.html'">
-    
+  
+  <div id="wrap">
+    <div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
+    <section class="container" data-ng-view></section>
   </div>
+  
+  <div id="footer" role="navigation" data-ng-include="'views/includes/footer.html'"></div>
+  
   <script language="javascript">window.apiPrefix = '/api';</script>
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/vendors.min.js"></script>
   <script src="js/angularjs-all.min.js"></script>
+  
+  <script src="lib/d3/d3.js"></script>
+  <script src="lib/nvd3/build/nv.d3.js"></script>
+  <script src="lib/angular-nvd3/dist/angular-nvd3.js"></script>
+  
   <script src="js/main.min.js"></script>
 </body>
 </html>

@@ -1,16 +1,15 @@
+
 #homeInfo {
   background-color: $Sunglow10;
   min-height: 400px;
   margin-bottom: 40px;
-  padding-right: 58px;
-
-    display: flex;
-    align-items: center;
-
+  padding-right: 31px;
+  display: flex;
+  align-items: center;
 }
 
 #home {
-  margin: 0px 48px 0px 48px;
+  margin: 0px 17px;
   &.btn-more {
     border-top: 1px solid #ddd;
     margin: 30px auto 0;
@@ -45,12 +44,48 @@
       color: green;
     }
   }
-  .supply {
-    margin-top: 2px;
-  }
-  .nodes, .transactions {
-    margin-top: 14px;
+}
+
+.nv-y, .nv-x {
+   display: none;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  background-color: $AgedGold;
+  color: #fff;
+  height: 51px;
+  overflow: hidden;
+  .footer-container {
+    margin: 0px 48px 0px 48px;
   }
 }
 
+#footer a.insight {
+  font-size: 20px;
+  text-decoration: none;
+  color: #fff;
+}
 
+#footer a.insight:hover {
+  color: #fffffe;
+}
+
+#footer a.insight small { font-size: 11px; }
+.line-footer { border-top: 2px dashed #ccc; }
+
+#footer .links a {
+  color: $Nero;
+  font-size: 10px;
+  font-family: 'AvenirNext-Medium', sans-serif;
+}
+
+#footer .links a.selected {
+  color: #eee;
+  font-weight: bold;
+}
+
+#footer .links a:hover {
+  text-decoration: none;
+  color: #fffffe;
+}
