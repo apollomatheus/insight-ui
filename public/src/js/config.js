@@ -63,6 +63,14 @@ angular.module('insight')
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('!');
   })
+  .constant("networks", {
+       "mainnet": {
+         "url": "//localhost:3001/insight"
+       },
+       "testnet": {
+         "url": "//localhost:3001/insight"
+       }
+   })
   .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment) {
     gettextCatalog.currentLanguage = defaultLanguage;
     amMoment.changeLocale(defaultLanguage);

@@ -211,3 +211,34 @@ angular.module('insight.transactions').controller('SendRawTransactionController'
       });
   };
 });
+
+angular.module('insight.transactions').controller('DecodeRawTransactionController',
+  function($scope, $http) {
+  $scope.transaction = '';
+  $scope.decodedTx = null;
+  $scope.status = 'ready';  // ready|loading|decode|error
+  $scope.error = null;
+
+  $scope.formValid = function() {
+    return !!$scope.transaction;
+  };
+  $scope.decode = function() {
+    var postData = {
+      rawtx: $scope.transaction
+    };
+    $scope.status = 'loading';
+    $http.post(window.apiPrefix + '/tx/decodeRawTx', postData)
+      .success(function(data, status, headers, config) {
+        $scope.status = 'ready';
+        $scope.decodedTx = JSON.stringify(data, null, 2);
+      })
+      .error(function(data, status, headers, config) {
+        $scope.status = 'error';
+        if(data) {
+          $scope.error = data;
+        } else {
+          $scope.error = "No error message given (connection error?)"
+        }
+      });
+  };
+});

@@ -7,10 +7,41 @@
     <hr />
   </div>
   
-  <div class="row m64t d-block">
-    <textarea placeholder="Copy and paste a raw hex transaction here" class="decode-tx subtitle-3"></textarea>
-    <button class="btn btn-lg btn-gold float-right">Decode</button>
+  <div data-ng-controller="DecodeRawTransactionController">
+    <form name="txForm" role="form" class="row m64t d-block" ng-class="{ 'has-error': txForm.rawData.$error.pattern }" novalidate >
+      <textarea placeholder="Copy and paste a raw hex transaction here"
+                class="decode-tx subtitle-3"
+                id="transaction-rawdata"
+                name="rawData"
+                data-ng-model="transaction"
+                data-ng-pattern="/^[0-9A-Fa-f]+$/"
+                rows="10"
+                ng-hide="decodedTx"
+                required>
+      </textarea>
+      <textarea disabled="true"
+                class="decode-tx subtitle-3"
+                id="decodedtransaction-rawdata"
+                data-ng-model="decodedTx"
+                ng-show="decodedTx"
+                rows="10">
+      </textarea>
+      
+      <span class="help-block" ng-show="txForm.rawData.$error.pattern" translate>
+        Raw transaction data must be a valid hexadecimal string.
+      </span>
+      <span data-ng-hide="status == 'ready'">
+        <span class="help-block"  ng-show="status == 'loading'" translate>
+          Loading...
+        </span>
+        <span class="help-block" ng-show="status == 'error'" class="has-error" translate>
+          An error occured: {{error}}
+        </span>
+      </span>
+      <button class="btn btn-lg btn-gold float-right" translate data-ng-click="decode()" data-ng-disabled="!txForm.$valid">Decode</button>
+    </form>
   </div>
+  
   
   <div class="detail-header m48t">
     <h2 class="colorSunglow"><strong>Push</strong> transaction</h2>
@@ -18,9 +49,33 @@
     <hr />
   </div>
   
-  <div class="row m64t d-block">
-    <textarea placeholder="Copy and paste a raw/decoded transaction here" class="decode-tx subtitle-3"></textarea>
-    <button class="btn btn-lg btn-gold float-right">Push Transaction</button>
+  <div data-ng-controller="SendRawTransactionController">
+    <form name="txForm" role="form" class="row m64t d-block" ng-class="{ 'has-error': txForm.rawData.$error.pattern }" novalidate >
+      <textarea placeholder="Copy and paste a raw/decoded transaction here"
+                class="decode-tx subtitle-3"
+                id="transaction-rawdata"
+                name="rawData"
+                data-ng-model="transaction"
+                data-ng-pattern="/^[0-9A-Fa-f]+$/"
+                rows="10"
+                required>
+      </textarea>
+      <span class="help-block" ng-show="txForm.rawData.$error.pattern" translate>
+        Raw transaction data must be a valid hexadecimal string.
+      </span>
+      <span data-ng-hide="status == 'ready'">
+        <span class="help-block"  ng-show="status == 'loading'" translate>
+          Loading...
+        </span>
+        <span class="help-block" ng-show="status == 'sent'" translate>
+          Transaction succesfully broadcast.<br>Transaction id: {{txid}}
+        </span>
+        <span class="help-block" ng-show="status == 'error'" class="has-error" translate>
+          An error occured: {{error}}
+        </span>
+      </span>
+      <button class="btn btn-lg btn-gold float-right" translate data-ng-click="send()" data-ng-disabled="!txForm.$valid">Push Transaction</button>
+    </form>
   </div>
   
 </section>
