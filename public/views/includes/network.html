@@ -1,7 +1,9 @@
-<a class="dropdown-toggle subtitle-1" data-toggle="dropdown" href="#">
-  RMG {{ selectedNetwork }} <span class="caret"></span>
+<a class="dropdown-toggle subtitle-1 selected-network" data-toggle="dropdown" href="#">
+  RMG {{ selectedNetwork }} <span class="caret colorWhite"></span>
 </a>
-<ul class="dropdown-menu">
+
+<ul class="dropdown-menu netkwork-menu">
+  <span class="menu-caret"></span>
   <li ng-repeat="network in networkOptions" data-ng-click="changeNetwork(network);">
     <a class="subtitle-1">RMG {{ network }}</a>
   </li>

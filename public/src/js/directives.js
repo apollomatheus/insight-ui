@@ -88,4 +88,11 @@ angular.module('insight')
         });
       }
     };
+  })
+  .directive('loadingDots', function(){
+    return {
+      restrict: 'AE',
+      replace: true,
+      template: '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>'
+    };
   });

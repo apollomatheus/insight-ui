@@ -15,46 +15,32 @@ body {
   display: none !important;
 }
 
-a:hover {
+a {
+  outline: none;
   text-decoration: none;
-  color: $AgedGold;
+  &:hover {
+    text-decoration: none;
+    color: $AgedGold;
+  }
 }
 
-.colorSunglow {
-  color: $Sunglow;
-}
-
-.colorNero50 {
-  color: $Nero50;
-}
-
-.colorNero75 {
-  color: $Nero75;
-}
 
 hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid $Sunglow;
+    border-top: 1px solid $MetallicGold;
     margin: 0;
     padding: 0; 
 }
 
-.float-right {
-  float: right;
+.max-width1200 {
+  max-width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
-
-.float-left {
-  float: left;
-}
-
 .aztek-container {
   margin: 62px 32px 0px 32px;
-}
-
-.d-inline-block {
-  display: inline-block;
 }
 
 .detail-header, .detail-summary {
@@ -85,6 +71,9 @@ hr {
 
 .detail-data {
   margin-top: 48px;
+  .prevBlock {
+    margin-right: 10px;
+  }
 }
 
 .detail-list {
@@ -95,24 +84,19 @@ hr {
 
 .txMined {
     height: 48px;
-    background: $Nero10;
+    background: $Nero05;
     margin: 0px 2px;
     padding: 14px 0px;
-    border-top: 1px solid $Sunglow;
+    border-top: 1px solid $MetallicGold;
 }
-.col-noPadding {
-  padding: 0px;
-}
-.no-margin {
-  margin: 0px;
-}
+
 .addressQR {
   padding-top: 16px;
   text-align: end;
 }
 /* Styling for the ngProgress itself */
 #ngProgress {
-  background-color: #6C9032 !important;
+  background-color: $MetallicGold !important;
   box-shadow: none !important;
   color: #373D42 !important;
   height: 3px !important;
@@ -126,6 +110,10 @@ hr {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+.th-72 {
+  width: 72%;
 }
 
 /* Styling for the ngProgress-container */
@@ -169,21 +157,6 @@ hr {
   padding: 0 0 75px;
 }
 
-.m10h { margin: 0 10px; }
-.m20h { margin: 0 20px; }
-.m5v { margin: 5px 0; }
-.m20v { margin: 20px 0; }
-.m10v { margin: 10px 0; }
-.m50v { margin: 50px 0; }
-.m10b { margin-bottom: 10px; }
-.m10l { margin-left: 10px; }
-.m20t { margin-top: 20px; }
-.m24t { margin-top: 24px; }
-.m48t { margin-top: 48px; }
-.m64t { margin-top: 64px; }
-.vm { vertical-align: middle; }
-.pa {position: absolute;}
-.pr {position: relative;}
 
 
 .bgwhite {
@@ -191,7 +164,7 @@ hr {
 }
 
 .bgSunglow10 {
-  background-color: $Sunglow10;
+  background-color: $MetallicGold10;
 }
 
 .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
@@ -199,7 +172,7 @@ margin-left: 0;
 }
 
 .table {
-  border-top: 1px solid $Sunglow;
+  border-top: 1px solid $MetallicGold;
   margin-top: 16px;
 }
 
@@ -216,29 +189,21 @@ th, tr {
   vertical-align: inherit;
 }
 .table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
-   background-color: $Sunglow10;
+   background-color: $MetallicGold10;
 }
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
    background-color: $White;
    &.waiting {
-     background-color: $Sunglow10;
+     background-color: $MetallicGold10;
    }
 }
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: $Sunglow25;
+  background-color: $MetallicGold25;
 }
 
 .row {
   margin-left: 0px;
   margin-right: 0px;
-}
-
-.loader-gif {
-  display: inline-block;
-  width: 16px;
-  height: 11px;
-  background: transparent url(../img/loading.gif) no-repeat;
-  margin-left: 5px;
 }
 
 .col-gray {
@@ -415,7 +380,7 @@ th, tr {
 
 
 .line-bot {
-  border-bottom: 1px solid $Sunglow;
+  border-bottom: 1px solid $MetallicGold;
   padding: 0 0 10px 0;
   
   &.green {
@@ -429,7 +394,7 @@ th, tr {
 
 .line-mid { padding: 15px;}
 .line-top {
-  border-top: 1px solid $Sunglow;
+  border-top: 1px solid $MetallicGold;
   padding: 15px 0 0 0;
 }
 
@@ -448,23 +413,6 @@ th, tr {
 .code { font-size: 80%; }
 
 .address { font-size: 11px; }
-
-.no_matching {
-  -moz-border-radius-bottomleft: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  background-color: #FFFFFF;
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-  border-top: none;
-  border: 1px solid #64920F;
-  padding: 10px 20px;
-  position: absolute;
-  text-align: center;
-  top: 45px;
-  width: 300px;
-}
 
 /*Animations*/
 .fader.ng-enter {
@@ -705,6 +653,11 @@ a.v_highlight_more {
   margin-top: 15px;
 }
 
+#wrap>.container {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 @media (max-width: 991px) {
   .status {
     display: none;
@@ -776,9 +729,7 @@ a.v_highlight_more {
   h2 {
     font-size: 20px;
   }
-  .navbar-default .navbar-brand {
-    padding: 15px;
-  }
+
   .insight {
     font-size: 26px;
   }
@@ -802,9 +753,6 @@ a.v_highlight_more {
     margin: 5px;
     padding: 0.5em 2em;
     font-size: 11px;
-  }
-  .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-    color: $Nero;
   }
   .txvalues {
     display: inline;
@@ -831,6 +779,11 @@ a.v_highlight_more {
   .btn-expand {
     font-size: 18px;
   }
+  .detail-header {
+    h4 {
+      float: none;
+    }
+  }
 }
 
 @media (min-width: 1200px) {
@@ -840,4 +793,11 @@ a.v_highlight_more {
   .navbar-form .form-control {
     width: 360px;
   }
+}
+
+.td-loading-icon {
+  float: right;
+  color: $MetallicGold;
+  margin-right: 10px;
+  margin-top: 4px;
 }

@@ -32,7 +32,6 @@ angular.module('insight.currency').controller('CurrencyController',
         }
         // prevent sci notation
         if (response < 1e-7) response=response.toFixed(8);
-
         return response + ' ' + this.symbol;
       }
 

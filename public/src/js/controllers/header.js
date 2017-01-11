@@ -16,9 +16,6 @@ angular.module('insight.system').controller('HeaderController',
     }, {
       'title': 'Tools',
       'link': 'tools'
-    }, {
-      'title': 'Github',
-      'link': '//github.com/BitGo'
     }];
 
     $scope.openScannerModal = function() {

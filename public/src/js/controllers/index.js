@@ -10,6 +10,10 @@ angular.module('insight.system').controller('IndexController',
     $scope.goTo = function(path){
       $location.path(path);
     }
+    
+    $scope.trimTxValue = function(value){
+      return value.toFixed(4);
+    }
 
     var _getBlocks = function() {
       Blocks.get({
@@ -119,7 +123,7 @@ angular.module('insight.system').controller('IndexController',
            return [{
                    values: cos,
                    key: 'Price',
-                   color: '#FFCC33'
+                   color: '#D4AF37' // $$MetallicGold
                }];
        };
        

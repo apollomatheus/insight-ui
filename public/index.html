@@ -10,7 +10,7 @@
   <meta name="keywords" content="bitcoins, transactions, blocks, address, block chain, best block, mining difficulty, hash serialized">
   <meta name="description" content="Bitcoin Insight. View detailed information on all bitcoin transactions and block. {{ $root.title + $root.titleDetail }}">
   <link rel="shortcut icon" href="img/icons/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,400italic">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/main.min.css">
   
 </head>
@@ -40,12 +40,12 @@
       </div>
     </script>
   </div>
-  
+
   <div id="wrap">
     <div class="navbar navbar-default navbar-fixed-top" data-ng-include="'views/includes/header.html'" role='navigation'></div>
-    <section class="container" data-ng-view></section>
+    <section class="container max-width1200" data-ng-view></section>
   </div>
-  
+
   <div id="footer" role="navigation" data-ng-include="'views/includes/footer.html'"></div>
   
   <script language="javascript">window.apiPrefix = '/api';</script>

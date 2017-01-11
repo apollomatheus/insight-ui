@@ -2,10 +2,6 @@
   data-ng-show="!txs[0].txid && !loading"
   translate>There are no transactions involving this address.</div>
 <div data-ng-show="txs && txs[0].txid" data-ng-repeat="tx in txs">
-  <div data-ng-include src="'views/transaction/txAddressDetail.html'"></div>
+  <div data-ng-include src="'views/transaction/txDetail.html'"></div>
 </div>
-<div class="progress progress-striped active" data-ng-show="loading">
-  <div class="progress-bar progress-bar-info" style="width: 100%">
-    <span translate>Loading Transactions...</span>
-  </div>
-</div>
+

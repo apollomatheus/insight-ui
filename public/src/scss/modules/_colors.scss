@@ -1,35 +1,56 @@
 /* colors.scss
 Commonly used colors throughout the app
 */
-$Sunglow: #FFCC33;
-$Sunglow75: #ffd866;
-$Sunglow50: #ffe599;
-$Sunglow25: #fff2cc;
-$Sunglow10: #fff9eb;
+$Sunglow: rgba(255, 204, 51, 1);
+$Sunglow75: rgba(255, 204, 51, 0.75);
+$Sunglow50: rgba(255, 204, 51, 0.50);
+$Sunglow25: rgba(255, 204, 51, 0.25);
+$Sunglow10: rgba(255, 204, 51, 0.1);
+$SunglowSolid75: #ffd866;
+$SunglowSolid50: #ffe599;
+$SunglowSolid25: #fff2cc;
+$SunglowSolid10: #fff9eb;
 
-$OldGold: #CFB53B;
-$OldGold75: #dac66c;
-$OldGold50: #e6d99d;
-$OldGold25: #f2ecce;
-$OldGold10: #faf7eb;
+$OldGold: rgba(207, 181, 59, 1);
+$OldGold75: rgba(207, 181, 59, 0.75);
+$OldGold50: rgba(207, 181, 59, 0.50);
+$OldGold25: rgba(207, 181, 59, 0.25);
+$OldGold10: rgba(207, 181, 59, 0.1);
+$OldGoldSolid75: #dac66c;
+$OldGoldSolid50: #e6d99d;
+$OldGoldSolid25: #f2ecce;
+$OldGoldSolid10: #faf7eb;
 
-$MetallicGold: #D4AF37;
-$MetallicGold75: #dec269;
-$MetallicGold50: #e9d69b;
-$MetallicGold25: #f4eacd;
-$MetallicGold10: #faf7eb;
+$MetallicGold: rgba(212, 175, 55, 1);
+$MetallicGold75: rgba(212, 175, 55, 0.75);
+$MetallicGold50: rgba(212, 175, 55, 0.50);
+$MetallicGold25: rgba(212, 175, 55, 0.25);
+$MetallicGold10: rgba(212, 175, 55, 0.1);
+$MetallicGoldSolid75: #dec269;
+$MetallicGoldSolid50: #e9d69b;
+$MetallicGoldSolid25: #f4eacd;
+$MetallicGoldSolid10: #faf7eb;
 
-$AgedGold: #CBA135;
-$AgedGold75: #d7b767;
-$AgedGold50: #e4cf9a;
-$AgedGold25: #f1e7cd;
-$AgedGold10: #f9f5eb;
+$AgedGold: rgba(206, 161, 53, 1);
+$AgedGold75: rgba(206, 161, 53, 0.75);
+$AgedGold50: rgba(206, 161, 53, 0.50);
+$AgedGold25: rgba(206, 161, 53, 0.25);
+$AgedGold10: rgba(206, 161, 53, 0.1);
+$AgedGoldSolid75: #d7b767;
+$AgedGoldSolid50: #e4cf9a;
+$AgedGoldSolid25: #f1e7cd;
+$AgedGoldSolid10: #f9f5eb;
 
-$Nero: #1B1B1B;
-$Nero75: #545454;
-$Nero50: #8d8d8d;
-$Nero25: #c6c6c6;
-$Nero10: #e8e8e8;
+$Nero: rgba(27, 27, 27, 1);
+$Nero75: rgba(27, 27, 27, 0.75);
+$Nero50: rgba(27, 27, 27, 0.50);
+$Nero25: rgba(27, 27, 27, 0.25);
+$Nero10: rgba(27, 27, 27, 0.1);
+$Nero05: rgba(27, 27, 27, 0.05);
+$NeroSolid75: #545454;
+$NeroSolid50: #8d8d8d;
+$NeroSolid25: #c6c6c6;
+$NeroSolid10: #e8e8e8;
 
 $White: #fff;
 $Green: #88ad5d;
@@ -41,4 +62,20 @@ $Red: #d8828c;
 
 .colorRed {
   color: $Red;
+}
+
+.colorMetallicGold {
+  color: $MetallicGold;
+}
+
+.colorWhite {
+  color: $White;
+}
+
+.colorNero50 {
+  color: $Nero50;
+}
+
+.colorNero75 {
+  color: $Nero75;
 }

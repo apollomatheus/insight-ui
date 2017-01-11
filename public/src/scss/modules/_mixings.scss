@@ -8,3 +8,8 @@ Bunch of re-usable crossbrowser compatible css properties
   -ms-border-radius: $radius;
   border-radius: $radius;
 }
+
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}

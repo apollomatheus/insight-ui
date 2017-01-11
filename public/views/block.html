@@ -2,43 +2,52 @@
 <section data-ng-controller="BlocksController" data-ng-init="findOne()" class="aztek-container">
   
   <div class="text-muted" data-ng-if="!block.hash">
-    <span translate>Loading Block Information</span>  <span class="loader-gif"></span>
+    <h2 translate>Loading Block Information<span loading-dots></span></h2> 
   </div>
-  
+
   <div data-ng-if="block.hash">
-    <div class="detail-header">
-      <h2 class="colorSunglow"><strong>Aztec</strong> Block</h2>
-      <h4 class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h4>
-      <hr />
+    <div class="detail-header row">
+      <h2 class="col-xs-10 colorMetallicGold"><strong>Aztec</strong> Block</h2>
+      <div class="col-xs-2 block-nav no-padding float-right">
+        <div class="float-right">
+          <a type="submit" class="btn btn-gold" data-ng-show="block.previousblockhash" href="block/{{block.previousblockhash}}">
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i><span> Prev</span>
+          </a>
+          <a type="submit" class="btn btn-gold" data-ng-disabled="!block.nextblockhash" href="block/{{block.nextblockhash}}">
+            <span>Next</span>
+            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
     </div>
+    <hr />
     
     <div class="row subtitle-1 detail-data">
       <div class="col-xs-12 col-md-8">
-        <strong>Block</strong> {{block.hash}}
+        <div class="col-xs-12 subtitle-1 m24t">
+          <strong >Block:</strong> <a href="block/{{block.hash}}" class="colorMetallicGold">{{block.hash}}</a>
+        </div>
       </div>
       
       <div class="col-xs-12 col-md-4">
-        <div class="col-xs-12 float-left subtitle-1 m">
-          <strong>Mining time:</strong> <span class="float-right">{{block.time * 1000 | date:'medium'}}</span>
+        <div class="col-xs-12 float-left subtitle-1 m24t">
+          <strong>Validated At:</strong> <span class="float-right">{{block.time * 1000 | date:'medium'}}</span>
         </div>
         
-        <div class="col-xs-12 float-left  subtitle-1 supply m24t">
-          <strong>Mined By:</strong> <span class="float-right"><a href="{{block.poolInfo.url}}" target="_blank" title="{{block.poolInfo.poolName}}">{{block.poolInfo.poolName}}</a></span>
+        <div class="col-xs-12 float-left subtitle-1 supply m24t">
+          <strong>Validated By:</strong> <span class="float-right"><a href="{{block.poolInfo.url}}" target="_blank" title="{{block.poolInfo.poolName}}" class="colorMetallicGold">{{block.poolInfo.poolName || 'BitGo'}}</a></span>
         </div>
       </div>
     </div>
     
-    <div class="detail-summary m48t">
-      <h2 class="colorNero50"><strong>Summary</strong></h2>
+    <div class="detail-summary m12t">
       <hr />
       
       <div class="summary">
         <div class="col-xs-12 float-left subtitle-2 summary-row">
           Block height: 
-          <span class="float-right">{{block.height}}
-            <span data-ng-show="block.isMainChain" class="text-success">(Mainchain)</span>
-            <span data-ng-show="!block.isMainChain" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Orphaned)</span>
-          </span>
+          <span class="float-right">{{block.height}}</span>
         </div>
         
         <div class="col-xs-12 float-left subtitle-2 summary-row">
@@ -54,7 +63,7 @@
     </div>
     
     <div class="detail-list row" data-ng-controller="transactionsController" data-ng-init="load('block')">
-      <h2 class="colorSunglow" translate>Transactions</h2>
+      <h2 class="colorMetallicGold" translate>Transactions</h2>
       <div data-ng-include src="'views/transaction/blockList.html'" when-scrolled="loadMore()"></div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 
 #homeInfo {
-  background-color: $Sunglow10;
+  background-color: $MetallicGold10;
   min-height: 400px;
   margin-bottom: 40px;
   padding-right: 31px;
@@ -22,7 +22,6 @@
 }
 
 .rmg-info {
-  max-width: 360px;
   display: flex;
   hr {
     max-width: 360px;
@@ -52,12 +51,21 @@
 
 /* Set the fixed height of the footer here */
 #footer {
-  background-color: $AgedGold;
+  background-color: $NeroSolid25;
   color: #fff;
   height: 51px;
   overflow: hidden;
+  .footer-links {
+    height: 100%;
+    padding-top: 17px;
+    margin-left: 34px;
+    border-right: 1px solid $White;
+    a {
+      margin-right: 18px;
+    }
+  }
   .footer-container {
-    margin: 0px 48px 0px 48px;
+    height: 100%;
   }
 }
 
@@ -65,6 +73,7 @@
   font-size: 20px;
   text-decoration: none;
   color: #fff;
+
 }
 
 #footer a.insight:hover {
@@ -75,9 +84,12 @@
 .line-footer { border-top: 2px dashed #ccc; }
 
 #footer .links a {
-  color: $Nero;
-  font-size: 10px;
-  font-family: 'AvenirNext-Medium', sans-serif;
+  color: $White;
+  font-size: 16px;
+  font-family: 'Helvetica Neue', sans-serif;
+  span {
+    color: $White;
+  }
 }
 
 #footer .links a.selected {

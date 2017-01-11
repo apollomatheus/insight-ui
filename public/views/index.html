@@ -5,12 +5,12 @@
 <section data-ng-controller="IndexController" data-ng-init="index()">
   <div>
     <div id="homeInfo" class="row">
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-7">
         
-      <nvd3 options="options" data="data"></nvd3>
+      <img src="img/Aztec-PriceChart.png" width="637" />
       
       </div>
-      <div class="col-xs-12 col-md-3 center-block rmg-info">
+      <div class="col-xs-12 col-md-5 center-block rmg-info">
         <div class="row ">
           <div class="col-xs-12">
             <h2><strong>RMG</strong> Index</h2>
@@ -28,6 +28,12 @@
           <div class="col-xs-12 float-left  subtitle-1 transactions">
             Transactions: <span class="float-right">28734742</span>
           </div>
+          <div class="col-xs-12 float-left  subtitle-1 transactions">
+            CME Exchange Price: <span class="float-right">$43.00</span>
+          </div>
+          <div class="col-xs-12 float-left  subtitle-1 transactions">
+            GLD Price: <span class="float-right">$1131.15</span>
+          </div>
         </div>
         
       </div>
@@ -37,47 +43,47 @@
 
         <div id="search-form-mobile" class="visible-xs" data-ng-include src="'views/includes/search.html'"></div>
 
-        <h2 class="colorSunglow" translate>Latest <strong>RMG</strong> Blocks</h2>
+        <h2 class="colorMetallicGold" translate>Latest <strong>RMG</strong> Blocks</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed">
           <thead class="subtitle-2">
             <tr>
               <th translate>Block height</th>
               <th translate>Block created</th>
               <th class="text-right"><span class="ellipsis" translate>Transactions</span></th>
-              <th class="text-right hidden-xs"><span class="ellipsis" translate>Mined by</span></th>
+              <th class="text-right hidden-xs"><span class="ellipsis" translate>Validated by</span></th>
             </tr>
           </thead>
           <tbody class="subtitle-1">
-          <tr data-ng-show="!blocks.length"><td colspan="4" class="waiting" translate>Waiting for blocks...</td></tr>
-          <tr class="fader" data-ng-repeat='b in blocks' data-ng-click="goTo('block/' + b.hash)">
+          <tr data-ng-show="!blocks.length"><td colspan="4" class="waiting" translate>Waiting for blocks...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+          <tr class="fader pointer" data-ng-repeat='b in blocks' data-ng-click="goTo('block/' + b.hash)">
             <td>
-              {{b.height}}
+              <span class="colorMetallicGold">{{b.height}}</span>
             </td>
             <td><span class="ellipsis">{{humanSince(b.time)}}</span></td>
             <td class="text-right">{{b.txlength}}</td>
-            <td class="text-right hidden-xs">{{b.poolInfo.poolName}}</td>
+            <td class="text-right hidden-xs">{{b.poolInfo.poolName ||  'CME'}}</td>
           </tr>
           </tbody>
         </table>
       </div>
 
       <div class="col-xs-12 col-md-5">
-        <h2 class="colorSunglow" translate>Latest <strong>RMG</strong> Transactions</h2>
+        <h2 class="colorMetallicGold" translate>Latest <strong>RMG</strong> Transactions</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed;">
           <thead class="subtitle-2">
             <tr>
-              <th>Transaction</th>
+              <th class="th-72">Transaction</th>
               <th class="text-right" translate>Value</th>
             </tr>
           </thead>
           <tbody class="subtitle-1">
-          <tr data-ng-show="!txs.length"><td colspan="2" class="waiting" translate>Waiting for transactions...</td></tr>
-          <tr class="fader" data-ng-repeat='tx in txs' data-ng-click="goTo('tx/' + tx.txid)">
-            <td>
-              {{tx.txid}}
-            </td>
-            <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG'}}</span></td>
-          </tr>
+            <tr data-ng-show="!txs.length"><td colspan="2" class="waiting" translate>Waiting for transactions...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+            <tr class="fader pointer" data-ng-repeat='tx in txs | limitTo: 5' data-ng-click="goTo('tx/' + tx.txid)">
+              <td>
+                <span class="ellipsis colorMetallicGold">{{tx.txid}}</span>
+              </td>
+              <td class="text-right"><span class="ellipsis">{{trimTxValue(tx.valueOut) + ' RMG'}}</span></td>
+            </tr>
           </tbody>
         </table>
       </div> <!-- END OF COL-3 -->

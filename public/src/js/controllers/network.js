@@ -6,7 +6,7 @@ angular.module('insight.network').controller('NetworkController',
     $scope.networks = Object.keys(networks);
     $scope.selectedNetwork = '';
     Status.get({}, function(d) {
-      $scope.selectedNetwork = d.info.network;
+      $scope.selectedNetwork = d.info.network === 'livenet' ? 'mainnet' : d.info.network;
       $scope.networkOptions = getNetworkOptions();
     });
   

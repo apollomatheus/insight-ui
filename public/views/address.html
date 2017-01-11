@@ -2,13 +2,12 @@
 <section data-ng-controller="AddressController" data-ng-init="findOne()" class="aztek-container">
 
   <div class="text-muted" data-ng-if="!address.addrStr">
-    <span translate>Loading Address Information</span> <span class="loader-gif"></span>
+    <h2 translate>Loading Address Information<span loading-dots></span></h2>
   </div>
   
   <div data-ng-if="address.addrStr">
     <div class="detail-header">
-      <h2 class="colorSunglow"><strong>Aztec</strong> Address</h2>
-      <h4 class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h4>
+      <h2 class="colorMetallicGold"><strong>Aztec</strong> Address</h2>
       <hr />
     </div>
     
@@ -18,67 +17,51 @@
       </div>
       
       <div class="col-xs-12 col-md-4">
-        <div class="col-xs-12 float-left subtitle-1 m">
-          <strong>Balance:</strong> 
-            <span class="float-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>
-        </span>
+        <!--<div class="col-xs-12 float-left subtitle-1 m">-->
+          <!--<strong>Balance:</strong> -->
+            <!--<span class="float-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>-->
+        <!--</span>-->
+        <!--</div>-->
+        
+        <div class="col-xs-12 float-left  subtitle-1 supply">
+          <strong>Wallet Provider:</strong> <span class="float-right colorMetallicGold">BitGo</span>
         </div>
         
         <div class="col-xs-12 float-left  subtitle-1 supply m24t">
-          <strong>Wallet Provider:</strong> <span class="float-right colorSunglow">BitGo</span>
-        </div>
-        
-        <div class="col-xs-12 float-left  subtitle-1 supply m24t">
-          <strong>Backup Key holder:</strong> <span class="float-right colorSunglow">CME</span>
+          <strong>Backup Key holder:</strong> <span class="float-right colorMetallicGold">CME</span>
         </div>
       </div>
     </div>
     
-    <div class="detail-summary m48t row">
-      <h2 class="colorNero50"><strong>Summary</strong> confirmed</h2>
+    <div class="detail-summary m12t row">
       <hr />
       
       <div class="summary m48t">
-        <div class="col-xs-9 col-noPadding">
+        <div class="col-xs-9 no-padding">
           <div class="col-xs-12 float-left subtitle-2 summary-row">
             Balance: <span class="float-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>
           </div>
           
           <div class="col-xs-12 float-left subtitle-2 summary-row">
-            No. of Transctions: 
+            No. of Transactions: 
             <span class="float-right">{{address.txApperances}}</span>
           </div>
         </div>
         
-        <div class="col-xs-3 col-noPadding addressQR">
+        <div class="col-xs-3 no-padding addressQR">
            <qrcode size="160" data="{{address.addrStr}}" class="address"></qrcode>
         </div>
       
       </div>
     </div>
     
-    <div class="detail-summary m48t row">
-      <h2 class="colorNero50">Unconfirmed</h2>
-      <hr />
-      
-      <div class="summary m48t">
-        <div class="col-xs-12 float-left subtitle-2 summary-row">
-          Unconfirmed Txs Balance: <span class="float-right">{{$root.currency.getConvertion(address.unconfirmedBalance) + ' RMG'}}</span>
-        </div>
-        
-        <div class="col-xs-12 float-left subtitle-2 summary-row">
-          No. of Unconfirmed Transactions: 
-          <span class="float-right">{{address.unconfirmedTxApperances}}</span>
-        </div>
-      </div>
-    </div>
-    
-    
   </div>
-  
-  
+
   <div class="detail-list row" data-ng-if="address.addrStr" data-ng-controller="transactionsController" data-ng-init="load('address')">
-    <h2 translate>Transactions</h2>
+    <h2 data-ng-hide="loading" class="colorMetallicGold" translate>Transactions</h2>
+    <div class="text-muted" data-ng-show="loading">
+      <h2 translate>Loading Transactions...<span loading-dots></span></h2> 
+    </div>
     <div data-ng-include src="'views/transaction/addressList.html'" when-scrolled="loadMore()"></div>
   </div>
 </section>
