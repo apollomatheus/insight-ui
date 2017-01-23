@@ -24,11 +24,11 @@
         <!--</div>-->
         
         <div class="col-xs-12 float-left  subtitle-1 supply">
-          <strong>Wallet Provider:</strong> <span class="float-right colorMetallicGold">BitGo</span>
+          <strong>Wallet Provider:</strong> <a data-ng-href="{{address.walletProvider.url}}" target="_blank" class="float-right colorMetallicGold">{{address.walletProvider.name}}</a>
         </div>
         
         <div class="col-xs-12 float-left  subtitle-1 supply m24t">
-          <strong>Backup Key holder:</strong> <span class="float-right colorMetallicGold">CME</span>
+          <strong>Backup Key holder:</strong> <a data-ng-href="{{address.backupKeyHolder.url}}" target="_blank" class="float-right colorMetallicGold">{{address.backupKeyHolder.name}}</a>
         </div>
       </div>
     </div>
