@@ -7,14 +7,6 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: 'views/block.html',
       title: 'Bitcoin Block '
     }).
-    when('/block-index/:blockHeight', {
-      controller: 'BlocksController',
-      templateUrl: 'views/redirect.html'
-    }).
-    when('/tx/send', {
-      templateUrl: 'views/transaction_sendraw.html',
-      title: 'Broadcast Raw Transaction'
-    }).
     when('/tx/:txId/:v_type?/:v_index?', {
       templateUrl: 'views/transaction.html',
       title: 'Bitcoin Transaction '
@@ -23,25 +15,9 @@ angular.module('insight').config(function($routeProvider) {
       templateUrl: 'views/index.html',
       title: 'Home'
     }).
-    when('/blocks', {
-      templateUrl: 'views/block_list.html',
-      title: 'Bitcoin Blocks solved Today'
-    }).
-    when('/blocks-date/:blockDate/:startTimestamp?', {
-      templateUrl: 'views/block_list.html',
-      title: 'Bitcoin Blocks solved '
-    }).
     when('/address/:addrStr', {
       templateUrl: 'views/address.html',
       title: 'Bitcoin Address '
-    }).
-    when('/status', {
-      templateUrl: 'views/status.html',
-      title: 'Status'
-    }).
-    when('/messages/verify', {
-      templateUrl: 'views/messages_verify.html',
-      title: 'Verify Message'
     }).
     when('/about', {
       templateUrl: 'views/about.html',
