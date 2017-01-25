@@ -50,6 +50,10 @@ angular.module('insight').config(function($routeProvider) {
     when('/tools', {
       templateUrl: 'views/tools.html',
       title: 'Tools'
+    }).
+    when('/validators', {
+      templateUrl: 'views/validators.html',
+      title: 'Validators'
     })
     .otherwise({
       templateUrl: 'views/404.html',
