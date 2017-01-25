@@ -11,36 +11,21 @@
       <hr />
     </div>
 
-    <div class="row subtitle-1 detail-data">
-      <div class="col-xs-12 col-md-8">
-        <strong>Transaction</strong> {{tx.txid}}
-      </div>
-      
-      <div class="col-xs-12 col-md-4">
-        <div class="col-xs-12 float-left subtitle-1 m">
-          <strong>First seen:</strong> 
-            <span class="float-right" data-ng-show="tx.time">{{tx.time * 1000|date:'medium'}}</span>
-            <span class="float-right" data-ng-show="!tx.time">N/A</span>
-        </span>
-        </div>
-
-        <!-- Signed column -->
-        <div class="col-xs-12 float-left  subtitle-1 supply m24t" ng-hide="tx.vin[0].coinbase">
-          <strong>Signed By:</strong> <span class="float-right colorMetallicGold">{{tx.signer.name}}</span>
-        </div>
-
-        <div class="col-xs-12 float-left  subtitle-1 supply m24t" ng-show="tx.vin[0].coinbase">
-          <span>Coinbase transaction</span>
-        </div>
-      </div>
-    </div>
-
     <div class="detail-summary m12t">
-      <hr />
       
       <div class="summary">
         <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Transaction: <span class="float-right"><a href="tx/{{tx.txid}}" class="colorMetallicGold">{{tx.txid}}</a></span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
           Confirmations: <span class="float-right">{{tx.confirmations}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Signed By:
+          <span class="float-right" data-ng-hide="tx.vin[0].coinbase">{{tx.signer.name}}</span>
+          <span class="float-right" data-ng-show="tx.vin[0].coinbase">Coinbase Transaction</span>
         </div>
         
         <div class="col-xs-12 float-left subtitle-2 summary-row">
@@ -51,6 +36,12 @@
         <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.fees">
           Blockchain Fees: 
           <span class="float-right">{{$root.currency.getConvertion((tx.fees * 1000) / tx.size) + ' per kB' || ((tx.fees * 1000) / tx.size) + 'BTC per kB'}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.fees">
+          First seen:
+          <span class="float-right" data-ng-show="tx.time">{{tx.time * 1000|date:'medium'}}</span>
+          <span class="float-right" data-ng-show="!tx.time">N/A</span>
         </div>
       </div>
     </div>

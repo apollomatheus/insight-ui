@@ -10,34 +10,16 @@
       <h2 class="colorMetallicGold"><strong>Aztec</strong> Address</h2>
       <hr />
     </div>
-    
-    <div class="row subtitle-1 detail-data">
-      <div class="col-xs-12 col-md-8">
-        <strong>Address</strong> {{address.addrStr}}
-      </div>
-      
-      <div class="col-xs-12 col-md-4">
-        <!--<div class="col-xs-12 float-left subtitle-1 m">-->
-          <!--<strong>Balance:</strong> -->
-            <!--<span class="float-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>-->
-        <!--</span>-->
-        <!--</div>-->
-        
-        <div class="col-xs-12 float-left  subtitle-1 supply">
-          <strong>Wallet Provider:</strong> <a data-ng-href="{{address.walletProvider.url}}" target="_blank" class="float-right colorMetallicGold">{{address.walletProvider.name}}</a>
-        </div>
-        
-        <div class="col-xs-12 float-left  subtitle-1 supply m24t">
-          <strong>Backup Key holder:</strong> <a data-ng-href="{{address.backupKeyHolder.url}}" target="_blank" class="float-right colorMetallicGold">{{address.backupKeyHolder.name}}</a>
-        </div>
-      </div>
-    </div>
-    
+
     <div class="detail-summary m12t row">
-      <hr />
       
       <div class="summary m48t">
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Address: <span class="float-right"><a href="address/{{address.addrStr}}" class="colorMetallicGold">{{address.addrStr}}</a></span>
+        </div>
         <div class="col-xs-9 no-padding">
+
+
           <div class="col-xs-12 float-left subtitle-2 summary-row">
             Balance: <span class="float-right">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>
           </div>
@@ -45,6 +27,16 @@
           <div class="col-xs-12 float-left subtitle-2 summary-row">
             No. of Transactions: 
             <span class="float-right">{{address.txApperances}}</span>
+          </div>
+
+          <div class="col-xs-12 float-left subtitle-2 summary-row">
+            Wallet Provider:
+            <span class="float-right"><a data-ng-href="{{address.walletProvider.url}}" target="_blank" class="float-right colorMetallicGold">{{address.walletProvider.name}}</a></span>
+          </div>
+
+          <div class="col-xs-12 float-left subtitle-2 summary-row">
+            Backup Key holder:
+            <span class="float-right"><a data-ng-href="{{address.backupKeyHolder.url}}" target="_blank" class="float-right colorMetallicGold">{{address.backupKeyHolder.name}}</a></span>
           </div>
         </div>
         

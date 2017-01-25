@@ -44,8 +44,10 @@ public/js/angularjs-all.js
 public/js/main.js
 public/js/vendors.js
 
+
 public/src/css/*
 public/css/main.css
+public/css/main.min.css
 
 README.html
 po/*
