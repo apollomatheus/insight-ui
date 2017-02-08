@@ -47,8 +47,6 @@ public/js/vendors.js
 
 public/src/css/*
 public/css/main.css
-public/css/main.min.css
-public/js/main.min.js
 
 README.html
 po/*
