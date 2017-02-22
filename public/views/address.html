@@ -36,13 +36,13 @@
           </div>
 
           <div class="col-xs-12 float-left subtitle-2 summary-row">
-            Wallet Provider:
-            <span class="float-right"><a data-ng-href="{{address.walletProvider.url}}" target="_blank" class="float-right colorMetallicGold">{{address.walletProvider.name}}</a></span>
+            Wallet Provider 1:
+            <span class="float-right"><a data-ng-href="{{address.walletProvider.url}}" target="_blank" class="float-right colorMetallicGold">{{ address.wsp1.name || address.wsp1.keyid }}</a></span>
           </div>
 
           <div class="col-xs-12 float-left subtitle-2 summary-row">
-            Backup Key holder:
-            <span class="float-right"><a data-ng-href="{{address.backupKeyHolder.url}}" target="_blank" class="float-right colorMetallicGold">{{address.backupKeyHolder.name}}</a></span>
+            Wallet Provider 2:
+            <span class="float-right"><a data-ng-href="{{address.backupKeyHolder.url}}" target="_blank" class="float-right colorMetallicGold">{{ address.wsp2.name || address.wsp2.keyid }}</a></span>
           </div>
         </div>
         

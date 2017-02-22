@@ -14,4 +14,8 @@ angular.module('insight.status')
   .factory('PeerSync',
     function($resource) {
       return $resource(window.apiPrefix + '/peer');
+    })
+  .factory('AdminInfo',
+    function($resource) {
+      return $resource(window.apiPrefix + '/adminInfo');
     });

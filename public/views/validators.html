@@ -13,10 +13,10 @@
                 </tr>
                 </thead>
                 <tbody class="subtitle-1">
-                <tr data-ng-show="!validators.length"><td colspan="4" class="waiting" translate>Loading validators<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+                <tr data-ng-show="!validators.length"><td colspan="3" class="waiting" translate>Loading validators<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
                 <tr class="fader" data-ng-repeat='validator in validators'>
                     <td class="break-word">{{validator.key}}</td>
-                    <td>{{validator.name}}</td>
+                    <td>{{validator.name || '--'}}</td>
                     <td class="text-right hidden-xs"><span class="colorMetallicGold"><a data-ng-href="{{validator.url}}">{{validator.url}}</a></span></td>
                 </tr>
                 </tbody>
