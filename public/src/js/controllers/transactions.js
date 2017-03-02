@@ -6,6 +6,31 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   $scope.loading = false;
   $scope.loadedBy = null;
 
+  $scope.adminInfo = {
+    'issue_thread_transactions': {
+      displayName: 'Issuance Transaction',
+      type: 'issue_thread_transactions'
+    },
+    'issue_rmg': {
+      displayName: 'Issue RMG',
+      type: 'issue_rmg'
+    },
+    'destroy_rmg': {
+      displayName: 'Destroy RMG',
+      type: 'destroy_rmg'
+    },
+
+    'provision_transactions': {
+      displayName: 'Provision Transactions',
+      type: 'provisioning_transactions'
+    },
+
+    'root_thread': {
+      displayName: 'Root Thread',
+      type: 'root_thread'
+    }
+  };
+
   var pageNum = 0;
   var pagesTotal = 1;
   var COIN = 100000000;
@@ -131,6 +156,21 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
 
       $location.path('/');
     });
+  };
+
+  $scope.isIssueThread = function() {
+    return $scope.tx.isAdminTransaction &&
+      ( $scope.tx.adminInfo.type === $scope.adminInfo.issue_rmg.type ||
+        $scope.tx.adminInfo.type === $scope.adminInfo.destroy_rmg.type
+      );
+  };
+
+  // Filter outputs, to show only the ones that has a value on it
+  // Issuance tx's
+  $scope.outputHasValue = function() {
+    return function(item){
+      return item.value > 0;
+    }
   };
 
   $scope.findThis = function() {

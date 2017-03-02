@@ -1,0 +1,44 @@
+<div class="row txMined subtitle-1" data-ng-hide="!tx">
+    <div class="col-xs-7 col-md-8">
+        <a href="tx/{{tx.txid}}" class="colorMetallicGold">{{tx.txid}}</a>
+    </div>
+    <div class="col-xs-5 col-md-4 text-right text-muted">
+        <div data-ng-show="tx.firstSeenTs">
+            <span translate>first seen at</span>
+            <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
+        </div>
+        <div data-ng-show="tx.blocktime && !tx.firstSeenTs">
+            <span translate>validated</span>
+            <time>{{tx.time * 1000 | date:'medium'}}</time>
+        </div>
+    </div>
+</div>
+
+
+<div class="row" data-ng-hide="!tx" data-ng-init="currentInNoExpanded=0; sizeInNoExpanded=5">
+
+    <div class="col-md-12 colorNero75" data-ng-init="currentOutNoExpanded=0; sizeOutNoExpanded=5">
+        <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple | filter:outputHasValue() | startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
+
+            <div class="pull-right btc-value">
+                {{$root.currency.getConvertion(vout.value) || vout.value + ' RMG' }}
+            </div>
+
+            <div class="ellipsis">
+                <span data-ng-show="vout.notAddr">{{vout.addr}}</span>
+                <a href="address/{{address}}" class="colorMetallicGold" data-ng-show="!vout.notAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="line-bot row tx-confirmations colorNero75 subtitle-1" data-ng-hide="!tx">
+    <div class="col-xs-12">
+       <span class="tx-amount float-right">
+      Amount
+      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
+        </span>
+    </div>
+</div>

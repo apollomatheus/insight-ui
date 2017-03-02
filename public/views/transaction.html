@@ -20,19 +20,7 @@
         </div>
 
         <div class="col-xs-12 float-left subtitle-2 summary-row" ng-show="tx.isAdminTransaction">
-          Transaction Type: <span class="float-right">{{tx.adminInfo.name}}</span>
-        </div>
-
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.adminInfo.type === 'issuance_transactions'">
-          Amount:
-          <span class="float-right">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
-        </div>
-
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.adminInfo.type === 'issuance_transactions'">
-          Address:
-          <span class="float-right">
-            <a href="address/{{tx.vout[1].scriptPubKey.addresses[0]}}" class="colorMetallicGold" >{{tx.vout[1].scriptPubKey.addresses[0]}}</a>
-          </span>
+          Transaction Type: <span class="float-right">{{adminInfo[tx.adminInfo.type].displayName}}</span>
         </div>
 
         <div class="col-xs-12 float-left subtitle-2 summary-row">
@@ -44,12 +32,12 @@
           <span class="float-right">Coinbase Transaction</span>
         </div>
 
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase || tx.isAdminTransaction">
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase">
           Signed By Key 1:
           <span class="float-right">{{tx.signer.key1.name || tx.signer.key1.pubkey}}</span>
         </div>
 
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase || tx.isAdminTransaction">
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase">
           Signed By Key 2:
           <span class="float-right">{{tx.signer.key2.name || tx.signer.key2.pubkey}}</span>
         </div>
@@ -64,24 +52,19 @@
           <span class="float-right">{{$root.currency.getConvertion(tx.fees) + ' RMG'}}</span>
         </div>
 
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.adminInfo.type === 'issuance_transactions' && tx.blocktime">
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
           First seen:
           <span class="float-right" data-ng-show="tx.time">{{tx.time * 1000|date:'medium'}}</span>
           <span class="float-right" data-ng-show="!tx.time">N/A</span>
         </div>
 
-        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.adminInfo.type === 'issuance_transactions'">
-          Validated At:
-          <span class="float-right" data-ng-show="tx.blocktime">{{tx.blocktime * 1000|date:'medium'}}</span>
-          <span class="float-right" data-ng-show="!tx.blocktime">N/A</span>
-        </div>
-
       </div>
     </div>
 
-    <div class="detail-list row" data-ng-hide="tx.isAdminTransaction">
+    <div class="detail-list row">
       <h2 class="colorMetallicGold" translate>Details</h2>
-      <div data-ng-include src="'views/transaction/txDetail.html'"></div>
+      <div ng-hide="isIssueThread()" data-ng-include src="'views/transaction/txDetail.html'"></div>
+      <div ng-show="isIssueThread()" data-ng-include src="'views/transaction/issuance/txDetail.html'"></div>
     </div>
     
   </div>
