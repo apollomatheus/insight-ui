@@ -28,6 +28,15 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     'root_thread': {
       displayName: 'Root Thread',
       type: 'root_thread'
+    },
+
+    'issue_key_add': {
+      displayName: 'Add RMG Issuance Ke',
+      type: 'issue_key_add'
+    },
+    'issue_key_revoke': {
+      displayName: 'Revoke RMG Issuance Ke',
+      type: 'issue_key_revoke'
     }
   };
 
@@ -159,10 +168,13 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
   };
 
   $scope.isIssueThread = function() {
-    return $scope.tx.isAdminTransaction &&
-      ( $scope.tx.adminInfo.type === $scope.adminInfo.issue_rmg.type ||
-        $scope.tx.adminInfo.type === $scope.adminInfo.destroy_rmg.type
-      );
+    return  $scope.tx.adminInfo.type === $scope.adminInfo.issue_rmg.type ||
+        $scope.tx.adminInfo.type === $scope.adminInfo.destroy_rmg.type;
+  };
+
+  $scope.isAddingOrRemovingKeys = function() {
+    return $scope.tx.adminInfo.type === $scope.adminInfo.issue_key_add.type ||
+      $scope.tx.adminInfo.type === $scope.adminInfo.issue_key_revoke.type;
   };
 
   // Filter outputs, to show only the ones that has a value on it
