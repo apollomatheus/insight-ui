@@ -31,7 +31,7 @@
             </div>
             <div class="ellipsis">
                 <span data-ng-show="vin.notAddr">{{vin.addr}}</span>
-                <span class="text-muted" title="Current Bitcoin Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
+                <span class="text-muted" title="Current RMG Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
                 <a href="address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr" class="colorMetallicGold">{{vin.addr}}</a>
             </div>
             <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
@@ -61,14 +61,14 @@
         <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple| startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
 
             <div class="pull-right btc-value" data-ng-class="{'text-success': $root.currentAddr == vout.addr}">
-                {{$root.currency.getConvertion(vout.value) || vout.value + ' BTC' }}
+                {{$root.currency.getConvertion(vout.value) || vout.value + ' RMG' }}
                 <!--<span class="text-danger" data-ng-show="vout.isSpent" tooltip="Output is spent" tooltip-placement="left">(S)</span>-->
                 <!--<span class="text-success" data-ng-show="!vout.isSpent" tooltip="Output is unspent" tooltip-placement="left">(U)</span>-->
             </div>
 
             <div class="ellipsis">
                 <span data-ng-show="vout.notAddr">{{vout.addr}}</span>
-                <span class="text-muted" title="Current Bitcoin Address" data-ng-show="address == $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{vout.addr}}</span>
+                <span class="text-muted" title="Current RMG Address" data-ng-show="address == $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{vout.addr}}</span>
                 <a href="address/{{address}}" class="colorMetallicGold" data-ng-show="!vout.notAddr && address != $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
             </div>
 
@@ -94,6 +94,6 @@
       Amount
       <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
         </span>
-        <span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'BTC'}} </span>
+        <span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RMG'}} </span>
     </div>
 </div>

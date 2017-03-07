@@ -1,6 +1,6 @@
 {
   "name": "insight-ui",
-  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
+  "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the rmg network and build your own services with it.",
   "version": "0.4.0",
   "repository": "git://github.com/bitpay/insight-ui.git",
   "scripts": {
@@ -36,13 +36,15 @@
   "keywords": [
     "insight",
     "blockchain",
-    "blockexplorer",
-    "bitcoin",
+    "provaexplorer",
+    "rmg",
     "bitcore",
     "front-end"
   ],
   "bitcoreNode": "bitcore-node",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-banner": "0.6.0"
+  },
   "devDependencies": {
     "bower": "~1.2.8",
     "grunt": "~0.4.2",

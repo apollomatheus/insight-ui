@@ -11,6 +11,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-markdown');
   grunt.loadNpmTasks('grunt-macreload');
   grunt.loadNpmTasks('grunt-angular-gettext');
+  grunt.loadNpmTasks('grunt-banner');
 
   // Project Configuration
   grunt.initConfig({
@@ -126,6 +127,18 @@ module.exports = function(grunt) {
           'public/src/js/translations.js': ['po/*.po']
         }
       },
+    },
+    usebanner: {
+      banner: {
+        options: {
+          position: 'top',
+          banner: ['/* @gene','rated */'].join(''), // This will allow phabricator to hide the file during a diff
+          linebreak: true
+        },
+        files: {
+          src: ['public/js/main.min.js', 'public/css/main.min.css']
+        }
+      }
     }
   });
 
@@ -139,7 +152,7 @@ module.exports = function(grunt) {
   grunt.registerTask('translate', ['nggettext_extract']);
 
   //Compile task (concat + minify)
-  grunt.registerTask('compile', ['nggettext_compile', 'sass', 'concat', 'uglify', 'cssmin']);
+  grunt.registerTask('compile', ['nggettext_compile', 'sass', 'concat', 'uglify', 'cssmin', 'usebanner']);
 
 
 };

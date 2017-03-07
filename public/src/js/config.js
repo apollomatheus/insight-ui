@@ -5,11 +5,11 @@ angular.module('insight').config(function($routeProvider) {
   $routeProvider.
     when('/block/:blockHash', {
       templateUrl: 'views/block.html',
-      title: 'Bitcoin Block '
+      title: 'RMG Block '
     }).
     when('/tx/:txId/:v_type?/:v_index?', {
       templateUrl: 'views/transaction.html',
-      title: 'Bitcoin Transaction '
+      title: 'RMG Transaction '
     }).
     when('/', {
       templateUrl: 'views/index.html',
@@ -17,7 +17,7 @@ angular.module('insight').config(function($routeProvider) {
     }).
     when('/address/:addrStr', {
       templateUrl: 'views/address.html',
-      title: 'Bitcoin Address '
+      title: 'RMG Address '
     }).
     when('/about', {
       templateUrl: 'views/about.html',
