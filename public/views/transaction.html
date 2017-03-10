@@ -65,8 +65,8 @@
       <h2 class="colorMetallicGold" translate>Details</h2>
       <div ng-hide="tx.isAdminTransaction" data-ng-include src="'views/transaction/txDetail.html'"></div>
 
-      <div ng-show="isIssueThread()" data-ng-include src="'views/transaction/issuance/txDetail.html'"></div>
-      <div ng-show="isAddingOrRemovingKeys()" data-ng-include src="'views/transaction/addOrRemoveKeys/txDetail.html'"></div>
+      <div ng-show="tx.isAdminTransaction && isFundsOperation()" data-ng-include src="'views/transaction/issuance/txDetail.html'"></div>
+      <div ng-show="tx.isAdminTransaction && !isFundsOperation()" data-ng-include src="'views/transaction/addOrRemoveKeys/txDetail.html'"></div>
     </div>
     
   </div>

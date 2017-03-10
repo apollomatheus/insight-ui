@@ -11,14 +11,6 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       displayName: 'Issuance Transaction',
       type: 'issue_thread_transactions'
     },
-    'issue_rmg': {
-      displayName: 'Issue RMG',
-      type: 'issue_rmg'
-    },
-    'destroy_rmg': {
-      displayName: 'Destroy RMG',
-      type: 'destroy_rmg'
-    },
 
     'provision_transactions': {
       displayName: 'Provision Transactions',
@@ -30,13 +22,49 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       type: 'root_thread'
     },
 
+    'issue_rmg': {
+      displayName: 'Issue RMG',
+      type: 'issue_rmg'
+    },
+    'destroy_rmg': {
+      displayName: 'Destroy RMG',
+      type: 'destroy_rmg'
+    },
+
     'issue_key_add': {
-      displayName: 'Add RMG Issuance Ke',
+      displayName: 'Add RMG Issuance Key',
       type: 'issue_key_add'
     },
     'issue_key_revoke': {
-      displayName: 'Revoke RMG Issuance Ke',
+      displayName: 'Revoke RMG Issuance Key',
       type: 'issue_key_revoke'
+    },
+
+    'provision_key_add': {
+      displayName: 'Issue Provisioning Key',
+      type: 'provision_key_add'
+    },
+    'provision_key_revoke': {
+      displayName: 'Revoke Provisioning Key',
+      type: 'provision_key_revoke'
+    },
+
+    'validate_key_add': {
+      displayName: 'Add validators',
+      type: 'validate_key_add'
+    },
+    'validate_key_revoke': {
+      displayName: 'Remove validators',
+      type: 'validate_key_revoke'
+    },
+
+    'asp_key_add': {
+      displayName: 'Add Account Providers',
+      type: 'asp_key_add'
+    },
+    'asp_key_revoke': {
+      displayName: 'Remove Account Providers',
+      type: 'asp_key_revoke'
     }
   };
 
@@ -167,7 +195,7 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     });
   };
 
-  $scope.isIssueThread = function() {
+  $scope.isFundsOperation = function() {
     return  $scope.tx.adminInfo.type === $scope.adminInfo.issue_rmg.type ||
         $scope.tx.adminInfo.type === $scope.adminInfo.destroy_rmg.type;
   };
