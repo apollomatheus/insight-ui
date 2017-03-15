@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.transactions').controller('transactionsController',
-function($scope, $rootScope, $routeParams, $location, Global, Transaction, TransactionsByBlock, TransactionsByAddress) {
+function($scope, $rootScope, $routeParams, $location, Global, Transaction, TransactionsByBlock, TransactionsByAddress, NotifyService) {
   $scope.global = Global;
   $scope.loading = false;
   $scope.loadedBy = null;
@@ -176,19 +176,19 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
       txId: txid
     }, function(tx) {
       $rootScope.titleDetail = tx.txid.substring(0,7) + '...';
-      $rootScope.flashMessage = null;
+
       $scope.tx = tx;
       _processTX(tx);
       $scope.txs.unshift(tx);
     }, function(e) {
       if (e.status === 400) {
-        $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
+        NotifyService.error('Invalid Transaction ID: ' + $routeParams.txId);
       }
       else if (e.status === 503) {
-        $rootScope.flashMessage = 'Backend Error. ' + e.data;
+        NotifyService.error('Backend Error. ' + e.data);
       }
       else {
-        $rootScope.flashMessage = 'Transaction Not Found';
+        NotifyService.error('Transaction Not Found');
       }
 
       $location.path('/');
@@ -301,6 +301,10 @@ angular.module('insight.transactions').controller('DecodeRawTransactionControlle
 
   $scope.formValid = function() {
     return !!$scope.transaction;
+  };
+
+  $scope.clean = function() {
+    $scope.decodedTx = null;
   };
   $scope.decode = function() {
     var postData = {

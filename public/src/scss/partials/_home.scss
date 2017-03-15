@@ -59,13 +59,15 @@
     height: 100%;
     padding-top: 17px;
     margin-left: 34px;
-    border-right: 1px solid $White;
     a {
       margin-right: 18px;
     }
   }
   .footer-container {
     height: 100%;
+  }
+  .separator {
+    border-right: 1px solid $White;
   }
 }
 
@@ -86,7 +88,6 @@
 #footer .links a {
   color: $White;
   font-size: 16px;
-  font-family: 'Helvetica Neue', sans-serif;
   span {
     color: $White;
   }
@@ -100,4 +101,14 @@
 #footer .links a:hover {
   text-decoration: none;
   color: #fffffe;
+}
+
+.tesnet-banner {
+  background-color: $Blue;
+  color: $White;
+  font-size: 14px;
+  text-align: center;
+  line-height: 32px;
+  height: 32px;
+  width: 100%;
 }

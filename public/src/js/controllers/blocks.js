@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.blocks').controller('BlocksController',
-  function($scope, $rootScope, $routeParams, $location, Global, Block, Blocks, BlockByHeight) {
+  function($scope, $rootScope, $routeParams, $location, Global, Block, Blocks, BlockByHeight, NotifyService) {
   $scope.global = Global;
   $scope.loading = false;
   
@@ -15,7 +15,7 @@ angular.module('insight.blocks').controller('BlocksController',
     }, function(hash) {
       $location.path('/block/' + hash.blockHash);
     }, function() {
-      $rootScope.flashMessage = 'Bad Request';
+      NotifyService.error('Bad Request');
       $location.path('/');
     });
   }
@@ -87,13 +87,13 @@ angular.module('insight.blocks').controller('BlocksController',
       $scope.block = block;
     }, function(e) {
       if (e.status === 400) {
-        $rootScope.flashMessage = 'Invalid Transaction ID: ' + $routeParams.txId;
+        NotifyService.error('Invalid Transaction ID: ' + $routeParams.txId);
       }
       else if (e.status === 503) {
-        $rootScope.flashMessage = 'Backend Error. ' + e.data;
+        NotifyService.error('Backend Error. ' + e.data);
       }
       else {
-        $rootScope.flashMessage = 'Block Not Found';
+        NotifyService.error('Block Not Found');
       }
       $location.path('/');
     });

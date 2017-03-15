@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.system').controller('ScannerController',
-  function($scope, $rootScope, $modalInstance, Global) {
+  function($scope, $rootScope, $modalInstance, Global, NotifyService) {
     $scope.global = Global;
 
     // Detect mobile devices
@@ -94,18 +94,29 @@ angular.module('insight.system').controller('ScannerController',
       setTimeout(_scan, 1000);
     };
 
+    var _stopTracks = function() {
+
+      if(localMediaStream && localMediaStream.getTracks) {
+        localMediaStream.getTracks()[0].stop();
+      }
+
+      if (localMediaStream && localMediaStream.stop){
+        localMediaStream.stop();
+      }
+    };
+
     var _scanStop = function() {
       $scope.scannerLoading = false;
       $modalInstance.close();
       if (!$scope.isMobile) {
-        if (localMediaStream.stop) localMediaStream.stop();
+        _stopTracks();
         localMediaStream = null;
         video.src = '';
       }
     };
 
     var _videoError = function(err) {
-      console.log('Video Error: ' + JSON.stringify(err));
+      NotifyService.info('Camera feature no longer works on insecure origins. To use this feature, you should consider switching your application to a secure origin, such as HTTPS.');
       _scanStop();
     };
 
@@ -126,7 +137,7 @@ angular.module('insight.system').controller('ScannerController',
 
     $modalInstance.opened.then(function() {
       $rootScope.isCollapsed = true;
-      
+
       // Start the scanner
       setTimeout(function() {
         canvas = document.getElementById('qr-canvas');
@@ -142,7 +153,7 @@ angular.module('insight.system').controller('ScannerController',
           canvas.height = 225;
           context.clearRect(0, 0, 300, 225);
 
-          navigator.getUserMedia({video: true}, _successCallback, _videoError); 
+          navigator.getUserMedia({video: true}, _successCallback, _videoError);
         }
       }, 500);
     });

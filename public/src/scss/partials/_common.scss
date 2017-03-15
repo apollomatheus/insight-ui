@@ -18,12 +18,12 @@ body {
 a {
   outline: none;
   text-decoration: none;
-  &:hover {
+  &:hover, &:focus {
     text-decoration: none;
     color: $AgedGold;
   }
-}
 
+}
 
 hr {
     display: block;
@@ -32,6 +32,10 @@ hr {
     border-top: 1px solid $MetallicGold;
     margin: 0;
     padding: 0; 
+}
+
+.btn {
+  outline: none !important; /* Override bootstrap rule */
 }
 
 .max-width1200 {
@@ -96,7 +100,7 @@ hr {
 }
 /* Styling for the ngProgress itself */
 #ngProgress {
-  background-color: $MetallicGold !important;
+  background-color: $White !important;
   box-shadow: none !important;
   color: #373D42 !important;
   height: 3px !important;
@@ -121,7 +125,7 @@ hr {
   position: fixed;
   margin: 0;
   padding: 0;
-  top: 63px;
+  top: 0px;
   left: 0;
   right: 0;
   z-index: 99999;
@@ -300,6 +304,10 @@ th, tr {
   background-color: $AgedGold75;
   border: 1px solid $AgedGold;
   color: $White;
+  &:hover {
+    background-color: $White;
+    color: $MetallicGold;
+  }
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active,
@@ -405,7 +413,6 @@ th, tr {
 #wrap > .container { 
   margin: 0px;
   width: 100%;
-  padding-top: 64px;
 }
 
 #footer > .container { padding: auto 15px; }
@@ -800,4 +807,10 @@ a.v_highlight_more {
   color: $MetallicGold;
   margin-right: 10px;
   margin-top: 4px;
+}
+
+input {
+  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #555860;
 }

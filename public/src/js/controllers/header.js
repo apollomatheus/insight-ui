@@ -1,22 +1,18 @@
 'use strict';
 
 angular.module('insight.system').controller('HeaderController',
-  function($scope, $rootScope, $modal, getSocket, Global, Block) {
+  function($scope, $rootScope, $modal, getSocket, Global, Block, $location) {
     $scope.global = Global;
+
+    $scope.isActive = function(route) {
+      return $location.path().indexOf(route) >= 0;
+    };
 
     $rootScope.currency = {
       factor: 1,
       bitstamp: 0,
       symbol: 'RMG'
     };
-
-    $scope.menu = [{
-      'title': 'About',
-      'link': 'about'
-    }, {
-      'title': 'Tools',
-      'link': 'tools'
-    }];
 
     $scope.openScannerModal = function() {
       var modalInstance = $modal.open({

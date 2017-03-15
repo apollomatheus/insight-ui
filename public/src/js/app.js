@@ -21,11 +21,13 @@ angular.module('insight',[
   'insight.address',
   'insight.search',
   'insight.status',
+  'insight.notify',
   'insight.connection',
   'insight.currency',
   'insight.messages',
   'insight.network',
   'insight.validators'
+
 ]);
 
 angular.module('insight.system', []);
@@ -40,4 +42,5 @@ angular.module('insight.currency', []);
 angular.module('insight.messages', []);
 angular.module('insight.network', []);
 angular.module('insight.validators', []);
+angular.module('insight.notify', []);
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.address').controller('AddressController',
-  function($scope, $rootScope, $routeParams, $location, Address, getSocket) {
+  function($scope, $rootScope, $routeParams, $location, Address, getSocket, NotifyService) {
 
     var socket = getSocket($scope);
     var addrStr = $routeParams.addrStr;
@@ -41,16 +41,15 @@ angular.module('insight.address').controller('AddressController',
         },
         function(address) {
           $rootScope.titleDetail = address.addrStr.substring(0, 7) + '...';
-          $rootScope.flashMessage = null;
           $scope.address = address;
         },
         function(e) {
           if (e.status === 400) {
-            $rootScope.flashMessage = 'Invalid Address: ' + $routeParams.addrStr;
+            NotifyService.error('Invalid Address: ' + $routeParams.addrStr);
           } else if (e.status === 503) {
-            $rootScope.flashMessage = 'Backend Error. ' + e.data;
+            NotifyService.error('Backend Error. ' + e.data);
           } else {
-            $rootScope.flashMessage = 'Address Not Found';
+            NotifyService.error('Address Not Found');
           }
           $location.path('/');
         });

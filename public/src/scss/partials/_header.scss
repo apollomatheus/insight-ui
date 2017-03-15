@@ -8,7 +8,10 @@ header {
   outline: 0 none;
 }
 
-.navbar { min-height: 64px; }
+.navbar {
+  min-height: 64px;
+  border-radius: 0px;
+}
 .navbar-default .navbar-toggle { 
   border-color: #fff;
   margin-top: 15px;
@@ -23,24 +26,39 @@ header {
   border: 0;
 }
 
-.navbar-default .navbar-nav>li>a {
-  padding-left: 20px;
-  padding-right: 20px;
-  color: $White;
+.navbar-right-separator {
   border-right: 1px solid $White;
 }
 
-.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus {
-  background-color: $MetallicGold;
-  color: #fff;
-  .caret {
+.navbar-default .navbar-nav>li {
+
+  >a { padding-left: 20px;
+    padding-right: 20px;
+    color: $White;
+  }
+
+  /* Selected element */
+  &.active>a, &.active>a:focus {
+    background-color: $White;
     color: $MetallicGold;
   }
+
+  &:hover {
+    background-color: $White;
+    color: $MetallicGold;
+  }
+
+  //&:nth-child(2n):hover {
+  //  border-left:  1px solid $MetallicGold;
+  //  border-right: 1px solid $MetallicGold;
+  //}
 }
 
+/* Nav bar hoover */
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover {
   background-color: #fff;
   color: $MetallicGold;
+
   .caret {
     color: $MetallicGold;
   }
@@ -154,17 +172,14 @@ header {
 
   #search {
     color: $MetallicGold;
-    font-family: 'AvenirNext-Medium', sans-serif;
     font-size: 16px;
     @include border-radius(4px 0px 0px 4px);
     &::-webkit-input-placeholder {
       color: $NeroSolid25;
-      font-family: 'AvenirNext-Medium', sans-serif;
       font-size: 16px;
     }
     &::-moz-placeholder {
       color: $MetallicGold;
-      font-family: 'AvenirNext-Medium', sans-serif;
       font-size: 16px;
     }
   }
@@ -204,3 +219,4 @@ header {
 .selected-network {
   min-width: 155px;
 }
+

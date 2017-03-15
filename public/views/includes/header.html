@@ -13,13 +13,20 @@
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
-        <li data-ng-repeat="item in menu" ui-route="{{item.link}}" data-ng-class="{active: $uiRoute}">
-          <a class="subtitle-1" href="{{item.link}}">{{item.title|translate}}</a>
+
+        <li ui-route="about" class="navbar-right-separator" data-ng-class="{ 'active': isActive('about') }">
+          <a class="subtitle-1" href="about">About</a>
         </li>
+
+        <li ui-route="tools" class="navbar-right-separator" data-ng-class="{ 'active': isActive('tools') }">
+          <a class="subtitle-1" href="tools">Tools</a>
+        </li>
+
         <li>
           <a data-ng-click="openScannerModal()" class="subtitle-1"><span class="glyphicon glyphicon-qrcode"></span> Scan</a>
         </li>
-        <li class="dropdown" data-ng-controller="NetworkController" data-ng-include="'views/includes/network.html'"></li>
+
+        <li class="dropdown" data-ng-controller="NetworkController" data-ng-if="false" data-ng-include="'views/includes/network.html'"></li>
       </ul>
 
       <span class="hidden-xs navbar-form navbar-right" data-ng-include src="'views/includes/search.html'"></span>
