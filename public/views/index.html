@@ -18,10 +18,10 @@
               <span class="dollar">$</span><h1>45.43 <span class="subtitle-3 green">(1.12%)</span></h1>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 supply">
-              Total Supply: <span class="float-right">210,303.00 RMG</span>
+              Total Supply: <span class="float-right">{{ $root.currency.getConvertion(totalSuply)  }} </span>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 nodes">
-              Validating Nodes: <span class="float-right">85</span>
+              Validating Nodes: <span class="float-right"> {{ validatingNodes }}</span>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 transactions">
               Transactions: <span class="float-right">28734742</span>

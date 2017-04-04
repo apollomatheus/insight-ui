@@ -4,7 +4,15 @@ var TRANSACTION_DISPLAYED = 10;
 var BLOCKS_DISPLAYED = 5;
 
 angular.module('insight.system').controller('IndexController',
-  function($scope, $location, Global, getSocket, Blocks) {
+  function($scope, $location, Global, getSocket, Blocks, AdminInfo) {
+
+    $scope.totalSuply = null;
+    $scope.validatingNodes = null;
+    AdminInfo.get({}, function(data){
+      $scope.totalSuply = data.totalsupply;
+      $scope.validatingNodes = data.validatekeys.length;
+    });
+
     $scope.global = Global;
     
     $scope.goTo = function(path){
