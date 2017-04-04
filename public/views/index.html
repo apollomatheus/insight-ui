@@ -18,9 +18,10 @@
               <span class="dollar">$</span><h1>45.43 <span class="subtitle-3 green">(1.12%)</span></h1>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 supply">
-              Total Supply: <span class="float-right">{{ $root.currency.getConvertion(totalSuply)  }} </span>
+              Total Supply: <span class="float-right">{{ totalSupply / 1e8  }} RMG</span>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 nodes">
+
               Validating Nodes: <span class="float-right"> {{ validatingNodes }}</span>
             </div>
             <div class="col-xs-12 float-left  subtitle-1 transactions">
@@ -61,7 +62,7 @@
             <td><span class="ellipsis">{{humanSince(block.time)}}</span></td>
             <td class="text-right">{{block.txlength}}</td>
             <td class="text-right hidden-xs">
-              <span class="float-right"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}" class="colorMetallicGold">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
+              <span class="float-right"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
             </td>
           </tr>
           </tbody>

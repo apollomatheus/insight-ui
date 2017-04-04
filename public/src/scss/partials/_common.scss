@@ -18,11 +18,19 @@ body {
 a {
   outline: none;
   text-decoration: none;
+  color: $blue-dark;
   &:hover, &:focus {
     text-decoration: none;
-    color: $AgedGold;
+    color: $blue-very-dark;
+
   }
 
+  .white {
+    color: $White;
+    &.hover{
+      color: $AgedGold;
+    }
+  }
 }
 
 hr {

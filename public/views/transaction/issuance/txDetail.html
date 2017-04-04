@@ -1,6 +1,6 @@
 <div class="row txMined subtitle-1" data-ng-hide="!tx">
     <div class="col-xs-7 col-md-8">
-        <a href="tx/{{tx.txid}}" class="colorMetallicGold">{{tx.txid}}</a>
+        <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
     </div>
     <div class="col-xs-5 col-md-4 text-right text-muted">
         <div data-ng-show="tx.firstSeenTs">
@@ -26,7 +26,7 @@
 
             <div class="ellipsis">
                 <span data-ng-show="vout.notAddr">{{vout.addr}}</span>
-                <a href="address/{{address}}" class="colorMetallicGold" data-ng-show="!vout.notAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
+                <a href="address/{{address}}" data-ng-show="!vout.notAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
             </div>
 
         </div>

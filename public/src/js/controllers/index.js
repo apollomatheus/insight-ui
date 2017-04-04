@@ -6,10 +6,10 @@ var BLOCKS_DISPLAYED = 5;
 angular.module('insight.system').controller('IndexController',
   function($scope, $location, Global, getSocket, Blocks, AdminInfo) {
 
-    $scope.totalSuply = null;
+    $scope.totalSupply = null;
     $scope.validatingNodes = null;
     AdminInfo.get({}, function(data){
-      $scope.totalSuply = data.totalsupply;
+      $scope.totalSupply = data.totalsupply;
       $scope.validatingNodes = data.validatekeys.length;
     });
 

@@ -3,7 +3,7 @@
     <tr data-ng-show="!txs[0].txid && !loading"><td colspan="2" class="waiting" translate>There are no transactions involving this address..</td></tr>
     <tr class="fader pointer" data-ng-repeat="tx in txs" data-ng-click="goTo('tx/' + tx.txid)">
       <td>
-        <span class="colorMetallicGold">{{tx.txid}}</span>
+        <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
       </td>
       <td class="text-right"><span class="ellipsis">{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG'}}</span></td>
     </tr>
