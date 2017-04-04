@@ -65,6 +65,12 @@
   }
   .footer-container {
     height: 100%;
+
+    .insight {
+      img {
+        width: 58px;
+      }
+    }
   }
   .separator {
     border-right: 1px solid $White;
