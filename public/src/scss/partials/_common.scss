@@ -18,10 +18,10 @@ body {
 a {
   outline: none;
   text-decoration: none;
-  color: $blue-dark;
+  color: $LogoGold;
   &:hover, &:focus {
     text-decoration: none;
-    color: $blue-very-dark;
+    color: $LogoGoldLighter;
 
   }
 
@@ -821,4 +821,8 @@ input {
   font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   color: #555860;
+}
+
+.text-muted {
+  color: $AgedGold;
 }
