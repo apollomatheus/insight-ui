@@ -94,6 +94,6 @@
       Amount
       <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
         </span>
-        <span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RMG'}} </span>
+        <!--<span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RMG'}} </span>-->
     </div>
 </div>
