@@ -32,38 +32,38 @@ function($scope, $rootScope, $routeParams, $location, Global, Transaction, Trans
     },
 
     'issue_key_add': {
-      displayName: 'Add RMG Issuance Key',
+      displayName: 'Add Issuer Key',
       type: 'issue_key_add'
     },
     'issue_key_revoke': {
-      displayName: 'Revoke RMG Issuance Key',
+      displayName: 'Revoke Issuer key',
       type: 'issue_key_revoke'
     },
 
     'provision_key_add': {
-      displayName: 'Issue Provisioning Key',
+      displayName: 'Add Provisioner Key',
       type: 'provision_key_add'
     },
     'provision_key_revoke': {
-      displayName: 'Revoke Provisioning Key',
+      displayName: 'Revoke Provisioner Key',
       type: 'provision_key_revoke'
     },
 
     'validate_key_add': {
-      displayName: 'Add validators',
+      displayName: 'Add Validator Key',
       type: 'validate_key_add'
     },
     'validate_key_revoke': {
-      displayName: 'Remove validators',
+      displayName: 'Revoke Validator Key',
       type: 'validate_key_revoke'
     },
 
     'asp_key_add': {
-      displayName: 'Add Account Providers',
+      displayName: 'Add ASP Key',
       type: 'asp_key_add'
     },
     'asp_key_revoke': {
-      displayName: 'Remove Account Providers',
+      displayName: 'Revoke ASP Key',
       type: 'asp_key_revoke'
     }
   };
