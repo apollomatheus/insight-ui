@@ -3,17 +3,12 @@
         <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
     </div>
     <div class="col-xs-5 col-md-4 text-right text-muted">
-        <div data-ng-show="tx.firstSeenTs">
-            <span translate>first seen at</span>
-            <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
-        </div>
-        <div data-ng-show="tx.blocktime && !tx.firstSeenTs">
+        <div data-ng-show="tx.time">
             <span translate>validated</span>
             <time>{{tx.time * 1000 | date:'medium'}}</time>
         </div>
     </div>
 </div>
-
 
 <div class="row" data-ng-hide="!tx" data-ng-init="currentInNoExpanded=0; sizeInNoExpanded=5">
     <div class="col-md-5">
