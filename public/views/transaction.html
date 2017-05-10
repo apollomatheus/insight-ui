@@ -9,6 +9,19 @@
     <div class="detail-header">
       <h2 class="colorMetallicGold" data-ng-if="!tx.isAdminTransaction"><strong>RMG</strong> Transaction</h2>
       <h2 class="colorMetallicGold" data-ng-if="tx.isAdminTransaction"><strong>Administrative</strong> Transaction</h2>
+
+      <div class="col-xs-2 block-nav no-padding float-right" data-ng-if="tx.isAdminTransaction">
+        <div class="float-right">
+          <a type="submit"
+             class="btn btn-gold"
+             data-ng-show="tx.vin.length === 1 && tx.vin[0].txid"
+             data-ng-href="tx/{{tx.vin[0].txid}}">
+              <i class="fa fa-arrow-circle-left" aria-hidden="true"></i><span> Prev</span>
+          </a>
+        </div>
+
+      </div>
+
       <hr />
     </div>
 
