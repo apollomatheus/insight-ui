@@ -1,5 +1,6 @@
-header {
-  max-width: 1200px;
+  header {
+
+  max-width:1200px;
 }
 
 .form-control:focus {
@@ -21,46 +22,42 @@ header {
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {background-color: #373D42;}
 
 .navbar-default {
-  background-color: $MetallicGold;
+  background-color: $White;
   margin: 0;
   border: 0;
 }
 
 .navbar-right-separator {
-  border-right: 1px solid $White;
+  border: 0px solid $White;
 }
 
 .navbar-default .navbar-nav>li {
 
-  >a { padding-left: 20px;
-    padding-right: 20px;
-    color: $White;
+ >a {padding: 25px 20px 22px 20px;
+ margin-bottom: -5px;
+    color: $Gold;
   }
 
   /* Selected element */
   &.active>a, &.active>a:focus {
-    background-color: $White;
-    color: $MetallicGold;
+    background-color: $Pearl;
+    color: $Gold;
   }
 
   &:hover {
     background-color: $White;
-    color: $MetallicGold;
+    color: $Gold;
   }
-
-  //&:nth-child(2n):hover {
-  //  border-left:  1px solid $MetallicGold;
-  //  border-right: 1px solid $MetallicGold;
-  //}
 }
 
 /* Nav bar hoover */
 .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover {
-  background-color: #fff;
-  color: $MetallicGold;
+  background-color: $Pearl;
+  color: $Gold;
+  height: 67px;
 
   .caret {
-    color: $MetallicGold;
+    color: $Gold;
   }
 }
 
@@ -78,7 +75,7 @@ header {
 
 .insight {
   img {
-    width: 80px;
+    width: 200px;
   }
 }
 
@@ -93,7 +90,7 @@ header {
 
 .navbar-form .form-control {
   background-color: $White;
-  color: $MetallicGold;
+  color: $RoyalPurple;
   border: 0;
   @include border-radius(4px);
 }
@@ -106,12 +103,12 @@ header {
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus {
   color: $White !important;
-  background-color: $MetallicGold;
+  background-color: $RoyalPurple;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
   color: $White;
-  background-color: $MetallicGold;
+  background-color: $RoyalPurple;
   .caret {
     color: $White;
   }
@@ -137,50 +134,52 @@ header {
 
 .navbar-default .dropdown-menu {
   min-width: 144px;
-  border-right: 1px solid $MetallicGold;
-  border-left: 1px solid $MetallicGold;
-  border-bottom: 1px solid $MetallicGold;
+  border-right: 1px solid $RoyalPurple;
+  border-left: 1px solid $RoyalPurple;
+  border-bottom: 1px solid $RoyalPurple;
   border-top: 1px solid $White;
   background-color: $White;
-  color: $MetallicGold;
+  color: $RoyalPurple;
   left: -1px;
-  box-shadow: 3px 3px 3px $MetallicGoldSolid25;
+  box-shadow: 3px 3px 3px $RoyalPurple;
   li {
     height: 64px;
     a {
-      color: $MetallicGold;
+      color: $RoyalPurple;
       padding: 23px 20px;
       &:hover, &:focus {
-        background-color: $MetallicGoldSolid25;
+        background-color: $RoyalPurple;
       }
     }
   }
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu>li>a {
-  color: $MetallicGold;
+  color: $Gold;
 }
 /* Network selector opened/focussed*/
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
   border: none;
-  border-right: 1px solid $White;
+  border-right: 1px solid $Gold;
 }
 
 #search-form { 
-  color: $MetallicGold;
-  margin-right: 49px;
+  color: $RoyalPurple;
+  margin-right: -30px;
 
   #search {
-    color: $MetallicGold;
+    color: $Gold;
     font-size: 16px;
+    border: 1px solid $Gold;
+    border-right: 0px;
     @include border-radius(4px 0px 0px 4px);
-    &::-webkit-input-placeholder {
-      color: $NeroSolid25;
-      font-size: 16px;
+       &::-webkit-input-placeholder {
+      color: $Sand;
     }
     &::-moz-placeholder {
-      color: $MetallicGold;
-      font-size: 16px;
+      color: $Sand;
+
+
     }
   }
   
@@ -189,15 +188,18 @@ header {
   }
 
   .search-btn {
+  color: $Gold;
     height: 34px;
     width: 34px;
-    border: 1px solid $White;
+    border: 1px solid $Gold;
     margin-left: -5px;
-    background-color: $MetallicGold;
+    background-color: $Gold25;
     @include border-radius(0px 4px 4px 0px);
 
     &:hover {
-      background-color: $OldGold;
+      background-color: $Gold;
+      color: $White;
+      border: 1px solid $Gold;
     }
     i {
       margin: -5px;
@@ -205,14 +207,13 @@ header {
   }
 }
 
+
 .no_matching {
   margin-left: -1px;
   position: absolute;
   text-align: left;
-  border-left: 1px solid $MetallicGold !important;
-  border-right: 1px solid $MetallicGold !important;
-  border-bottom: 1px solid $MetallicGold !important;
-  color: #a94442 !important;
+  border: 1px solid $Gold50 !important;
+  color: $WarmRed !important;
   top: 51px;
 }
 

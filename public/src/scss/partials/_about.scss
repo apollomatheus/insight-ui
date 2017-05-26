@@ -1,6 +1,14 @@
 .about-page {
 
-  color: rgba(27,27,27,.75);
+  color: $Black;
+
+  .icons {
+  width: 90px;
+  height: 100%;
+  display:block;
+  }
+  
+
 
   .square {
     height: 164px;
@@ -11,7 +19,7 @@
   }
 
   .square2 {
-    border: 1px solid $MetallicGold;
+    border: 1px solid $RoyalPurple;
     height: 60px;
     width: 220px;
     display: inline-block;

@@ -5,7 +5,7 @@
 
 html,
 body {
-  color: $Nero;
+  color: $Black;
   height: 100%;
 }
 
@@ -18,10 +18,10 @@ body {
 a {
   outline: none;
   text-decoration: none;
-  color: $LogoGold;
+  color: $Gold;
   &:hover, &:focus {
     text-decoration: none;
-    color: $LogoGoldLighter;
+    color: $Gold75;
 
   }
 
@@ -37,22 +37,23 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid $MetallicGold;
-    margin: 0;
+    border-top: 1px solid $RoyalPurple;
+    margin: 0px 0px 10px 0px;
     padding: 0; 
 }
+
 
 .btn {
   outline: none !important; /* Override bootstrap rule */
 }
 
-.max-width1200 {
-  max-width: 1200px;
+.max-width1000 {
+  max-width: 1000px;
   margin-left: auto !important;
   margin-right: auto !important;
 }
 .aztek-container {
-  margin: 62px 32px 0px 32px;
+  margin: 36px 32px 0px 32px;
 }
 
 .detail-header, .detail-summary {
@@ -99,7 +100,7 @@ hr {
     background: $Nero05;
     margin: 0px 2px;
     padding: 14px 0px;
-    border-top: 1px solid $MetallicGold;
+    border-top: 1px solid $RoyalPurple;
 }
 
 .addressQR {
@@ -108,20 +109,20 @@ hr {
 }
 /* Styling for the ngProgress itself */
 #ngProgress {
-  background-color: $White !important;
+  background-color: $RoyalPurple !important;
   box-shadow: none !important;
   color: #373D42 !important;
   height: 3px !important;
   margin: 0;
   opacity: 0;
-  padding: 0;
+  padding: 0px;
   z-index: 99998;
 
   /* Add CSS3 styles for transition smoothing */
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 .th-72 {
@@ -169,14 +170,22 @@ hr {
   padding: 0 0 75px;
 }
 
-
+.colorwrap {
+  min-height: 100%;
+  height: 100%;
+  background-color:$Pearl;
+  /* Negative indent footer by its height */
+  margin: 0 auto -51px;
+  /* Pad bottom by footer height */
+  padding: 0 0 75px;
+}
 
 .bgwhite {
   background-color: white;
 }
 
 .bgSunglow10 {
-  background-color: $MetallicGold10;
+  background-color: $Pearl;
 }
 
 .btn-group .btn+.btn, .btn-group .btn+.btn-group, .btn-group .btn-group+.btn, .btn-group .btn-group+.btn-group {
@@ -184,7 +193,7 @@ margin-left: 0;
 }
 
 .table {
-  border-top: 1px solid $MetallicGold;
+  border-top: 1px solid $RoyalPurple;
   margin-top: 16px;
 }
 
@@ -201,16 +210,16 @@ th, tr {
   vertical-align: inherit;
 }
 .table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {
-   background-color: $MetallicGold10;
+   background-color: $Pearl50;
 }
 .table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
    background-color: $White;
    &.waiting {
-     background-color: $MetallicGold10;
+     background-color: $Pearl50;
    }
 }
 .table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
-  background-color: $MetallicGold25;
+  background-color: $Gold25;
 }
 
 .row {
@@ -304,17 +313,18 @@ th, tr {
   border-radius: 2px;
 }
 .btn-primary {
-  background-color: #8DC429;
-  border: 2px solid #76AF0F;
+  background-color: $White;
+  border: 2px solid $Gold;
+  color: $Gold
 }
 
 .btn-gold {
-  background-color: $AgedGold75;
-  border: 1px solid $AgedGold;
-  color: $White;
+  background-color: $Pearl;
+  border: 1px solid $Gold;
+  color: $Gold;
   &:hover {
-    background-color: $White;
-    color: $MetallicGold;
+    background-color: $Gold;
+    color: $White;
   }
 }
 
@@ -396,7 +406,7 @@ th, tr {
 
 
 .line-bot {
-  border-bottom: 1px solid $MetallicGold;
+  border-bottom: 1px solid $RoyalPurple;
   padding: 0 0 10px 0;
   
   &.green {
@@ -410,7 +420,7 @@ th, tr {
 
 .line-mid { padding: 15px;}
 .line-top {
-  border-top: 1px solid $MetallicGold;
+  border-top: 1px solid $RoyalPurple;
   padding: 15px 0 0 0;
 }
 
@@ -812,17 +822,17 @@ a.v_highlight_more {
 
 .td-loading-icon {
   float: right;
-  color: $MetallicGold;
+  color: $RoyalPurple;
   margin-right: 10px;
   margin-top: 4px;
 }
 
 input {
-  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 13px;
+  font-family: 'Corpid-Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
   color: #555860;
 }
 
 .text-muted {
-  color: $AgedGold;
-}
+  color: $Sand;
+  }

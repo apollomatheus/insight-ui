@@ -135,7 +135,7 @@ angular.module('insight.system').controller('IndexController',
            return [{
                    values: cos,
                    key: 'Price',
-                   color: '#D4AF37' // $$MetallicGold
+                   color: '#D4AF37' // $$RoyalPurple
                }];
        };
        

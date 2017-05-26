@@ -1,6 +1,6 @@
-<header class="container">
+<header class="container max-width1000">
   <div data-ng-controller="HeaderController">
-    <div class="navbar-header">
+    <div class="navbar-header max-width1000">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-click="$root.isCollapsed = !$root.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -8,28 +8,28 @@
         <span class="icon-bar"></span>
       </button>
       <a class="insight navbar-brand" href=".">
-        <img src="img/RMG_Logo.png" alt="RMG Logo"/>
+        <img src="img/RMG_Logo.png" alt="Royal Mint Gold - The New Gold Standard"/>
       </a>
     </div>
     <div class="navbar-collapse collapse" collapse="$root.isCollapsed">
       <ul class="nav navbar-nav">
 
         <li ui-route="about" class="navbar-right-separator" data-ng-class="{ 'active': isActive('about') }">
-          <a class="subtitle-1" href="about">About</a>
+          <a class="subtitle-2" href="about">About</a>
         </li>
 
         <li ui-route="tools" class="navbar-right-separator" data-ng-class="{ 'active': isActive('tools') }">
-          <a class="subtitle-1" href="tools">Tools</a>
+          <a class="subtitle-2" href="tools">Tools</a>
         </li>
 
         <li>
-          <a data-ng-click="openScannerModal()" class="subtitle-1"><span class="glyphicon glyphicon-qrcode"></span> Scan</a>
+          <a data-ng-click="openScannerModal()" class="subtitle-2"><span class="glyphicon glyphicon-qrcode"></span> Scan</a>
         </li>
 
         <li class="dropdown" data-ng-controller="NetworkController" data-ng-if="false" data-ng-include="'views/includes/network.html'"></li>
       </ul>
 
-      <span class="hidden-xs navbar-form navbar-right" data-ng-include src="'views/includes/search.html'"></span>
+      <span class="hidden-xs navbar-form navbar-right float-right" data-ng-include src="'views/includes/search.html'"></span>
       <!-- Just initialize the controller -->
       <span data-ng-controller="CurrencyController"></span>
     </div>

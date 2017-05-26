@@ -1,10 +1,11 @@
 
 #homeInfo {
-  background-color: $MetallicGold10;
-  min-height: 400px;
+  background-color: $Pearl;
+  min-height: 240px;
+  line-height: 36px;
   margin-bottom: 40px;
-  padding-right: 31px;
-  display: flex;
+  padding-right: 0px;
+  padding-top: 0px;
   align-items: center;
 }
 
@@ -51,7 +52,7 @@
 
 /* Set the fixed height of the footer here */
 #footer {
-  background-color: $NeroSolid25;
+  background-color: $RoyalPurple;
   color: #fff;
   height: 51px;
   overflow: hidden;
@@ -62,13 +63,14 @@
     a {
       margin-right: 18px;
     }
+
   }
   .footer-container {
     height: 100%;
 
     .insight {
       img {
-        width: 58px;
+        width: 220px;
       }
     }
   }
@@ -92,6 +94,7 @@
 .line-footer { border-top: 2px dashed #ccc; }
 
 #footer .links a {
+
   color: $White;
   font-size: 16px;
   span {
@@ -101,20 +104,24 @@
 
 #footer .links a.selected {
   color: #eee;
-  font-weight: bold;
+
 }
 
 #footer .links a:hover {
   text-decoration: none;
-  color: #fffffe;
+  >span {
+    color: $White50;
+  }
 }
 
 .tesnet-banner {
-  background-color: $Blue;
+  background-color: $Yellow;
   color: $White;
-  font-size: 14px;
+  font-size: 16px;
+  font-family: Corpid;
   text-align: center;
   line-height: 32px;
   height: 32px;
   width: 100%;
+  margin-top: -10px;
 }

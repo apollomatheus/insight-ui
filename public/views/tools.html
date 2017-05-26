@@ -1,9 +1,9 @@
 <div data-ng-include src="'views/includes/connection.html'"></div>
-<section class="aztek-container max-width1200">
+<section class="aztek-container max-width1000">
   
-  <div class="detail-header m48t">
-    <h2 class="colorMetallicGold"><strong>Decode</strong> raw transaction</h2>
-    <h4 class="">This tool decodes raw hex transaction here</h4>
+  <div class="detail-header">
+    <h2>Decode raw transaction</h2>
+    <h4 class="subtitle-2">This tool decodes raw hex transaction here</h4>
     <hr />
   </div>
   
@@ -40,9 +40,7 @@
         </span>
       </span>
 
-
-
-      <button class="btn btn-lg btn-gold float-right" translate data-ng-click="decode()" data-ng-disabled="!txForm.$valid" ng-hide="decodedTx">Decode</button>
+      <button class="btn btn-lg btn-gold subtitle-2 float-right" translate data-ng-click="decode()" data-ng-disabled="!txForm.$valid" ng-hide="decodedTx">DECODE</button>
 
       <button class="btn btn-lg btn-gold float-right" translate data-ng-click="clean()" ng-show="decodedTx">Clean</button>
     </form>
@@ -50,8 +48,8 @@
   
   
   <div class="detail-header m48t">
-    <h2 class="colorMetallicGold"><strong>Push</strong> transaction</h2>
-    <h4 class="">This tool pushes a raw transaction to the network</h4>
+    <h2>Push transaction</h2>
+    <h4 class="subtitle-2">This tool pushes a raw transaction to the network</h4>
     <hr />
   </div>
   
@@ -80,7 +78,7 @@
           An error occured: {{error}}
         </span>
       </span>
-      <button class="btn btn-lg btn-gold float-right" translate data-ng-click="send()" data-ng-disabled="!txForm.$valid">Push Transaction</button>
+      <button class="btn btn-lg btn-gold subtitle-2 float-right" translate data-ng-click="send()" data-ng-disabled="!txForm.$valid">PUSH TRANSACTION</button>
     </form>
   </div>
   

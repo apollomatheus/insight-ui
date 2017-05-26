@@ -52,7 +52,7 @@ $NeroSolid50: #8d8d8d;
 $NeroSolid25: #c6c6c6;
 $NeroSolid10: #e8e8e8;
 
-$LogoGold: #9b834f;
+$RoyalPurple: #9b834f;
 $LogoGoldLighter: #d2ad34;
 
 $White: #fff;
@@ -72,7 +72,7 @@ $blue-very-dark: #142834;
 }
 
 .colorMetallicGold {
-  color: $MetallicGold;
+  color: $RoyalPurple;
 }
 
 .colorWhite {
@@ -84,5 +84,59 @@ $blue-very-dark: #142834;
 }
 
 .colorNero75 {
-  color: $Nero75;
-}
+  color: $Nero75;}
+
+/* PRIMARY COLORS */
+
+$RoyalPurple: rgba(93, 40, 95, 1);
+$RoyalPurple75: rgba(93, 40, 95, 0.75);
+$RoyalPurple50: rgba(93, 40, 95, 0.50);
+$RoyalPurple25: rgba(93, 40, 95, 0.25);
+
+$Gold: rgba(155, 131, 79, 1);
+$Gold75: rgba(155, 131, 79, 0.75);
+$Gold50: rgba(155, 131, 79, 0.50);
+$Gold25: rgba(155, 131, 79, 0.25);
+
+
+$White: rgba(255, 255, 255, 1);
+$White50: rgba(255, 255, 255, 0.5);
+
+/* SECONDARY COLORS */
+
+$Pearl: rgba(237, 233, 227, 1);
+$Pearl50: rgba(237, 233, 227, 0.5);
+
+$Sand: rgba(183, 169, 154, 1);
+$Sand75: rgba(183, 169, 154, 0.75);
+$Sand50: rgba(183, 169, 154, 0.50);
+
+/* OTHER COLORS */
+
+$Emerald: rgba(0, 150, 129, 1);
+$Emerald75: rgba(0, 150, 129, .75);
+$Emerald50: rgba(0, 150, 129, .5);
+$Emerald25: rgba(0, 150, 129, .25);
+
+$WarmRed: rgba(238, 39, 55, 1);
+$WarmRed75: rgba(238, 39, 55, 0.75);
+$WarmRed50: rgba(238, 39, 55, 0.50);
+$WarmRed25: rgba(238, 39, 55, 0.25);
+
+$Yellow: rgba(255, 193, 0, 1);
+$Yellow75: rgba(255, 193, 0, 0.75);
+$Yellow50: rgba(255, 193, 0, 0.50);
+$Yellow25: rgba(255, 193, 0, 0.25);
+
+$Blue: rgba(0, 133, 173, 1);
+$Blue75: rgba(0, 133, 173, 0.75);
+$Blue50: rgba(0, 133, 173, 0.50);
+$Blue25: rgba(0, 133, 173, 0.25);
+
+$Black: rgba(12, 12, 12, 1);
+$Black75: rgba(12, 12, 12, 0.75);
+$Black50: rgba(12, 12, 12, 0.5);
+$Black25: rgba(12, 12, 12, 0.25);
+
+
+

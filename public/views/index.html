@@ -2,55 +2,42 @@
 <section data-ng-controller="IndexController" data-ng-init="index()">
   <div>
     <div id="homeInfo" class="row">
-      <div class="max-width1200">
-        <div class="col-xs-12 col-md-7">
-
-        <img src="img/Aztec-PriceChart.png" width="637" />
-
-        </div>
-        <div class="col-xs-12 col-md-5 center-block rmg-info">
-          <div class="row ">
+      <div class="aztek-container max-width1000">
+  
+          <div class="row">
             <div class="col-xs-12">
-              <h2><strong>RMG</strong> Index</h2>
-              <hr />
+              <h2>RMG SUMMARY</h2>
+              <hr/>
             </div>
-            <div class="col-xs-12 price">
-              <span class="dollar">$</span><h1>45.43 <span class="subtitle-3 green">(1.12%)</span></h1>
+          
+            <div class="col-xs-12 float-left  subtitle-2 supply">
+              Total Supply: <span class="float-right subtitle-1">{{ totalSupply / 1e6  }} RMG</span>
             </div>
-            <div class="col-xs-12 float-left  subtitle-1 supply">
-              Total Supply: <span class="float-right">{{ totalSupply / 1e6  }} RMG</span>
-            </div>
-            <div class="col-xs-12 float-left  subtitle-1 nodes">
+            <div class="col-xs-12 float-left  subtitle-2 nodes">
 
-              Validating Nodes: <span class="float-right"> {{ validatingNodes }}</span>
+              Validating Nodes: <span class="float-right subtitle-1"> {{ validatingNodes }}</span>
             </div>
-            <div class="col-xs-12 float-left  subtitle-1 transactions">
-              Transactions: <span class="float-right">28734742</span>
+            <div class="col-xs-12 float-left  subtitle-2 transactions">
+              Transactions: <span class="float-right subtitle-1">28734742</span>
             </div>
-            <div class="col-xs-12 float-left  subtitle-1 transactions">
-              CME Exchange Price: <span class="float-right">$43.00</span>
-            </div>
-            <div class="col-xs-12 float-left  subtitle-1 transactions">
-              GLD Price: <span class="float-right">$1131.15</span>
-            </div>
-          </div>
+
 
         </div>
       </div>
     </div>
-    <div id="home" class="row max-width1200">
+    <div id="home" class="row max-width1000">
       <div class="col-xs-12 col-md-7">
 
         <div id="search-form-mobile" class="visible-xs" data-ng-include src="'views/includes/search.html'"></div>
 
-        <h2 class="colorMetallicGold" translate>Latest <strong>RMG</strong> Blocks</h2>
+        <h2 translate>Latest RMG Blocks</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed">
           <thead class="subtitle-2">
             <tr>
               <th translate>Block height</th>
               <th translate>Block created</th>
-              <th class="text-right"><span class="ellipsis" translate>Transactions</span></th>
-              <th class="text-right hidden-xs"><span class="ellipsis" translate>Validated by</span></th>
+              <th class="text-left"><span class="ellipsis" translate>Transactions</span></th>
+              <th class="text-left hidden-xs"><span class="ellipsis" translate>Validated by</span></th>
             </tr>
           </thead>
           <tbody class="subtitle-1">
@@ -59,10 +46,10 @@
             <td>
               <span class="colorMetallicGold">{{block.height}}</span>
             </td>
-            <td><span class="ellipsis">{{humanSince(block.time)}}</span></td>
-            <td class="text-right">{{block.txlength}}</td>
+            <td><span class="colorMetallicGold ellipsis">{{humanSince(block.time)}}</span></td>
+            <td class="colorMetallicGold text-left">{{block.txlength}}</td>
             <td class="text-right hidden-xs">
-              <span class="float-right"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
+              <span class="float-left"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
             </td>
           </tr>
           </tbody>
@@ -70,7 +57,7 @@
       </div>
 
       <div class="col-xs-12 col-md-5">
-        <h2 class="colorMetallicGold" translate>Latest <strong>RMG</strong> Transactions</h2>
+        <h2 translate>Latest RMG Transactions</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed;">
           <thead class="subtitle-2">
             <tr>
