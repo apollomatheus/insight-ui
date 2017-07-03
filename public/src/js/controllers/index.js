@@ -14,17 +14,13 @@ angular.module('insight.system').controller('IndexController',
     });
 
     $scope.global = Global;
-    
+
     $scope.goTo = function(path){
       $location.path(path);
     };
 
     $scope.preventDefault = function(e){
       return e.stopPropagation();
-    };
-    
-    $scope.trimTxValue = function(value){
-      return value.toFixed(4);
     };
 
     var _getBlocks = function() {

@@ -11,7 +11,7 @@
             </div>
           
             <div class="col-xs-12 float-left  subtitle-2 supply">
-              Total Supply: <span class="float-right subtitle-1">{{ totalSupply / 1e6  }} RMG</span>
+              Total Supply: <span class="float-right subtitle-1">{{ totalSupply / 1e6 | coinFormatFilter:true }} </span>
             </div>
             <div class="col-xs-12 float-left  subtitle-2 nodes">
 
@@ -66,7 +66,7 @@
               <td>
                 <span class="ellipsis colorMetallicGold">{{tx.txid}}</span>
               </td>
-              <td class="text-right"><span class="ellipsis">{{trimTxValue(tx.valueOut) + ' RMG'}}</span></td>
+              <td class="text-right"><span class="ellipsis">{{ tx.valueOut | coinFormatFilter:true:4 }}</span></td>
             </tr>
           </tbody>
         </table>

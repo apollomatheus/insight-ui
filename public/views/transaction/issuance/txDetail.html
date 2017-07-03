@@ -21,7 +21,7 @@
         <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple | filter:outputHasValue() | startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
 
             <div class="pull-right btc-value">
-                {{$root.currency.getConvertion(vout.value) || vout.value + ' RMG' }}
+                {{ vout.value | coinFormatFilter:true }}
             </div>
 
             <div class="ellipsis">
@@ -38,7 +38,7 @@
     <div class="col-xs-12">
        <span class="tx-amount float-right">
       Amount
-      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
+      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{ tx.valueOut | coinFormatFilter:true }}</span>
         </span>
     </div>
 </div>

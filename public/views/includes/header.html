@@ -1,5 +1,11 @@
-<header class="container max-width1000">
+<header>
   <div data-ng-controller="HeaderController">
+    <div class="tesnet-banner" ng-if="isTestnet()">
+      <h6 class="p10t"> This is a testnet environment for testing and development purposes - all RMG values are testnet </h6>
+    </div>
+    <div class="container max-width1000">
+
+
     <div class="navbar-header max-width1000">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" data-ng-click="$root.isCollapsed = !$root.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
@@ -33,5 +39,6 @@
       <!-- Just initialize the controller -->
       <span data-ng-controller="CurrencyController"></span>
     </div>
+  </div>
   </div>
 </header>

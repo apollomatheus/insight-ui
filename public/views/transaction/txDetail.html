@@ -22,7 +22,7 @@
         <div data-ng-if="!tx.isCoinBase" class="transaction-vin-vout subtitle-1 colorNero75" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vin in tx.vinSimple| startFrom:currentInNoExpanded*sizeInNoExpanded | limitTo:sizeInNoExpanded">
 
             <div class="pull-right btc-value" data-ng-class="{'text-danger': $root.currentAddr == vin.addr}">
-                {{$root.currency.getConvertion(vin.value) || vin.value + ' RMG'}}
+                {{ vin.value | coinFormatFilter:true }}
             </div>
             <div class="ellipsis">
                 <span data-ng-show="vin.notAddr">{{vin.addr}}</span>
@@ -56,7 +56,7 @@
         <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple| startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
 
             <div class="pull-right btc-value" data-ng-class="{'text-success': $root.currentAddr == vout.addr}">
-                {{$root.currency.getConvertion(vout.value) || vout.value + ' RMG' }}
+                {{ vout.value | coinFormatFilter:true }}
                 <!--<span class="text-danger" data-ng-show="vout.isSpent" tooltip="Output is spent" tooltip-placement="left">(S)</span>-->
                 <!--<span class="text-success" data-ng-show="!vout.isSpent" tooltip="Output is unspent" tooltip-placement="left">(U)</span>-->
             </div>
@@ -87,8 +87,8 @@
     <div class="col-xs-6 col-sm-8 col-md-6">
         <span class="float-left tx-amount">
       Amount
-      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{$root.currency.getConvertion(tx.valueOut) || tx.valueOut + ' RMG' }}</span>
+      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{ tx.valueOut | coinFormatFilter:true }}</span>
         </span>
-        <!--<span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{$root.currency.getConvertion(tx.fees) || tx.fees + 'RMG'}} </span>-->
+        <!--<span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{tx.fees | coinFormatFilter:true}} </span>-->
     </div>
 </div>

@@ -15,7 +15,7 @@
         </div>
         <div class="col-xs-9 no-padding">
           <div class="col-xs-12 float-left subtitle-2 summary-row">
-            Balance: <span class="float-right subtitle-1">{{$root.currency.getConvertion(address.balance) || address.balance + ' RMG'}}</span>
+            Balance: <span class="float-right subtitle-1">{{ address.balance | coinFormatFilter:true }}</span>
           </div>
           <div class="col-xs-12 float-left subtitle-2 summary-row">
             No. of Transactions:

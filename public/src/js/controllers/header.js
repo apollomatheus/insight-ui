@@ -4,6 +4,10 @@ angular.module('insight.system').controller('HeaderController',
   function($scope, $rootScope, $modal, getSocket, Global, Block, $location) {
     $scope.global = Global;
 
+    $scope.isTestnet = function() {
+      return Global.info.testnet;
+    };
+
     $scope.isActive = function(route) {
       return $location.path().indexOf(route) >= 0;
     };

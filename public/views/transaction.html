@@ -63,7 +63,7 @@
         <!-- hide this just for demo
         <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.fees">-->
           <!--Blockchain Fees: -->
-          <!--<span class="float-right">{{$root.currency.getConvertion(tx.fees) + ' RMG'}}</span>-->
+          <!--<span class="float-right">{{ tx.fees | coinFormatFilter:true }}</span>-->
         <!--</div>-->
 
       </div>

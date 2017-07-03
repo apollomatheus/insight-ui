@@ -45,7 +45,7 @@
         <!--Hide for demo TODO: Display there again-->
         <!--<div class="col-xs-12 float-left subtitle-2 summary-row">-->
           <!--Fees: -->
-          <!--<span class="float-right">{{$root.currency.getConvertion(block.reward) || block.reward + ' RMG'}}</span>-->
+          <!--<span class="float-right">{{ block.reward | coinFormatFilter:true }}</span>-->
         <!--</div>-->
 
         <div class="col-xs-12 float-left subtitle-2 summary-row">

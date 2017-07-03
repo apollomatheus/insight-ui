@@ -9,7 +9,7 @@ angular.module('insight.network').controller('NetworkController',
       $scope.selectedNetwork = d.info.network === 'livenet' ? 'mainnet' : d.info.network;
       $scope.networkOptions = getNetworkOptions();
     });
-  
+
     function getNetworkOptions() {
       var all = $scope.networks.slice(0);
       var selectedIndex = all.indexOf($scope.selectedNetwork);

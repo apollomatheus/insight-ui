@@ -51,7 +51,7 @@ angular.module('insight')
          "url": "//localhost:3001/insight"
        }
    })
-  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment) {
+  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment, Status, Global) {
     gettextCatalog.currentLanguage = defaultLanguage;
     amMoment.changeLocale(defaultLanguage);
     $rootScope.$on('$routeChangeStart', function() {
@@ -70,4 +70,10 @@ angular.module('insight')
       $location.hash($routeParams.scrollTo);
       $anchorScroll();
     });
+
+    Status.get({ getInfo: true },
+    function(res) {
+      Global.info = res.info;
+    });
+
   });

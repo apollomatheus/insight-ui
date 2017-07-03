@@ -12,4 +12,17 @@ angular.module('insight')
       var delimiter = delimiter || ',';
       return input.split(delimiter);
     }
-  });
+  })
+  .filter('coinFormatFilter', ['Global', function(Global) {
+    return function (value, showCoin, trimValue) {
+      if (showCoin) {
+        return value + ' ' + (Global.info.testnet ? 'TRMG' : 'RMG');
+      }
+
+      if (trimValue) {
+        value = value.toFixed(4)
+      }
+
+      return value;
+    }
+  }]);

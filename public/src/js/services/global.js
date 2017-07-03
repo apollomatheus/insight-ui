@@ -4,6 +4,10 @@
 angular.module('insight.system')
   .factory('Global',[
     function() {
+      var module = {};
+
+      module.info = {};
+      return module;
     }
   ])
   .factory('Version',
