@@ -7,7 +7,8 @@
 
   <div data-ng-if="block.hash">
     <div class="detail-header row">
-      <h2>RMG Block</h2>
+      <h2 ng-hide="block.height === 0">RMG Block</h2>
+      <h2 ng-show="block.height === 0">RMG Genesis Block</h2>
       <div class="col-xs-2 block-nav no-padding float-right">
         <div class="float-right">
           <a type="submit" class="btn btn-gold" data-ng-show="block.previousblockhash" href="block/{{block.previousblockhash}}">
@@ -22,6 +23,8 @@
       </div>
     </div>
     <hr />
+
+    <img src="img/RMG_Genesis.png" width="1000" ng-if="block.height === 0"/>
     
     <div class="detail-summary m12t">
       
@@ -38,7 +41,7 @@
         </div>
         
         <div class="col-xs-12 float-left subtitle-2 summary-row">
-          No of Transactions: 
+          Transactions:
           <span class="float-right subtitle-1">{{block.tx.length}}</span>
         </div>
 
@@ -56,6 +59,11 @@
         <div class="col-xs-12 float-left subtitle-2 summary-row">
           Validated By:
           <span class="float-right subtitle-1"><a href="{{block.validatorInfo.url}}" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" ng-if="block.validatorInfo.key">
+          Validated Key:
+          <span class="float-right subtitle-1">{{block.validatorInfo.key}}</span>
         </div>
       </div>
     </div>
