@@ -37,4 +37,8 @@ angular.module('insight.transactions')
   .factory('Transactions',
     function($resource) {
       return $resource(window.apiPrefix + '/txs');
-  });
+  })
+  .factory('LatestTransactions',
+    function($resource) {
+      return $resource(window.apiPrefix + '/txs/latest', {}, { get:  { method:'GET', isArray:true } });
+    });

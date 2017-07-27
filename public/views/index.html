@@ -62,7 +62,7 @@
           </thead>
           <tbody class="subtitle-1">
             <tr data-ng-show="!txs.length"><td colspan="2" class="waiting" translate>Waiting for transactions...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
-            <tr class="fader pointer" data-ng-repeat='tx in txs | limitTo: 5' data-ng-click="goTo('tx/' + tx.txid)">
+            <tr class="fader pointer" data-ng-repeat='tx in txs' data-ng-click="goTo('tx/' + tx.txid)">
               <td>
                 <span class="ellipsis colorMetallicGold">{{tx.txid}}</span>
               </td>

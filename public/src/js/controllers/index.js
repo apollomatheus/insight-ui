@@ -1,10 +1,10 @@
 'use strict';
 
-var TRANSACTION_DISPLAYED = 10;
+var TRANSACTION_DISPLAYED = 5;
 var BLOCKS_DISPLAYED = 5;
 
 angular.module('insight.system').controller('IndexController',
-  function($scope, $location, Global, getSocket, Blocks, AdminInfo) {
+  function($scope, $location, $interval, Global, LatestBlocks, LatestTransactions, AdminInfo) {
 
     $scope.totalSupply = null;
     $scope.validatingNodes = null;
@@ -23,36 +23,81 @@ angular.module('insight.system').controller('IndexController',
       return e.stopPropagation();
     };
 
+    /**
+     * We are going to update the UI only when new blocks are found.
+     * @param blocks
+     * @returns {boolean}
+     */
+    $scope.isGreaterThanCurrentBlockHeight = function(blocks) {
+
+      if(!blocks || !blocks.length) {
+        return false;
+      }
+
+      if(!$scope.blocks || !$scope.blocks.length) {
+        return true;
+      }
+
+      if(_.maxBy(blocks, 'height').height > _.maxBy($scope.blocks, 'height').height) {
+        return true;
+      }
+
+      return false;
+    }
+
+    /**
+     * Fetch the latest blocks from the API
+     * @private
+     */
     var _getBlocks = function() {
-      Blocks.get({
-        limit: BLOCKS_DISPLAYED
-      }, function(res) {
-        $scope.blocks = res.blocks;
-        $scope.blocksLength = res.length;
-      });
-    };
-
-    var socket = getSocket($scope);
-
-    var _startSocket = function() { 
-      socket.emit('subscribe', 'inv');
-      socket.on('tx', function(tx) {
-        $scope.txs.unshift(tx);
-        if (parseInt($scope.txs.length, 10) >= parseInt(TRANSACTION_DISPLAYED, 10)) {
-          $scope.txs = $scope.txs.splice(0, TRANSACTION_DISPLAYED);
+      var updateBlocks = function(res) {
+        if($scope.isGreaterThanCurrentBlockHeight(res.blocks)) {
+          $scope.blocks = res.blocks;
+          $scope.blocksLength = res.length;
         }
-      });
+      };
+      // Fetch latest blocks from api
+      LatestBlocks.get({
+        limit: BLOCKS_DISPLAYED
+      }, updateBlocks);
+    };
 
-      socket.on('block', function() {
-        _getBlocks();
+    /**
+     * Compares the 2 list of transactions and checks if the first one has a transaction that does
+     * not exist in the second one
+     * @param txs
+     * @param txsToCompare
+     * @returns {boolean}
+     */
+    $scope.isTxIdsDifferent = function (txs, txsToCompare) {
+      if(!txs) {
+        return false;
+      }
+
+      if(!txsToCompare.length) {
+        return true;
+      }
+
+      return _.find(txs, function (tx) {
+        return !_.some(txsToCompare, { 'txid': tx.txid })
       });
     };
 
-    socket.on('connect', function() {
-      _startSocket();
-    });
-
-
+    /**
+     * Fetch latest transactions from API
+     * @private
+     */
+    var _getTransactions = function() {
+      var updateTxs = function(res) {
+        if($scope.isTxIdsDifferent(res, $scope.txs)) {
+          $scope.txs = res;
+        }
+      };
+      // Fetch latest blocks from api
+      LatestTransactions.get({
+        limit: TRANSACTION_DISPLAYED
+      }, updateTxs);
+    };
 
     $scope.humanSince = function(time) {
       var m = moment.unix(time);
@@ -61,78 +106,18 @@ angular.module('insight.system').controller('IndexController',
 
     $scope.index = function() {
       _getBlocks();
-      _startSocket();
+      _getTransactions();
     };
 
     $scope.txs = [];
     $scope.blocks = [];
-    
-    $scope.options = {
-           chart: {
-               type: 'lineChart',
-               height: 300,
-               margin : {
-                   top: 20,
-                   right: 20,
-                   bottom: 40,
-                   left: 55
-               },
-               showControls: false,
-               showLabels: false,
-               showLegend: false,
-               x: function(d){ return d.x; },
-               y: function(d){ return d.y; },
-               useInteractiveGuideline: false,
-               interactive: false,
-               dispatch: {
-                   stateChange: function(e){ console.log("stateChange"); },
-                   changeState: function(e){ console.log("changeState"); },
-                   tooltipShow: function(e){ console.log("tooltipShow"); },
-                   tooltipHide: function(e){ console.log("tooltipHide"); }
-               },
-               xAxis: {
-                   axisLabel: 'Time (ms)',
-                   showMaxMin: false,
-               },
-               yAxis: {
-                   showMaxMin: false,
-                   axisLabel: 'Voltage (v)',
-                   tickFormat: function(d){
-                       return d3.format('.02f')(d);
-                   },
-                   axisLabelDistance: -10
-               },
-               callback: function(chart){
-                   console.log("!!! lineChart callback !!!");
-               }
-           },
-           title: {
-               enable: false
-           },
-           subtitle: {
-               enable: false
-           },
-           caption: {
-               enable: false
-           }
-       };
 
-       $scope.data = sinAndCos();
+    var killBlocksPolling = $interval(_getBlocks, 3000);
+    var killTxPolling = $interval(_getTransactions, 500);
 
-       /*Random Data Generator */
-       function sinAndCos() {
-           var cos = [];
-
-           //Data is represented as an array of {x,y} pairs.
-           for (var i = 0; i < 50; i++) {
-               cos.push({x: i, y: .5 * Math.cos(i/10+ 2) + Math.random() / 10});
-           }
-
-           return [{
-                   values: cos,
-                   key: 'Price',
-                   color: '#D4AF37' // $$RoyalPurple
-               }];
-       };
+    $scope.$on('$destroy', function() {
+      $interval.cancel(killBlocksPolling);
+      $interval.cancel(killTxPolling);
+    });
        
   });
