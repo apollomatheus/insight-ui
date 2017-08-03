@@ -4,10 +4,19 @@ var TRANSACTION_DISPLAYED = 5;
 var BLOCKS_DISPLAYED = 5;
 
 angular.module('insight.system').controller('IndexController',
-  function($scope, $location, $interval, Global, LatestBlocks, LatestTransactions, AdminInfo) {
+  function($scope, $location, $interval, $timeout, Global, Blocks, LatestBlocks, LatestTransactions, AdminInfo) {
 
     $scope.totalSupply = null;
     $scope.validatingNodes = null;
+    // Reference to error handler
+    $scope.blocksPollingConfig = {
+      throttling: false
+    };
+
+    $scope.txPollingConfig = {
+      throttling: false
+    };
+
     AdminInfo.get({}, function(data){
       $scope.totalSupply = data.totalsupply;
       $scope.validatingNodes = data.validatekeys.length;
@@ -23,80 +32,78 @@ angular.module('insight.system').controller('IndexController',
       return e.stopPropagation();
     };
 
-    /**
-     * We are going to update the UI only when new blocks are found.
-     * @param blocks
-     * @returns {boolean}
-     */
-    $scope.isGreaterThanCurrentBlockHeight = function(blocks) {
-
-      if(!blocks || !blocks.length) {
-        return false;
+    $scope.handleFetchError = function(err, config, callback) {
+      // client cancel request due to timeout, or server timeout
+      if(err.status == 0 || err.status === 408) {
+        return callback();
       }
 
-      if(!$scope.blocks || !$scope.blocks.length) {
-        return true;
+      // If is an error chill.
+      if(!config.throttling) {
+        config.throttling = true;
+        $timeout(function(){
+          config.throttling = false;
+          callback();
+        }, 3000)
       }
+    };
 
-      if(_.maxBy(blocks, 'height').height > _.maxBy($scope.blocks, 'height').height) {
-        return true;
+    $scope.updateWithLastBlock = function(block) {
+      // If server close the connection we get no block but an empty promise
+      if(block && block.height) {
+        // Are we too many blocks behind?
+        if($scope.blocks.length && ($scope.blocks[0].height + 1) < block.height) {
+          return $scope._getBlocks();
+        }
+
+        $scope.blocks.unshift(block);
+        $scope.blocks = $scope.blocks.splice(0, BLOCKS_DISPLAYED);
       }
-
-      return false;
-    }
+    };
 
     /**
      * Fetch the latest blocks from the API
      * @private
      */
-    var _getBlocks = function() {
-      var updateBlocks = function(res) {
-        if($scope.isGreaterThanCurrentBlockHeight(res.blocks)) {
-          $scope.blocks = res.blocks;
-          $scope.blocksLength = res.length;
-        }
-      };
-      // Fetch latest blocks from api
-      LatestBlocks.get({
-        limit: BLOCKS_DISPLAYED
-      }, updateBlocks);
-    };
-
-    /**
-     * Compares the 2 list of transactions and checks if the first one has a transaction that does
-     * not exist in the second one
-     * @param txs
-     * @param txsToCompare
-     * @returns {boolean}
-     */
-    $scope.isTxIdsDifferent = function (txs, txsToCompare) {
-      if(!txs) {
-        return false;
-      }
-
-      if(!txsToCompare.length) {
-        return true;
-      }
-
-      return _.find(txs, function (tx) {
-        return !_.some(txsToCompare, { 'txid': tx.txid })
+    $scope._getLatestBlock = function() {
+      // Get latest blocks from api
+      LatestBlocks.get().$promise
+      .then($scope.updateWithLastBlock)
+      .then($scope._getLatestBlock)
+      .catch(function(err) {
+        $scope.handleFetchError(err, $scope.blocksPollingConfig, $scope._getLatestBlock);
       });
     };
 
+    $scope._getBlocks = function() {
+      Blocks.get({
+        limit: BLOCKS_DISPLAYED
+      }).$promise
+      .then(function (res) {
+        $scope.blocks = res.blocks;
+      });
+    };
+
+    $scope.updateWithLastTx = function(tx) {
+      // If server close the connection we get no tx but an empty promise
+      if(tx && tx.txid) {
+        $scope.txs.unshift(tx);
+        $scope.txs = $scope.txs.splice(0, TRANSACTION_DISPLAYED);
+      }
+    };
+
     /**
-     * Fetch latest transactions from API
+     * Fetch latest transaction from API
      * @private
      */
-    var _getTransactions = function() {
-      var updateTxs = function(res) {
-        if($scope.isTxIdsDifferent(res, $scope.txs)) {
-          $scope.txs = res;
-        }
-      };
-      // Fetch latest blocks from api
-      LatestTransactions.get({
-        limit: TRANSACTION_DISPLAYED
-      }, updateTxs);
+    $scope._getLatestTransaction = function() {
+      // Fetch latest transactions from api
+      LatestTransactions.get().$promise
+      .then($scope.updateWithLastTx)
+      .then($scope._getLatestTransaction)
+      .catch(function(err) {
+        $scope.handleFetchError(err, $scope.txPollingConfig, $scope._getLatestTransaction);
+      });
     };
 
     $scope.humanSince = function(time) {
@@ -104,20 +111,13 @@ angular.module('insight.system').controller('IndexController',
       return m.max().fromNow();
     };
 
-    $scope.index = function() {
-      _getBlocks();
-      _getTransactions();
-    };
-
     $scope.txs = [];
     $scope.blocks = [];
 
-    var killBlocksPolling = $interval(_getBlocks, 3000);
-    var killTxPolling = $interval(_getTransactions, 500);
+    // Long polling
+    $scope._getLatestBlock();
+    $scope._getLatestTransaction();
 
-    $scope.$on('$destroy', function() {
-      $interval.cancel(killBlocksPolling);
-      $interval.cancel(killTxPolling);
-    });
-       
+    // Start the initial list of blocks
+    $scope._getBlocks();
   });

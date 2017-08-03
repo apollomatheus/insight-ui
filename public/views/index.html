@@ -42,7 +42,7 @@
               <span class="colorMetallicGold">{{block.height}}</span>
             </td>
             <td><span class="colorMetallicGold ellipsis">{{humanSince(block.time)}}</span></td>
-            <td class="colorMetallicGold text-left">{{block.txlength}}</td>
+            <td class="colorMetallicGold text-left">{{block.txlength || block.tx.length}}</td>
             <td class="text-right hidden-xs">
               <span class="float-left"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
             </td>

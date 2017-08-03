@@ -40,5 +40,5 @@ angular.module('insight.transactions')
   })
   .factory('LatestTransactions',
     function($resource) {
-      return $resource(window.apiPrefix + '/txs/latest', {}, { get:  { method:'GET', isArray:true } });
-    });
+      return $resource(window.apiPrefix + '/txs/latest', {}, { get:  { method:'GET', timeout: 30000 } });
+  });
