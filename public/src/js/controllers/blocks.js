@@ -7,7 +7,7 @@ angular.module('insight.blocks').controller('BlocksController',
   
   $scope.goTo = function(path){
     $location.path(path);
-  }
+  };
 
   if ($routeParams.blockHeight) {
     BlockByHeight.get({

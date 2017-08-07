@@ -23,7 +23,7 @@ InsightUI.dependencies = ['insight-api'];
 inherits(InsightUI, BaseService);
 
 InsightUI.prototype.start = function(callback) {
-  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../public/index.html', {encoding: 'utf8'}));
+  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../dist/index.html', {encoding: 'utf8'}));
   setImmediate(callback);
 };
 
@@ -41,7 +41,7 @@ InsightUI.prototype.setupRoutes = function(app, express) {
       res.setHeader('Content-Type', 'text/html');
       res.send(self.indexFile);
     } else {
-      express.static(__dirname + '/../public')(req, res, next);
+      express.static(__dirname + '/../dist')(req, res, next);
     }
   });
 };
