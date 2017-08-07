@@ -34,7 +34,7 @@ angular.module('insight.system').controller('IndexController',
 
     $scope.handleFetchError = function(err, config, callback) {
       // client cancel request due to timeout, or server timeout
-      if(err.status == 0 || err.status === 408) {
+      if(err.status == 0 || err.status === 408 || err.status === 504) {
         return callback();
       }
 

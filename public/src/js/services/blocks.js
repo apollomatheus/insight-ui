@@ -27,7 +27,7 @@ angular.module('insight.blocks')
   })
   .factory('LatestBlocks',
     function($resource) {
-      return $resource(window.apiPrefix + '/blocks/latest', {}, { get:  { method:'GET', timeout: 60000 } });
+      return $resource(window.apiPrefix + '/blocks/latest', {}, { get:  { method:'GET', timeout: 45000 } });
     })
   .factory('BlockByHeight',
     function($resource) {
