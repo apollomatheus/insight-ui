@@ -51,6 +51,11 @@ angular.module('insight')
          "url": "//localhost:3001/insight"
        }
    })
+  .config(['RavenProvider',
+    function(RavenProvider) {
+      Raven.config('https://da5bfb722ec544ccb9fa29a0d1f6ca67@sentry.io/204716', {}).install();
+    }
+  ])
   .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment, Status, Global) {
     gettextCatalog.currentLanguage = defaultLanguage;
     amMoment.changeLocale(defaultLanguage);

@@ -26,8 +26,8 @@ angular.module('insight',[
   'insight.currency',
   'insight.messages',
   'insight.network',
-  'insight.validators'
-
+  'insight.validators',
+  'ngRaven'
 ]);
 
 angular.module('insight.system', []);
