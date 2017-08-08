@@ -1,0 +1,80 @@
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="BlocksController" data-ng-init="findOne()" class="aztek-container max-width1000">
+  
+  <div class="text-muted" data-ng-if="!block.hash">
+    <h2 translate>Loading Block Information<span loading-dots></span></h2> 
+  </div>
+
+  <div data-ng-if="block.hash">
+    <div class="detail-header row">
+      <h2 ng-hide="block.height === 0">RMG Block</h2>
+      <h2 ng-show="block.height === 0">RMG Genesis Block</h2>
+      <div class="col-xs-2 block-nav no-padding float-right">
+        <div class="float-right">
+          <a type="submit" class="btn btn-gold" data-ng-show="block.previousblockhash" href="block/{{block.previousblockhash}}">
+            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i><span> Prev</span>
+          </a>
+          <a type="submit" class="btn btn-gold" data-ng-disabled="!block.nextblockhash" href="block/{{block.nextblockhash}}">
+            <span>Next</span>
+            <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <hr />
+
+    <img src="img/RMG_Genesis.png" width="1000" ng-if="block.height === 0"/>
+    
+    <div class="detail-summary m12t">
+      
+      <div class="summary">
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Block:
+          <span class="float-right subtitle-1"><a href="block/{{block.hash}}">{{block.hash}}</a></span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Block height: 
+          <span class="float-right subtitle-1">{{block.height}}</span>
+        </div>
+        
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Transactions:
+          <span class="float-right subtitle-1">{{block.tx.length}}</span>
+        </div>
+
+        <!--Hide for demo TODO: Display there again-->
+        <!--<div class="col-xs-12 float-left subtitle-2 summary-row">-->
+          <!--Fees: -->
+          <!--<span class="float-right">{{ block.reward | coinFormatFilter:true }}</span>-->
+        <!--</div>-->
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Validated At:
+          <span class="float-right subtitle-1">{{block.time * 1000 | date:'medium'}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Validated By:
+          <span class="float-right subtitle-1"><a href="{{block.validatorInfo.url}}" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" ng-if="block.validatorInfo.key">
+          Validated Key:
+          <span class="float-right subtitle-1">{{block.validatorInfo.key}}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="detail-list row" data-ng-controller="transactionsController" data-ng-init="load('block')">
+      <h2 class="colorMetallicGold" translate>Transactions</h2>
+      <div data-ng-include src="'views/transaction/blockList.html'" when-scrolled="loadMore()"></div>
+    </div>
+  </div>
+  
+
+
+</section>
+

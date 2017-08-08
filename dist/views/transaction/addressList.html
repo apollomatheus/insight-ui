@@ -1,0 +1,7 @@
+<div class="alert alert-warning" 
+  data-ng-show="!txs[0].txid && !loading"
+  translate>There are no transactions involving this address.</div>
+<div data-ng-show="txs && txs[0].txid" data-ng-repeat="tx in txs">
+  <div data-ng-include src="'views/transaction/txDetail.html'"></div>
+</div>
+

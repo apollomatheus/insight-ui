@@ -1,0 +1,81 @@
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="transactionsController" data-ng-init="findThis()" class="aztek-container max-width1000">
+
+  <div class="text-muted" data-ng-if="!tx.txid">
+    <h2 translate>Loading Transaction Details<span loading-dots></span></h2>
+  </div>
+
+  <div data-ng-if="tx.txid">
+    <div class="detail-header">
+      <h2 data-ng-if="!tx.isAdminTransaction"><strong>RMG</strong> Transaction</h2>
+      <h2 data-ng-if="tx.isAdminTransaction"><strong>Administrative</strong> Transaction</h2>
+
+      <div class="col-xs-2 block-nav no-padding float-right" data-ng-if="tx.isAdminTransaction">
+        <div class="float-right">
+          <a type="submit"
+             class="btn btn-gold"
+             data-ng-show="tx.vin.length === 1 && tx.vin[0].txid"
+             data-ng-href="tx/{{tx.vin[0].txid}}">
+              <i class="fa fa-arrow-circle-left" aria-hidden="true"></i><span> Prev</span>
+          </a>
+        </div>
+
+      </div>
+
+      <hr />
+    </div>
+
+    <div class="detail-summary m12t">
+      
+      <div class="summary">
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Transaction: <span class="float-right subtitle-1"><a href="tx/{{tx.txid}}">{{tx.txid}}</a></span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" ng-show="tx.isAdminTransaction">
+          Transaction Type: <span class="float-right subtitle-1">{{adminInfo[tx.adminInfo.type].displayName}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Confirmations: <span class="float-right subtitle-1">{{tx.confirmations || 0}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.vin[0].coinbase">
+          Signed By:
+          <span class="float-right subtitle-1">Coinbase Transaction</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase">
+          Signed By Key 1:
+          <span class="float-right subtitle-1">{{tx.signer.key1.name || tx.signer.key1.pubkey}}</span>
+        </div>
+
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-hide="tx.vin[0].coinbase">
+          Signed By Key 2:
+          <span class="float-right subtitle-1">{{tx.signer.key2.name || tx.signer.key2.pubkey}}</span>
+        </div>
+        
+        <div class="col-xs-12 float-left subtitle-2 summary-row">
+          Validated Block:
+          <span class="float-right subtitle-1"><a href="block/{{tx.blockhash}}">{{tx.blockhash}}</a></span>
+        </div>
+        
+        <!-- hide this just for demo
+        <div class="col-xs-12 float-left subtitle-2 summary-row" data-ng-show="tx.fees">-->
+          <!--Blockchain Fees: -->
+          <!--<span class="float-right">{{ tx.fees | coinFormatFilter:true }}</span>-->
+        <!--</div>-->
+
+      </div>
+    </div>
+
+    <div class="detail-list row">
+      <h2 class="colorMetallicGold" translate>Details</h2>
+      <div ng-hide="tx.isAdminTransaction" data-ng-include src="'views/transaction/txDetail.html'"></div>
+
+      <div ng-show="tx.isAdminTransaction && isFundsOperation()" data-ng-include src="'views/transaction/issuance/txDetail.html'"></div>
+      <div ng-show="tx.isAdminTransaction && !isFundsOperation()" data-ng-include src="'views/transaction/addOrRemoveKeys/txDetail.html'"></div>
+    </div>
+    
+  </div>
+</section>

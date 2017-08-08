@@ -1,0 +1,35 @@
+<div class="row txMined subtitle-1" data-ng-hide="!tx">
+  <div class="col-xs-7 col-md-8">
+    <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
+  </div>
+  <div class="col-xs-5 col-md-4 text-right text-muted">
+    <div data-ng-show="tx.firstSeenTs">
+      <span translate>first seen at</span>
+      <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
+    </div>
+    <div data-ng-show="tx.blocktime && !tx.firstSeenTs">
+      <span translate>validated</span>
+      <time>{{tx.time * 1000 | date:'medium'}}</time>
+    </div>
+  </div>
+</div>
+
+
+<div class="row" data-ng-hide="!tx">
+
+  <div class="col-md-12 colorNero75 m8t">
+    <div class="col-md-12 detail-table-add-keys subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="key in tx.adminInfo.keys">
+
+      <div class="pull-right btc-value">
+        <span data-ng-hide="key.url">{{ key.name }}</span>
+        <a data-ng-href="{{key.url}}" target="_blank" data-ng-show="key.url">{{key.name}}</a>
+      </div>
+
+      <div class="ellipsis">
+        <span>{{key.pubkey}}</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>

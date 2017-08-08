@@ -1,0 +1,76 @@
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="IndexController" data-ng-init="index()">
+  <div>
+    <div id="homeInfo" class="row">
+      <div class="aztek-container max-width1000">
+  
+          <div class="row">
+            <div class="col-xs-12">
+              <h2>RMG SUMMARY</h2>
+              <hr/>
+            </div>
+          
+            <div class="col-xs-12 float-left  subtitle-2 supply">
+              Total Supply: <span class="float-right subtitle-1">{{ totalSupply / 1e6 | coinFormatFilter:true }} </span>
+            </div>
+            <div class="col-xs-12 float-left  subtitle-2 nodes">
+
+              Validating Nodes: <span class="float-right subtitle-1"> {{ validatingNodes }}</span>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div id="home" class="row max-width1000">
+      <div class="col-xs-12 col-md-7">
+
+        <div id="search-form-mobile" class="visible-xs" data-ng-include src="'views/includes/search.html'"></div>
+
+        <h2 translate>Latest RMG Blocks</h2>
+        <table class="table table-hover table-striped" style="table-layout: fixed">
+          <thead class="subtitle-2">
+            <tr>
+              <th translate>Block height</th>
+              <th translate>Block created</th>
+              <th class="text-left"><span class="ellipsis" translate>Transactions</span></th>
+              <th class="text-left hidden-xs"><span class="ellipsis" translate>Validated by</span></th>
+            </tr>
+          </thead>
+          <tbody class="subtitle-1">
+          <tr data-ng-show="!blocks.length"><td colspan="4" class="waiting" translate>Waiting for blocks...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+          <tr class="fader pointer" data-ng-repeat='block in blocks' data-ng-click="goTo('block/' + block.hash)">
+            <td>
+              <span class="colorMetallicGold">{{block.height}}</span>
+            </td>
+            <td><span class="colorMetallicGold ellipsis">{{humanSince(block.time)}}</span></td>
+            <td class="colorMetallicGold text-left">{{block.txlength || block.tx.length}}</td>
+            <td class="text-right hidden-xs">
+              <span class="float-left"><a href="{{block.validatorInfo.url}}" data-ng-click="preventDefault($event);" target="_blank" title="{{block.validatorInfo.name}}">{{block.validatorInfo.name  || 'Unknown'}}</a></span>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-xs-12 col-md-5">
+        <h2 translate>Latest RMG Transactions</h2>
+        <table class="table table-hover table-striped" style="table-layout: fixed;">
+          <thead class="subtitle-2">
+            <tr>
+              <th class="th-72">Transaction</th>
+              <th class="text-right" translate>Value</th>
+            </tr>
+          </thead>
+          <tbody class="subtitle-1">
+            <tr data-ng-show="!txs.length"><td colspan="2" class="waiting" translate>Waiting for transactions...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+            <tr class="fader pointer" data-ng-repeat='tx in txs' data-ng-click="goTo('tx/' + tx.txid)">
+              <td>
+                <span class="ellipsis colorMetallicGold">{{tx.txid}}</span>
+              </td>
+              <td class="text-right"><span class="ellipsis">{{ tx.valueOut | coinFormatFilter:true:4 }}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- END OF COL-3 -->
+    </div>
+  </div>
+</section>

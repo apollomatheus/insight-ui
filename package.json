@@ -4,7 +4,8 @@
   "version": "0.4.0",
   "repository": "git://github.com/bitpay/insight-ui.git",
   "scripts": {
-    "test": "cd test && karma start"
+    "test": "cd test && karma start",
+    "setup": "npm i && bower install && grunt compile"
   },
   "contributors": [
     {
@@ -43,9 +44,7 @@
   ],
   "bitcoreNode": "bitcore-node",
   "dependencies": {
-    "grunt-banner": "0.6.0"
-  },
-  "devDependencies": {
+    "grunt-banner": "0.6.0",
     "bower": "~1.2.8",
     "grunt": "~0.4.2",
     "grunt-angular-gettext": "^0.2.15",
