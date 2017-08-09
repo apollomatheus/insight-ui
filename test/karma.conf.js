@@ -16,11 +16,11 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
     // Vendor Files
-      "public/js/vendors.min.js",
-      "public/js/angularjs-all.min.js",
+      "public/dist/js/vendors.js",
+      "public/dist/js/angularjs-all.js",
       // Mocks module loading in the test file
-      "public/js/angular-mock.js",
-      "public/js/angular-resource.min.js",
+      "public/lib/angular-mocks/angular-mocks.js",
+      "public/lib/angular-resource/angular-resource.min.js",
       // Needed to instantiate websocket functionality in tests
       "node_modules/socket.io-client/dist/socket.io.min.js",
       "node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js",

@@ -23,7 +23,7 @@ InsightUI.dependencies = ['insight-api'];
 inherits(InsightUI, BaseService);
 
 InsightUI.prototype.start = function(callback) {
-  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../public/index.html', {encoding: 'utf8'}));
+  this.indexFile = this.filterIndexHTML(fs.readFileSync(__dirname + '/../public/dist/index.html', {encoding: 'utf8'}));
   setImmediate(callback);
 };
 
@@ -33,6 +33,8 @@ InsightUI.prototype.getRoutePrefix = function() {
 
 InsightUI.prototype.setupRoutes = function(app, express) {
   var self = this;
+  app.use('/css', express.static(__dirname + '/../public/dist/css'));
+  app.use('/js', express.static(__dirname + '/../public/dist/js'));
 
   app.use('/', function(req, res, next){
     if (req.headers.accept && req.headers.accept.indexOf('text/html') !== -1 &&

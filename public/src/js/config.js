@@ -12,7 +12,7 @@ angular.module('insight').config(function($routeProvider) {
       title: 'RMG Transaction '
     }).
     when('/', {
-      templateUrl: 'views/index.html',
+      templateUrl: 'views/landing.html',
       title: 'Home'
     }).
     when('/address/:addrStr', {

@@ -13,7 +13,6 @@ angular.module('insight',[
   'monospaced.qrcode',
   'gettext',
   'angularMoment',
-  'nvd3',
   'insight.system',
   'insight.socket',
   'insight.blocks',
