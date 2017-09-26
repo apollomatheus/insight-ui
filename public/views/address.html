@@ -1,4 +1,4 @@
-<div data-ng-include src="'views/includes/connection.html'"></div>
+<include-connection></include-connection>
 <section data-ng-controller="AddressController" data-ng-init="findOne()" class="aztek-container max-width1000">
   <div class="text-muted" data-ng-if="!address.addrStr">
     <h2 translate>Loading Address Information<span loading-dots></span></h2>
@@ -45,6 +45,8 @@
     <div class="text-muted" data-ng-show="loading">
       <h2 translate>Loading Transactions...<span loading-dots></span></h2>
     </div>
-    <div data-ng-include src="'views/transaction/addressList.html'" when-scrolled="loadMore()"></div>
+
+    <include-address-list when-scrolled="loadMore()"></include-address-list>
+
   </div>
 </section>

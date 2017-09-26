@@ -1575,7 +1575,78 @@ angular.module('insight')
       replace: true,
       template: '<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>'
     };
+  })
+  /* There is an issue where we can't debug, this is a try to see if fixes the issue,
+    this has to be a temp fix rather than a long one. We should refactor to angular 1.6 and everything
+    should be fine, but for now, let's try to unblock the issue
+  */
+  .directive('includeHeader', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/includes/header.html'
+    }
+  })
+  .directive('includeFooter', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/includes/footer.html'
+    }
+  })
+  .directive('includeConnection', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/includes/connection.html'
+    }
+  })
+  .directive('includeTxDetail', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/transaction/txDetail.html'
+    }
+  })
+  .directive('includeIssuanceTxDetail', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/transaction/issuance/txDetail.html'
+    }
+  })
+  .directive('includeKeysTxDetail', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/transaction/addOrRemoveKeys/txDetail.html'
+    }
+  })
+  .directive('includeBlockList', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/transaction/blockList.html'
+    }
+  })
+  .directive('includeSearch', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/includes/search.html'
+    }
+  })
+  .directive('includeAddressList', function() {
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'views/transaction/addressList.html'
+    }
   });
+
+
+
+
 
 // Source: public/src/js/filters.js
 angular.module('insight')

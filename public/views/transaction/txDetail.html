@@ -1,94 +1,96 @@
-<div class="row txMined subtitle-1" data-ng-hide="!tx">
-    <div class="col-xs-7 col-md-8">
-        <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
-    </div>
-    <div class="col-xs-5 col-md-4 text-right text-muted">
-        <div data-ng-show="tx.time">
-            <span translate>validated</span>
-            <time>{{tx.time * 1000 | date:'medium'}}</time>
+<div>
+    <div class="row txMined subtitle-1" data-ng-hide="!tx">
+        <div class="col-xs-7 col-md-8">
+            <a href="tx/{{tx.txid}}">{{tx.txid}}</a>
         </div>
-    </div>
-</div>
-
-<div class="row" data-ng-hide="!tx" data-ng-init="currentInNoExpanded=0; sizeInNoExpanded=5">
-    <div class="col-md-5">
-        <!-- Coinbase -->
-
-        <div data-ng-if="tx.isCoinBase" class="transaction-vin-vout subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vin in tx.vin">
-            <span translate>No Inputs (Newly Generated Coins)</span>
-        </div>
-
-
-        <div data-ng-if="!tx.isCoinBase" class="transaction-vin-vout subtitle-1 colorNero75" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vin in tx.vinSimple| startFrom:currentInNoExpanded*sizeInNoExpanded | limitTo:sizeInNoExpanded">
-
-            <div class="pull-right btc-value" data-ng-class="{'text-danger': $root.currentAddr == vin.addr}">
-                {{ vin.value | coinFormatFilter:true }}
+        <div class="col-xs-5 col-md-4 text-right text-muted">
+            <div data-ng-show="tx.time">
+                <span translate>validated</span>
+                <time>{{tx.time * 1000 | date:'medium'}}</time>
             </div>
-            <div class="ellipsis">
-                <span data-ng-show="vin.notAddr">{{vin.addr}}</span>
-                <span class="text-muted" title="Current RMG Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
-                <a href="address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr">{{vin.addr}}</a>
-            </div>
-            <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
-            <div data-ng-show="vin.dbError" class="text-danger">
-                <span class="glyphicon glyphicon-warning-sign"></span>
-                <span translate>Incoherence in levelDB detected:</span> {{vin.dbError}}
-            </div>
-            <div data-ng-show="vin.doubleSpentTxID" class="text-danger">
-                <span class="glyphicon glyphicon-warning-sign"></span>
-                <span translate>Double spent attempt detected. From tx:</span>
-                <a href="tx/{{vin.doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
-            </div>
-
         </div>
     </div>
 
-    <div class="col-md-1 col-xs-12 transaction-vin-vout-arrow">
-        <div class="hidden-xs hidden-sm text-center">
-            <span class="lead glyphicon glyphicon-chevron-right text-muted"></span>
-        </div>
-        <div class="hidden-md hidden-lg text-center">
-            <span class="lead glyphicon glyphicon-chevron-down text-muted"></span>
-        </div>
-    </div>
+    <div class="row" data-ng-hide="!tx" data-ng-init="currentInNoExpanded=0; sizeInNoExpanded=5">
+        <div class="col-md-5">
+            <!-- Coinbase -->
 
-    <div class="col-md-6 colorNero75" data-ng-init="currentOutNoExpanded=0; sizeOutNoExpanded=5">
-        <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple| startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
-
-            <div class="pull-right btc-value" data-ng-class="{'text-success': $root.currentAddr == vout.addr}">
-                {{ vout.value | coinFormatFilter:true }}
-                <!--<span class="text-danger" data-ng-show="vout.isSpent" tooltip="Output is spent" tooltip-placement="left">(S)</span>-->
-                <!--<span class="text-success" data-ng-show="!vout.isSpent" tooltip="Output is unspent" tooltip-placement="left">(U)</span>-->
+            <div data-ng-if="tx.isCoinBase" class="transaction-vin-vout subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vin in tx.vin">
+                <span translate>No Inputs (Newly Generated Coins)</span>
             </div>
 
-            <div class="ellipsis">
-                <span data-ng-show="vout.notAddr">{{vout.addr}}</span>
-                <span class="text-muted" title="Current RMG Address" data-ng-show="address == $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{vout.addr}}</span>
-                <a href="address/{{address}}" data-ng-show="!vout.notAddr && address != $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
+
+            <div data-ng-if="!tx.isCoinBase" class="transaction-vin-vout subtitle-1 colorNero75" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vin in tx.vinSimple| startFrom:currentInNoExpanded*sizeInNoExpanded | limitTo:sizeInNoExpanded">
+
+                <div class="pull-right btc-value" data-ng-class="{'text-danger': $root.currentAddr == vin.addr}">
+                    {{ vin.value | coinFormatFilter:true }}
+                </div>
+                <div class="ellipsis">
+                    <span data-ng-show="vin.notAddr">{{vin.addr}}</span>
+                    <span class="text-muted" title="Current RMG Address" data-ng-show="vin.addr == $root.currentAddr">{{vin.addr}}</span>
+                    <a href="address/{{vin.addr}}" data-ng-show="!vin.notAddr && vin.addr != $root.currentAddr">{{vin.addr}}</a>
+                </div>
+                <div data-ng-show="vin.unconfirmedInput" class="text-danger"> <span class="glyphicon glyphicon-warning-sign"></span> (Input unconfirmed)</div>
+                <div data-ng-show="vin.dbError" class="text-danger">
+                    <span class="glyphicon glyphicon-warning-sign"></span>
+                    <span translate>Incoherence in levelDB detected:</span> {{vin.dbError}}
+                </div>
+                <div data-ng-show="vin.doubleSpentTxID" class="text-danger">
+                    <span class="glyphicon glyphicon-warning-sign"></span>
+                    <span translate>Double spent attempt detected. From tx:</span>
+                    <a href="tx/{{vin.doubleSpentTxID}}">{{vin.doubleSpentTxID}},{{vin.doubleSpentIndex}}</a>
+                </div>
+
             </div>
+        </div>
+
+        <div class="col-md-1 col-xs-12 transaction-vin-vout-arrow">
+            <div class="hidden-xs hidden-sm text-center">
+                <span class="lead glyphicon glyphicon-chevron-right text-muted"></span>
+            </div>
+            <div class="hidden-md hidden-lg text-center">
+                <span class="lead glyphicon glyphicon-chevron-down text-muted"></span>
+            </div>
+        </div>
+
+        <div class="col-md-6 colorNero75" data-ng-init="currentOutNoExpanded=0; sizeOutNoExpanded=5">
+            <div class="col-md-12 transaction-vout-vin subtitle-1" data-ng-class="{'bgSunglow10': $index % 2 === 0}" data-ng-repeat="vout in tx.voutSimple| startFrom:currentOutNoExpanded*sizeOutNoExpanded | limitTo:sizeOutNoExpanded">
+
+                <div class="pull-right btc-value" data-ng-class="{'text-success': $root.currentAddr == vout.addr}">
+                    {{ vout.value | coinFormatFilter:true }}
+                    <!--<span class="text-danger" data-ng-show="vout.isSpent" tooltip="Output is spent" tooltip-placement="left">(S)</span>-->
+                    <!--<span class="text-success" data-ng-show="!vout.isSpent" tooltip="Output is unspent" tooltip-placement="left">(U)</span>-->
+                </div>
+
+                <div class="ellipsis">
+                    <span data-ng-show="vout.notAddr">{{vout.addr}}</span>
+                    <span class="text-muted" title="Current RMG Address" data-ng-show="address == $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{vout.addr}}</span>
+                    <a href="address/{{address}}" data-ng-show="!vout.notAddr && address != $root.currentAddr" data-ng-repeat="address in vout.addr.split(',')">{{address}}</a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="line-bot row tx-confirmations colorNero75 subtitle-1" data-ng-hide="!tx">
+        <div class="col-xs-6 col-sm-4 col-md-6">
+            <span data-ng-show="tx.confirmations">
+                <span translate>Confirmations: </span>{{tx.confirmations}}
+            </span>
+            <span data-ng-show="!tx.confirmations" translate>
+                <span translate>Confirmations: </span><span class="colorRed">Unconfirmed</span>
+            </span>
 
         </div>
-    </div>
 
-</div>
-
-
-<div class="line-bot row tx-confirmations colorNero75 subtitle-1" data-ng-hide="!tx">
-    <div class="col-xs-6 col-sm-4 col-md-6">
-        <span data-ng-show="tx.confirmations">
-            <span translate>Confirmations: </span>{{tx.confirmations}}
-        </span>
-        <span data-ng-show="!tx.confirmations" translate>
-            <span translate>Confirmations: </span><span class="colorRed">Unconfirmed</span>
-        </span>
-
-    </div>
-
-    <div class="col-xs-6 col-sm-8 col-md-6">
-        <span class="float-left tx-amount">
-      Amount
-      <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{ tx.valueOut | coinFormatFilter:true }}</span>
-        </span>
-        <!--<span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{tx.fees | coinFormatFilter:true}} </span>-->
+        <div class="col-xs-6 col-sm-8 col-md-6">
+            <span class="float-left tx-amount">
+          Amount
+          <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{ tx.valueOut | coinFormatFilter:true }}</span>
+            </span>
+            <!--<span class="float-right" data-ng-show="!tx.isCoinBase &&  !isNaN(parseFloat(tx.fees))"><span translate>Fee</span>: {{tx.fees | coinFormatFilter:true}} </span>-->
+        </div>
     </div>
 </div>

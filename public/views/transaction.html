@@ -1,4 +1,4 @@
-<div data-ng-include src="'views/includes/connection.html'"></div>
+<include-connection></include-connection>
 <section data-ng-controller="transactionsController" data-ng-init="findThis()" class="aztek-container max-width1000">
 
   <div class="text-muted" data-ng-if="!tx.txid">
@@ -71,10 +71,17 @@
 
     <div class="detail-list row">
       <h2 class="colorMetallicGold" translate>Details</h2>
-      <div ng-hide="tx.isAdminTransaction" data-ng-include src="'views/transaction/txDetail.html'"></div>
+      <include-tx-detail
+          ng-hide="tx.isAdminTransaction">
+      </include-tx-detail>
 
-      <div ng-show="tx.isAdminTransaction && isFundsOperation()" data-ng-include src="'views/transaction/issuance/txDetail.html'"></div>
-      <div ng-show="tx.isAdminTransaction && !isFundsOperation()" data-ng-include src="'views/transaction/addOrRemoveKeys/txDetail.html'"></div>
+      <include-issuance-tx-detail
+          ng-show="tx.isAdminTransaction && isFundsOperation()">
+      </include-issuance-tx-detail>
+
+      <include-keys-tx-detail
+          ng-show="tx.isAdminTransaction && !isFundsOperation()">
+      </include-keys-tx-detail>
     </div>
     
   </div>

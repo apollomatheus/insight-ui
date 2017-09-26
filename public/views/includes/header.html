@@ -1,4 +1,4 @@
-<header>
+<header class="navbar navbar-default" role='navigation'>
   <div data-ng-controller="HeaderController">
     <div class="tesnet-banner" ng-if="isTestnet()">
       <h6 class="p10t"> This is a testnet environment for testing and development purposes - all RMG values are testnet </h6>
@@ -31,11 +31,12 @@
         <li>
           <a data-ng-click="openScannerModal()" class="subtitle-2"><span class="glyphicon glyphicon-qrcode"></span> Scan</a>
         </li>
-
-        <li class="dropdown" data-ng-controller="NetworkController" data-ng-if="false" data-ng-include="'views/includes/network.html'"></li>
       </ul>
 
-      <span class="hidden-xs navbar-form navbar-right float-right" data-ng-include src="'views/includes/search.html'"></span>
+      <span class="hidden-xs navbar-form navbar-right float-right">
+        <include-search></include-search>
+      </span>
+
       <!-- Just initialize the controller -->
       <span data-ng-controller="CurrencyController"></span>
     </div>

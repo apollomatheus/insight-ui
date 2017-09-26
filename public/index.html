@@ -42,11 +42,11 @@
   </div>
 
   <div id="wrap">
-    <div class="navbar navbar-default" data-ng-include="'views/includes/header.html'" role='navigation'></div>
+    <include-header></include-header>
     <section class="container" data-ng-view></section>
   </div>
 
-  <div id="footer" role="navigation" data-ng-include="'views/includes/footer.html'"></div>
+  <include-footer></include-footer>
   
   <script language="javascript">window.apiPrefix = '/api';</script>
   <script src="/socket.io/socket.io.js"></script>

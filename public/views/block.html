@@ -1,4 +1,4 @@
-<div data-ng-include src="'views/includes/connection.html'"></div>
+<include-connection></include-connection>
 <section data-ng-controller="BlocksController" data-ng-init="findOne()" class="aztek-container max-width1000">
   
   <div class="text-muted" data-ng-if="!block.hash">
@@ -70,7 +70,7 @@
     
     <div class="detail-list row" data-ng-controller="transactionsController" data-ng-init="load('block')">
       <h2 class="colorMetallicGold" translate>Transactions</h2>
-      <div data-ng-include src="'views/transaction/blockList.html'" when-scrolled="loadMore()"></div>
+      <include-block-list when-scrolled="loadMore()"></include-block-list>
     </div>
   </div>
   
