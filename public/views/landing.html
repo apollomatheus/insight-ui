@@ -27,18 +27,18 @@
           <include-search></include-search>
         </div>
 
-        <h2 translate>Latest RMG Blocks</h2>
+        <h2>Latest RMG Blocks</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed">
           <thead class="subtitle-2">
             <tr>
-              <th translate>Block height</th>
-              <th translate>Block created</th>
-              <th class="text-left"><span class="ellipsis" translate>Transactions</span></th>
-              <th class="text-left hidden-xs"><span class="ellipsis" translate>Validated by</span></th>
+              <th>Block height</th>
+              <th>Block created</th>
+              <th class="text-left"><span class="ellipsis">Transactions</span></th>
+              <th class="text-left hidden-xs"><span class="ellipsis">Validated by</span></th>
             </tr>
           </thead>
           <tbody class="subtitle-1">
-          <tr data-ng-show="!blocks.length"><td colspan="4" class="waiting" translate>Waiting for blocks...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+          <tr data-ng-show="!blocks.length"><td colspan="4" class="waiting">Waiting for blocks...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
           <tr class="fader pointer" data-ng-repeat='block in blocks' data-ng-click="goTo('block/' + block.hash)">
             <td>
               <span class="colorMetallicGold">{{block.height}}</span>
@@ -54,16 +54,16 @@
       </div>
 
       <div class="col-xs-12 col-md-5">
-        <h2 translate>Latest RMG Transactions</h2>
+        <h2>Latest RMG Transactions</h2>
         <table class="table table-hover table-striped" style="table-layout: fixed;">
           <thead class="subtitle-2">
             <tr>
               <th class="th-72">Transaction</th>
-              <th class="text-right" translate>Value</th>
+              <th class="text-right">Value</th>
             </tr>
           </thead>
           <tbody class="subtitle-1">
-            <tr data-ng-show="!txs.length"><td colspan="2" class="waiting" translate>Waiting for transactions...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+            <tr data-ng-show="!txs.length"><td colspan="2" class="waiting">Waiting for transactions...<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
             <tr class="fader pointer" data-ng-repeat='tx in txs' data-ng-click="goTo('tx/' + tx.txid)">
               <td>
                 <span class="ellipsis colorMetallicGold">{{tx.txid}}</span>

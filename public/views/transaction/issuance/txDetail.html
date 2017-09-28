@@ -5,11 +5,11 @@
         </div>
         <div class="col-xs-5 col-md-4 text-right text-muted">
             <div data-ng-show="tx.firstSeenTs">
-                <span translate>first seen at</span>
+                <span>first seen at</span>
                 <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
             </div>
             <div data-ng-show="tx.blocktime && !tx.firstSeenTs">
-                <span translate>validated</span>
+                <span>validated</span>
                 <time>{{tx.time * 1000 | date:'medium'}}</time>
             </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="col-xs-12">
            <span class="tx-amount float-right">
           Amount
-          <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" translate>{{ tx.valueOut | coinFormatFilter:true }}</span>
+          <span data-ng-class="{'colorGreen': tx.valueOut >= 0, 'colorRed': tx.valueOut < 0}" >{{ tx.valueOut | coinFormatFilter:true }}</span>
             </span>
         </div>
     </div>

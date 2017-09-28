@@ -1,7 +1,7 @@
 <include-connection></include-connection>
 <section data-ng-controller="AddressController" data-ng-init="findOne()" class="aztek-container max-width1000">
   <div class="text-muted" data-ng-if="!address.addrStr">
-    <h2 translate>Loading Address Information<span loading-dots></span></h2>
+    <h2>Loading Address Information<span loading-dots></span></h2>
   </div>
   <div data-ng-if="address.addrStr">
     <div class="detail-header">
@@ -41,9 +41,9 @@
     </div>
   </div>
   <div class="detail-list row" data-ng-if="address.addrStr" data-ng-controller="transactionsController" data-ng-init="load('address')">
-    <h2 data-ng-hide="loading" class="" translate>Transactions</h2>
+    <h2 data-ng-hide="loading" class="">Transactions</h2>
     <div class="text-muted" data-ng-show="loading">
-      <h2 translate>Loading Transactions...<span loading-dots></span></h2>
+      <h2>Loading Transactions...<span loading-dots></span></h2>
     </div>
 
     <include-address-list when-scrolled="loadMore()"></include-address-list>

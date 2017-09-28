@@ -270,7 +270,7 @@ angular.module('insight.transactions').controller('SendRawTransactionController'
     };
     $scope.status = 'loading';
     $http.post(window.apiPrefix + '/tx/send', postData)
-      .success(function(data, status, headers, config) {
+      .then(function(data, status, headers, config) {
         if(typeof(data.txid) != 'string') {
           // API returned 200 but the format is not known
           $scope.status = 'error';
@@ -281,10 +281,10 @@ angular.module('insight.transactions').controller('SendRawTransactionController'
         $scope.status = 'sent';
         $scope.txid = data.txid;
       })
-      .error(function(data, status, headers, config) {
+      .catch(function(error) {
         $scope.status = 'error';
-        if(data) {
-          $scope.error = data;
+        if(error) {
+          $scope.error = error;
         } else {
           $scope.error = "No error message given (connection error?)"
         }
@@ -312,14 +312,14 @@ angular.module('insight.transactions').controller('DecodeRawTransactionControlle
     };
     $scope.status = 'loading';
     $http.post(window.apiPrefix + '/tx/decodeRawTx', postData)
-      .success(function(data, status, headers, config) {
+      .then(function(data, status, headers, config) {
         $scope.status = 'ready';
         $scope.decodedTx = JSON.stringify(data, null, 2);
       })
-      .error(function(data, status, headers, config) {
+      .catch(function(err) {
         $scope.status = 'error';
-        if(data) {
-          $scope.error = data;
+        if(err) {
+          $scope.error = err;
         } else {
           $scope.error = "No error message given (connection error?)"
         }

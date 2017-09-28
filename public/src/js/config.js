@@ -56,9 +56,7 @@ angular.module('insight')
       Raven.config('https://da5bfb722ec544ccb9fa29a0d1f6ca67@sentry.io/204716', {}).install();
     }
   ])
-  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, gettextCatalog, amMoment, Status, Global) {
-    gettextCatalog.currentLanguage = defaultLanguage;
-    amMoment.changeLocale(defaultLanguage);
+  .run(function($rootScope, $route, $location, $routeParams, $anchorScroll, ngProgress, amMoment, Status, Global) {
     $rootScope.$on('$routeChangeStart', function() {
       ngProgress.start();
     });

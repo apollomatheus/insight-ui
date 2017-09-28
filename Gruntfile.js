@@ -20,7 +20,7 @@ module.exports = function(grunt) {
   grunt.registerTask('translate', ['nggettext_extract']);
 
   //Compile task (concat + minify)
-  grunt.registerTask('compile', ['clean', 'nggettext_compile', 'sass', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'copy:index', 'usebanner', 'cacheBust']);
+  grunt.registerTask('compile', ['clean', 'sass', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'copy:index', 'usebanner', 'cacheBust']);
 
-  grunt.registerTask('powermode', ['clean', 'nggettext_compile', 'sass', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'copy:index', 'watch']);
+  grunt.registerTask('powermode', ['clean', 'sass', 'concat', 'ngAnnotate', 'uglify', 'cssmin', 'copy:index', 'watch']);
 };

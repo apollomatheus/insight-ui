@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('insight.system').controller('HeaderController',
-  function($scope, $rootScope, $modal, Global, Block, $location) {
+  function($scope, $rootScope, $uibModal, Global, Block, $location) {
     $scope.global = Global;
 
     $scope.isTestnet = function() {
@@ -19,7 +19,7 @@ angular.module('insight.system').controller('HeaderController',
     };
 
     $scope.openScannerModal = function() {
-      var modalInstance = $modal.open({
+      $uibModal.open({
         templateUrl: 'scannerModal.html',
         controller: 'ScannerController'
       });

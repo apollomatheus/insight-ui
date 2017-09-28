@@ -2,7 +2,7 @@
 <section data-ng-controller="transactionsController" data-ng-init="findThis()" class="aztek-container max-width1000">
 
   <div class="text-muted" data-ng-if="!tx.txid">
-    <h2 translate>Loading Transaction Details<span loading-dots></span></h2>
+    <h2>Loading Transaction Details<span loading-dots></span></h2>
   </div>
 
   <div data-ng-if="tx.txid">
@@ -70,7 +70,7 @@
     </div>
 
     <div class="detail-list row">
-      <h2 class="colorMetallicGold" translate>Details</h2>
+      <h2 class="colorMetallicGold">Details</h2>
       <include-tx-detail
           ng-hide="tx.isAdminTransaction">
       </include-tx-detail>

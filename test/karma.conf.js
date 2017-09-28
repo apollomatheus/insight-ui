@@ -19,8 +19,8 @@ module.exports = function(config) {
       "public/dist/js/vendors.js",
       "public/dist/js/angularjs-all.js",
       // Mocks module loading in the test file
-      "public/lib/angular-mocks/angular-mocks.js",
-      "public/lib/angular-resource/angular-resource.min.js",
+      "node_modules/angular-mocks/angular-mocks.js",
+      "node_modules/angular-resource/angular-resource.js",
       // Needed to instantiate websocket functionality in tests
       "node_modules/socket.io-client/dist/socket.io.min.js",
       "node_modules/karma/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js",

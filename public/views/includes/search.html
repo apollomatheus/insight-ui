@@ -1,11 +1,11 @@
 <form id="search-form" data-ng-controller="SearchController" role="search" data-ng-submit="search()">
     <div class="form-group" data-ng-class="{'has-error': badQuery}">
-        <input id="search" type="text" class="form-control" data-ng-model="q" placeholder="{{'Search for block, address and transactions'|translate}}" data-ng-submit="search()" focus="true">
+        <input id="search" type="text" class="form-control" data-ng-model="q" placeholder="{{'Search for block, address and transactions'}}" data-ng-submit="search()" focus="true">
         <button type="submit" class="btn btn-info search-btn">
             <i data-ng-hide="loading" class="fa fa-search" aria-hidden="true"></i>
             <i data-ng-show="loading" class="fa fa-refresh fa-spin" aria-hidden="true"></i>
         </button>
     </div>
 
-     <div class="form-control no_matching text-danger" data-ng-show="badQuery" translate>No matching records found!</div>
+     <div class="form-control no_matching text-danger" data-ng-show="badQuery">No matching records found!</div>
 </form>

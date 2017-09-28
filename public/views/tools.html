@@ -28,21 +28,21 @@
         {{decodedTx}}
       </pre>
       
-      <span class="help-block" ng-show="txForm.rawData.$error.pattern" translate>
+      <span class="help-block" ng-show="txForm.rawData.$error.pattern">
         Raw transaction data must be a valid hexadecimal string.
       </span>
       <span data-ng-hide="status == 'ready'">
-        <span class="help-block"  ng-show="status == 'loading'" translate>
+        <span class="help-block"  ng-show="status == 'loading'">
           Loading...
         </span>
-        <span class="help-block" ng-show="status == 'error'" class="has-error" translate>
+        <span class="help-block" ng-show="status == 'error'" class="has-error">
           An error occured: {{error}}
         </span>
       </span>
 
-      <button class="btn btn-lg btn-gold subtitle-2 float-right" translate data-ng-click="decode()" data-ng-disabled="!txForm.$valid" ng-hide="decodedTx">DECODE</button>
+      <button class="btn btn-lg btn-gold subtitle-2 float-right" data-ng-click="decode()" data-ng-disabled="!txForm.$valid" ng-hide="decodedTx">DECODE</button>
 
-      <button class="btn btn-lg btn-gold float-right" translate data-ng-click="clean()" ng-show="decodedTx">Clean</button>
+      <button class="btn btn-lg btn-gold float-right" data-ng-click="clean()" ng-show="decodedTx">Clean</button>
     </form>
   </div>
   
@@ -64,21 +64,21 @@
                 rows="10"
                 required>
       </textarea>
-      <span class="help-block" ng-show="txForm.rawData.$error.pattern" translate>
+      <span class="help-block" ng-show="txForm.rawData.$error.pattern">
         Raw transaction data must be a valid hexadecimal string.
       </span>
       <span data-ng-hide="status == 'ready'">
-        <span class="help-block"  ng-show="status == 'loading'" translate>
+        <span class="help-block"  ng-show="status == 'loading'">
           Loading...
         </span>
-        <span class="help-block" ng-show="status == 'sent'" translate>
+        <span class="help-block" ng-show="status == 'sent'">
           Transaction succesfully broadcast.<br>Transaction id: {{txid}}
         </span>
-        <span class="help-block" ng-show="status == 'error'" class="has-error" translate>
+        <span class="help-block" ng-show="status == 'error'" class="has-error">
           An error occured: {{error}}
         </span>
       </span>
-      <button class="btn btn-lg btn-gold subtitle-2 float-right" translate data-ng-click="send()" data-ng-disabled="!txForm.$valid">PUSH TRANSACTION</button>
+      <button class="btn btn-lg btn-gold subtitle-2 float-right" data-ng-click="send()" data-ng-disabled="!txForm.$valid">PUSH TRANSACTION</button>
     </form>
   </div>
   

@@ -128,7 +128,8 @@
     switch (orientation) {
       case 2:
         // horizontal flip
-        ctx.translate(width, 0);
+        ctx.
+        translate(width, 0);
         ctx.scale(-1, 1);
         break;
       case 3:

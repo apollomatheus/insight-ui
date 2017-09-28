@@ -1,6 +1,5 @@
 'use strict';
 
-var defaultLanguage = localStorage.getItem('insight-language') || 'en';
 var defaultCurrency = localStorage.getItem('insight-currency') || 'RMG';
 
 angular.module('insight',[
@@ -9,9 +8,7 @@ angular.module('insight',[
   'ngRoute',
   'ngProgress',
   'ui.bootstrap',
-  'ui.route',
   'monospaced.qrcode',
-  'gettext',
   'angularMoment',
   'insight.system',
   'insight.socket',

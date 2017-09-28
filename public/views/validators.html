@@ -3,17 +3,17 @@
 
         <div class="col-xs-12">
 
-            <h2 translate>Validators</h2>
+            <h2>Validators</h2>
             <table class="table table-hover table-striped" style="table-layout: fixed">
                 <thead class="subtitle-2">
                 <tr>
-                    <th class="validator-key-col"translate>Public Key</th>
-                    <th translate>Name</th>
-                    <th class="text-right hidden-xs"translate>Url</th>
+                    <th class="validator-key-col">Public Key</th>
+                    <th>Name</th>
+                    <th class="text-right hidden-xs">Url</th>
                 </tr>
                 </thead>
                 <tbody class="subtitle-1">
-                <tr data-ng-show="!validators.length"><td colspan="3" class="waiting" translate>Loading validators<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
+                <tr data-ng-show="!validators.length"><td colspan="3" class="waiting">Loading validators<i class="fa fa-refresh fa-spin td-loading-icon" aria-hidden="true"></i></td></tr>
                 <tr class="fader" data-ng-repeat='validator in validators'>
                     <td class="break-word">{{validator.key}}</td>
                     <td>{{validator.name || '--'}}</td>

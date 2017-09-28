@@ -5,11 +5,11 @@
     </div>
     <div class="col-xs-5 col-md-4 text-right text-muted">
       <div data-ng-show="tx.firstSeenTs">
-        <span translate>first seen at</span>
+        <span>first seen at</span>
         <time>{{tx.firstSeenTs * 1000 | date:'medium'}}</time>
       </div>
       <div data-ng-show="tx.blocktime && !tx.firstSeenTs">
-        <span translate>validated</span>
+        <span>validated</span>
         <time>{{tx.time * 1000 | date:'medium'}}</time>
       </div>
     </div>

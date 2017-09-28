@@ -2,7 +2,7 @@
 <section data-ng-controller="BlocksController" data-ng-init="findOne()" class="aztek-container max-width1000">
   
   <div class="text-muted" data-ng-if="!block.hash">
-    <h2 translate>Loading Block Information<span loading-dots></span></h2> 
+    <h2>Loading Block Information<span loading-dots></span></h2> 
   </div>
 
   <div data-ng-if="block.hash">
@@ -69,7 +69,7 @@
     </div>
     
     <div class="detail-list row" data-ng-controller="transactionsController" data-ng-init="load('block')">
-      <h2 class="colorMetallicGold" translate>Transactions</h2>
+      <h2 class="colorMetallicGold">Transactions</h2>
       <include-block-list when-scrolled="loadMore()"></include-block-list>
     </div>
   </div>
