@@ -120,21 +120,6 @@ angular.module('insight.blocks').controller('BlocksController',
     });
   }
 
-  //Datepicker
-  var _formatTimestamp = function (date) {
-    var yyyy = date.getUTCFullYear().toString();
-    var mm = (date.getUTCMonth() + 1).toString(); // getMonth() is zero-based
-    var dd  = date.getUTCDate().toString();
-
-    return yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]); //padding
-  };
-
-  $scope.$watch('dt', function(newValue, oldValue) {
-    if (newValue !== oldValue) {
-      $location.path('/blocks-date/' + _formatTimestamp(newValue));
-    }
-  });
-
   $scope.openCalendar = function($event) {
     $event.preventDefault();
     $event.stopPropagation();
@@ -456,8 +441,7 @@ angular.module('insight.system').controller('IndexController',
     };
 
     $scope.humanSince = function(time) {
-      var m = moment.unix(time);
-      return m.max().fromNow();
+      return moment.unix(time).fromNow();
     };
 
     $scope.txs = [];
@@ -1524,22 +1508,6 @@ angular.module('insight')
       }
     };
   })
-  .directive('focus', ['$timeout', function ($timeout) {
-    return {
-      scope: {
-        trigger: '@focus'
-      },
-      link: function (scope, element) {
-        scope.$watch('trigger', function (value) {
-          if (value === "true") {
-            $timeout(function () {
-              element[0].focus();
-            });
-          }
-        });
-      }
-    };
-  }])
   .directive('loadingDots', function(){
     return {
       restrict: 'AE',

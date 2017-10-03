@@ -107,8 +107,7 @@ angular.module('insight.system').controller('IndexController',
     };
 
     $scope.humanSince = function(time) {
-      var m = moment.unix(time);
-      return m.max().fromNow();
+      return moment.unix(time).fromNow();
     };
 
     $scope.txs = [];
