@@ -2,7 +2,7 @@
   "name": "insight-ui",
   "description": "An open-source frontend for the Insight API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the rmg network and build your own services with it.",
   "version": "0.4.0",
-  "repository": "git://github.com/bitpay/insight-ui.git",
+  "repository": "git://github.com/apollomatheus/insight-ui.git",
   "scripts": {
     "test": "cd test && karma start",
     "setup": "npm i && bower install && grunt compile"
@@ -30,9 +30,9 @@
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight-ui/issues"
+    "url": "https://github.com/apollomatheus/insight-ui/issues"
   },
-  "homepage": "https://github.com/bitpay/insight-ui",
+  "homepage": "https://github.com/apollomatheus/insight-ui",
   "license": "MIT",
   "keywords": [
     "insight",
